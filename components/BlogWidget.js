@@ -101,44 +101,6 @@ export default function BlogWidget() {
             </div>
           ))}
         </div>
-
-        {/* Blog Cards - Tablet/Desktop (unchanged layout, with View All toggle) */}
-        {/* <div className=" md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-10">
-          {displayedBlogs.map((blog) => (
-            <div
-              key={blog.id}
-              className="rounded-2xl overflow-hidden cursor-pointer"
-            >
-              <div className="relative h-56 lg:h-64 overflow-hidden">
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-              <div className="py-5 space-y-3">
-                <h3 className="text-2xl font-normal text-green mb-2 leading-7">
-                  {blog.title}
-                </h3>
-                <p className="text-[15px] text-green leading-6 mb-5 line-clamp-2">
-                  {blog.description}
-                </p>
-
-                <div className="flex items-center gap-2 font-normal leading-5 text-sm text-green">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M12.6666 14V12.6667C12.6666 11.9594 12.3856 11.2811 11.8855 10.781C11.3854 10.281 10.7072 10 9.99992 10H5.99992C5.29267 10 4.6144 10.281 4.1143 10.781C3.6142 11.2811 3.33325 11.9594 3.33325 12.6667V14" stroke="#164925" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M7.99992 7.33333C9.47268 7.33333 10.6666 6.13943 10.6666 4.66667C10.6666 3.19391 9.47268 2 7.99992 2C6.52716 2 5.33325 3.19391 5.33325 4.66667C5.33325 6.13943 6.52716 7.33333 7.99992 7.33333Z" stroke="#164925" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                  <span>{blog.author}</span>
-                  <span className="mx-1">•</span>
-                  <span>{blog.readTime}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div> */}
-
       </div>
     </section>
   );
