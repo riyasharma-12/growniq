@@ -1,6 +1,12 @@
 'use client';
 
+import { useState, useRef } from 'react';
+import { LeftArrow, RightArrow } from './icons';
+
 export default function BlogWidget() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollContainerRef = useRef(null);
+
   const allBlogs = [
     {
       id: 1,
@@ -46,6 +52,31 @@ export default function BlogWidget() {
 
   const displayedBlogs = allBlogs;
 
+  const handlePrev = () => {
+    const newIndex = currentIndex === 0 ? allBlogs.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+    scrollToIndex(newIndex);
+  };
+
+  const handleNext = () => {
+    const newIndex = currentIndex === allBlogs.length - 1 ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+    scrollToIndex(newIndex);
+  };
+
+  const scrollToIndex = (index) => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const cardWidth = container.scrollWidth / allBlogs.length;
+      const scrollPosition = cardWidth * index;
+
+      container.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section className="bg-[#FFFAF3] py-6 md:py-12 -mt-[1px]">
       <div className="container mx-auto px-4 sm:px-6">
@@ -60,7 +91,10 @@ export default function BlogWidget() {
         </div>
 
         {/* Blog Cards - Mobile (horizontal scroll, all items, centered text, 16px image radius) */}
-        <div className="flex gap-4 overflow-x-auto mb-5 md:mb-10 scrollbar-hide -mx-4">
+        <div
+          ref={scrollContainerRef}
+          className="flex gap-4 overflow-x-auto mb-5 md:mb-10 scrollbar-hide -mx-4 scroll-smooth"
+        >
           {allBlogs.map((blog) => (
             <div
               key={blog.id}
@@ -100,6 +134,26 @@ export default function BlogWidget() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Navigation Arrows */}
+        <div className="hidden md:block">
+          <div className="flex items-center justify-end gap-5 mt-8">
+            <button
+              onClick={handlePrev}
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-green flex items-center justify-center "
+              aria-label="Previous blog"
+            >
+              <LeftArrow className="w-5 h-5 sm:w-6 sm:h-6" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-green flex items-center justify-center"
+              aria-label="Next blog"
+            >
+              <RightArrow className="w-5 h-5 sm:w-6 sm:h-6" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

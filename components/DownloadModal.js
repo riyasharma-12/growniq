@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Image from "next/image";
-import { BrandLogoIcon } from "./icons";
+import { ComingSoonIcon } from "./icons";
 
 export default function DownloadModal({ open, onClose }) {
     useEffect(() => {
@@ -18,11 +18,11 @@ export default function DownloadModal({ open, onClose }) {
     return (
         <div className=" fixed inset-0 z-50 flex items-center justify-center">
             <div className="absolute inset-0 bg-black/40" onClick={onClose} />
-            <div className="downloadPopUp relative mx-4 w-full max-w-[705px] md:h-[469px] h-[525px] rounded-2xl bg-green">
+            <div className="downloadPopUp relative mx-4 w-full max-w-[705px] md:h-[469px] h-[525px] rounded-2xl bg-green overflow-hidden">
                 <button
                     type="button"
                     onClick={onClose}
-                    className="absolute md:right-10 md:top-9 right-4 top-4 inline-flex h-6 w-6 items-center justify-center rounded-full text-[#164925]"
+                    className="absolute md:right-10 md:top-9 right-4 top-4 inline-flex h-6 w-6 items-center justify-center rounded-full text-[#164925] cursor-pointer z-50"
                     aria-label="Close"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -30,8 +30,13 @@ export default function DownloadModal({ open, onClose }) {
                         <path d="M6 6L18 18" stroke="#164925" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </button>
-                <div className="flex gap-3 h-full px-4 py-5 md:p-10  justify-between">
-                    <div className="hidden md:block basis-[220px] grow-0 shrink-0">
+                <div className="flex gap-3 h-full px-4 py-5 md:p-10  justify-between relative">
+                    <div className="basis-0 md:basis-[220px] grow-0 shrink-0">
+                        <div className="absolute left-[33%] top-[12%] md:left-[9%] md:top-[40%]  -translate-y-1/2 md:w-[300px] md:h-[300px] w-[108px] h-[108px]">
+                            <div className="animate-spin-slow w-full h-full flex items-center justify-center">
+                                <ComingSoonIcon />
+                            </div>
+                        </div>
                     </div>
                     <div className="text-left flex flex-col md:pl-[60px] justify-between">
                         <div className="mb-20">

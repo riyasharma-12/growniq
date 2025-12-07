@@ -41,8 +41,8 @@ export default function WhyChoose() {
 
         <div className="bg-[#FFE9CA]  py-7 rounded-2xl px-4 md:bg-transparent grid lg:grid-cols-2 gap-4 lg:gap-10 relative">
           {/* Left Card - 95% Satisfaction */}
-          <div className='absolute right-4 top-0 lg:hidden'> 
-            <Image src="/images/leaf-bg.svg" alt='leaf' width={120} height={109}/>
+          <div className='absolute right-4 top-0 lg:hidden'>
+            <Image src="/images/leaf-bg.svg" alt='leaf' width={120} height={109} />
           </div>
           <div className="rounded-[16px] md:bg-[#FFE9CA] sm:p-8 lg:p-10 space-y-6 relative">
             {/* 95% Badge and Title */}
@@ -125,18 +125,18 @@ export default function WhyChoose() {
                 key={feature.id}
                 className="text-green text-[20px]"
               >
-                <h3 className="text-green mb-2 leading-7">
+                <div className="text-base font-medium text-green mb-2 leading-7 text-left">
                   {feature.title}
-                </h3>
-                <p className="text-[16px] text-center md:text-left sm:text-base text-green leading-relaxed">
+                </div>
+                <p className="text-[16px] md:text-left sm:text-base text-green leading-relaxed">
                   {feature.description}
                 </p>
               </div>
             ))}
             <div className="flex justify-center mt-5">
-            <div className="bottomBar relative md:hidden">
-              <Image src="/images/bottom-bar.png" alt="bottom-bar" width={208} height={11} />
-            </div>
+              <div className="bottomBar relative md:hidden">
+                <Image src="/images/bottom-bar.png" alt="bottom-bar" width={208} height={11} />
+              </div>
             </div>
           </div>
 
