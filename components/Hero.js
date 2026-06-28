@@ -57,38 +57,14 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-1 lg:gap-12 items-start">
           {/* Left Content */}
           <div className="topBanner-bg px-4 space-y-6 lg:space-y-8 relative">
-            {/* Menu Button - Mobile */}
-            <div className="hidden lg:block">
-              <div className="flex items-center justify-between mb-4">
-                <button 
-                  onClick={() => window.open("https://www.figma.com/design/BlW3DX6fTXmzEButibgqB7/Growniq-Web?node-id=1-2268&m=dev", "_blank")}
-                  className="flex items-center gap-2 bg-[#FFE9CA] text-[#164925] pl-1 pr-5 py-1 rounded-full hover:opacity-90 transition-opacity"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <rect width="40" height="40" rx="20" fill="#164925" />
-                    <path d="M12 26H22.3529" stroke="#FFE9CA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M12 20H28" stroke="#FFE9CA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M12 14H28" stroke="#FFE9CA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                  <span className="text-sm font-medium">Menu</span>
-                </button>
-                <a href="tel:+919717104342" className="flex items-center gap-2 text-sm text-[#164925] ">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M18.3334 14.1V16.6C18.3344 16.8321 18.2868 17.0618 18.1939 17.2744C18.1009 17.4871 17.9645 17.678 17.7935 17.8349C17.6225 17.9918 17.4206 18.1112 17.2007 18.1856C16.9809 18.2599 16.7479 18.2875 16.5168 18.2666C13.9525 17.988 11.4893 17.1118 9.32511 15.7083C7.31163 14.4289 5.60455 12.7218 4.32511 10.7083C2.91676 8.53432 2.04031 6.05914 1.76677 3.48331C1.74595 3.25287 1.77334 3.02061 1.84719 2.80133C1.92105 2.58205 2.03975 2.38055 2.19575 2.20966C2.35174 2.03877 2.54161 1.90224 2.75327 1.80875C2.96492 1.71526 3.19372 1.66686 3.42511 1.66665H5.92511C6.32953 1.66267 6.7216 1.80588 7.02824 2.06959C7.33488 2.3333 7.53517 2.69952 7.59177 3.09998C7.69729 3.90003 7.89298 4.68558 8.17511 5.44165C8.28723 5.73992 8.31149 6.06407 8.24503 6.37571C8.17857 6.68735 8.02416 6.9734 7.80011 7.19998L6.74177 8.25831C7.92807 10.3446 9.65549 12.072 11.7418 13.2583L12.8001 12.2C13.0267 11.9759 13.3127 11.8215 13.6244 11.7551C13.936 11.6886 14.2602 11.7129 14.5584 11.825C15.3145 12.1071 16.1001 12.3028 16.9001 12.4083C17.3049 12.4654 17.6746 12.6693 17.9389 12.9812C18.2032 13.2931 18.3436 13.6913 18.3334 14.1Z" fill="#164925" />
-                  </svg>
-                  <span>+91 9717104342</span>
-                </a>
-              </div>
-            </div>
+            {/* Menu Button + Phone Row - Hidden on desktop per Figma (hidden="true" on node 1:395) */}
             <div className=''>
-              <h1 className="text-[26px] md:text-4xl font-medium text-[#164925] md:leading-[52px]">
+              <h1 className="text-[26px] md:text-5xl font-medium text-[#164925] md:leading-[56px]">
                 All your green needs, Services, Store &amp; AI care in one app.
               </h1>
-              <ul className="list-disc pl-5 mt-2 md:flex md:flex-row md:gap-8 md:text-base text-[#164925]">
-                <li>Verified professionals</li>
-                <li>Transparent pricing</li>
-                <li>Eco-friendly care</li>
-              </ul>
+              <p className="mt-2 text-sm md:text-base text-[#164925]">
+                Verified professionals &nbsp;•&nbsp; Transparent pricing &nbsp;•&nbsp; Eco-friendly care
+              </p>
             </div>
             {/* <div className='leafArrow absolute top-11 right-7 md:hidden'>
               <Image src="/images/arrow-graphic.svg" alt="leaf-arrow" width={75} height={170} />

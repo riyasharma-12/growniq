@@ -27,8 +27,8 @@ export default function AiWidget() {
             {/* Coming Soon Badge */}
             <div className="flex justify-center lg:justify-start">
               <div className="inline-flex items-center gap-2 bg-white border border-[#bf00ff]/30 shadow-[0_0_15px_rgba(191,0,255,0.15)] px-5 py-2 rounded-full">
-                {/* Glow Icon */}
-                <span className="w-2 h-2 rounded-full bg-[#ed5213] animate-ping"></span>
+                {/* Star Icon */}
+                <span className="text-[#ed5213] text-base leading-none">✦</span>
                 <span className="text-[#ed5213] text-sm font-bold font-poppins tracking-wider uppercase">
                   Coming Soon
                 </span>
@@ -43,7 +43,7 @@ export default function AiWidget() {
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight font-poppins">
                 Expert Care for Any Plant
               </h2>
-              <p className="text-lg md:text-2xl text-[#164925] font-medium font-poppins pt-2">
+              <p className="text-lg md:text-2xl text-white/70 font-medium font-poppins pt-2">
                 Scan plant and get Instant diagnosis.
               </p>
             </div>
@@ -74,9 +74,9 @@ export default function AiWidget() {
               
               {/* Monstera Leaf Image */}
               <img
-                src="/images/AI-Plant-atf-2.png"
+                src="/images/ai-image.png"
                 alt="AI Plant Care Scan"
-                className="w-full h-full object-cover rounded-3xl"
+                className="w-full h-full object-contain rounded-3xl p-4"
               />
 
               {/* Scanning Frame Overlay */}

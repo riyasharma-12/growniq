@@ -134,9 +134,9 @@ export default function ExpertServices() {
             </div>
           </div>
 
-          {/* Navigation Arrows */}
+          {/* Navigation Arrows - Centered per Figma */}
           <div className="hidden md:block">      
-            <div className="hidden sm:flex items-center justify-end gap-5 mt-4">
+            <div className="hidden sm:flex items-center justify-center gap-5 mt-4">
               <button
                 onClick={handlePrev}
                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-green flex items-center justify-center hover:bg-green hover:text-white transition-colors"
@@ -152,6 +152,19 @@ export default function ExpertServices() {
                 <RightArrow className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
             </div>
+          </div>
+        </div>
+
+        {/* Download Growniq App - Per Figma design */}
+        <div className="text-center mt-10 md:mt-14">
+          <p className="text-sm md:text-base text-[#164925] mb-3 font-medium">Download Growniq App</p>
+          <div className="flex items-center justify-center gap-3">
+            <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer">
+              <Image src="/images/app-store.png" alt="App Store" width={32} height={32} />
+            </a>
+            <a href="https://play.google.com" target="_blank" rel="noopener noreferrer">
+              <Image src="/images/play-store.png" alt="Play Store" width={32} height={32} />
+            </a>
           </div>
         </div>
       </div>
