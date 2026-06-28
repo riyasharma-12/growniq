@@ -51,7 +51,7 @@ export default function MobileHeader() {
 
           {/* Hamburger Menu Button */}
           <button
-            onClick={() => window.open("https://www.figma.com/design/BlW3DX6fTXmzEButibgqB7/Growniq-Web?node-id=1-2268&m=dev", "_blank")}
+            onClick={toggleMenu}
             className="focus:outline-none"
             aria-label="Toggle menu"
           >

@@ -60,7 +60,10 @@ export default function Hero() {
             {/* Menu Button - Mobile */}
             <div className="hidden lg:block">
               <div className="flex items-center justify-between mb-4">
-                <button className="flex items-center gap-2 bg-[#FFE9CA] text-[#164925] pl-1 pr-5 py-1 rounded-full">
+                <button 
+                  onClick={() => window.open("https://www.figma.com/design/BlW3DX6fTXmzEButibgqB7/Growniq-Web?node-id=1-2268&m=dev", "_blank")}
+                  className="flex items-center gap-2 bg-[#FFE9CA] text-[#164925] pl-1 pr-5 py-1 rounded-full hover:opacity-90 transition-opacity"
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
                     <rect width="40" height="40" rx="20" fill="#164925" />
                     <path d="M12 26H22.3529" stroke="#FFE9CA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
