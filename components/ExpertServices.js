@@ -11,38 +11,51 @@ export default function ExpertServices() {
   const services = [
     {
       id: 1,
-      title: 'Garden Care & Maintenance',
-      description: 'From balconies to lawns and greenhouses, Growniq keeps every space healthy. Book a one-time visit or pick a subscription plan that fits your routine.',
+      title: 'Book a Gardner',
       image: '/images/service-1.png',
-      alt: 'Garden maintenance with hedge trimmer'
+      alt: 'Book a Gardner'
     },
     {
       id: 2,
-      title: 'Landscaping And Garden Setup',
-      description: 'Create a clean, green space at home with Growniq. Our experts design balcony gardens, terrace gardens, vertical walls, kitchen gardens tailored to your style and space',
+      title: 'Monthly plant care',
       image: '/images/service-2.png',
-      alt: 'Landscaping with flowers and ladder'
+      alt: 'Monthly plant care'
     },
     {
       id: 3,
-      title: 'Indoor Plant Vastu Guide',
-      description: 'Bring balance, positivity, and fresh air into your home with the right plants in the right places. Growniq helps you plan Vastu-aligned indoor plant layouts.',
-      image: '/images/service-3.png',
-      alt: 'Indoor plants and decor'
+      title: 'Lawn Maintenance',
+      image: '/images/service-4.png',
+      alt: 'Lawn Maintenance'
     },
     {
       id: 4,
-      title: 'Office & Community Gardening',
-      description: 'Growniq offers end-to-end subscription-based green solutions for offices, cafés, restaurants, institutions, societies, and public spaces.',
-      image: '/images/service-4.png',
-      alt: 'Plant care services'
+      title: 'Terrace Garden Maintenance',
+      image: '/images/service-3.png',
+      alt: 'Terrace Garden Maintenance'
     },
     {
       id: 5,
-      title: 'CSR & Green Initiatives',
-      description: 'With a commitment to a greener environment, Growniq partners with corporates to execute meaningful plantation and community-driven green programs.',
+      title: 'New Home Plant Setup',
       image: '/images/service-5.png',
-      alt: 'Plant care services'
+      alt: 'New Home Plant Setup'
+    },
+    {
+      id: 6,
+      title: 'Garden Heavy Work',
+      image: '/images/Garden-Maintainnace.png',
+      alt: 'Garden Heavy Work'
+    },
+    {
+      id: 7,
+      title: 'Workspace Plant Care',
+      image: '/images/Indoor-Plants.png',
+      alt: 'Workspace Plant Care'
+    },
+    {
+      id: 8,
+      title: 'Plant Repotting',
+      image: '/images/Terrace-Garden.png',
+      alt: 'Plant Repotting'
     }
   ];
 
@@ -72,10 +85,10 @@ export default function ExpertServices() {
   };
 
   return (
-    <section className="bg-[#FFFAF3] py-10 md:py-12 -mt-[1px]">
+    <section className="bg-[#FFFAF3] py-10 md:py-16 -mt-[1px]">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center mb-10 sm:mb-12 lg:mb-16">
+        <div className="text-center mb-10 sm:mb-12">
           <div className="flex items-center justify-center">
             <div className="mb-4 md:hidden mx-auto">
               <Image src="/images/leaf-icon.svg" alt="leaf-icon" width={24} height={24} />
@@ -93,16 +106,16 @@ export default function ExpertServices() {
         <div className="relative">
           <div 
             ref={scrollContainerRef}
-            className="overflow-x-hidden sm:overflow-x-auto overflow-y-visible sm:overflow-y-hidden scrollbar-hide scroll-smooth mb-8 sm:[scroll-snap-type:x_mandatory]"
+            className="overflow-x-auto scrollbar-hide scroll-smooth mb-8 [scroll-snap-type:x_mandatory]"
           >
-            <div className="flex flex-col sm:flex-row gap-6 lg:gap-8 md:pb-4">
+            <div className="flex gap-6 lg:gap-8 pb-4">
               {services.map((service) => (
                 <div
                   key={service.id}
-                  className="flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(28.571%-22.857px)] overflow-hidden cursor-pointer sm:[scroll-snap-align:start]"
+                  className="flex-shrink-0 w-[288px] overflow-hidden cursor-pointer [scroll-snap-align:start]"
                 >
                   {/* Service Image */}
-                  <div className="relative h-48 sm:h-56 lg:h-64 overflow-hidden rounded-2xl">
+                  <div className="relative h-[192px] w-[288px] overflow-hidden rounded-2xl">
                     <img
                       src={service.image}
                       alt={service.alt}
@@ -111,31 +124,10 @@ export default function ExpertServices() {
                   </div>
 
                   {/* Service Content */}
-                  <div className="pt-5">
-                    <h3 className="!text-[18px] md:text-2xl font-normal text-green mb-2 leading-7">
+                  <div className="pt-4 text-center">
+                    <h3 className="text-lg md:text-xl font-medium text-green leading-7">
                       {service.title}
                     </h3>
-                    <p className="text-[15px] text-green leading-6 mb-5 line-clamp-3">
-                      {service.description}
-                    </p>
-
-                    {/* Explore Button */}
-                    <button className="w-full bg-[#164925] text-white py-3 px-6 rounded-lg font-medium hover:bg-[#1a5c3a] transition-colors duration-300 flex items-center justify-center gap-2 group">
-                      <span>Explore Service</span>
-                      <svg
-                        className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </button>
                   </div>
                 </div>
               ))}
@@ -144,23 +136,23 @@ export default function ExpertServices() {
 
           {/* Navigation Arrows */}
           <div className="hidden md:block">      
-            <div className="hidden sm:flex items-center justify-end gap-5 mt-8">
+            <div className="hidden sm:flex items-center justify-end gap-5 mt-4">
               <button
                 onClick={handlePrev}
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-green flex items-center justify-center "
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-green flex items-center justify-center hover:bg-green hover:text-white transition-colors"
                 aria-label="Previous service"
               >
                 <LeftArrow className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
               <button
                 onClick={handleNext}
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-green flex items-center justify-center"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-green flex items-center justify-center hover:bg-green hover:text-white transition-colors"
                 aria-label="Next service"
               >
                 <RightArrow className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
             </div>
-             </div>
+          </div>
         </div>
       </div>
     </section>

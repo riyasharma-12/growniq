@@ -2,9 +2,12 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { useRouter, usePathname } from 'next/navigation';
 import DownloadModal from '@/components/DownloadModal';
 
 export default function MobileHeader() {
+  const router = useRouter();
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDownloadOpen, setIsDownloadOpen] = useState(false);
 
@@ -15,38 +18,41 @@ export default function MobileHeader() {
   const openDownload = (e) => {
     if (e) e.preventDefault();
     setIsMenuOpen(false);
-    setIsDownloadOpen(true);
+    window.open("https://www.figma.com/design/BlW3DX6fTXmzEButibgqB7/Growniq-Web?node-id=1602-326&m=dev", "_blank");
   };
 
-  const menuItems = [
-    { name: 'Home', href: '#' },
-    { name: 'Book a Service', href: '#' },
-    { name: 'Shop Plants', href: '#' },
-    { name: 'Smart Care with AI', href: '#' },
-    { name: 'Pricing', href: '#' }
-  ];
+  const handleNavClick = (e, targetId, path = '/') => {
+    e.preventDefault();
+    setIsMenuOpen(false);
 
-  const secondaryMenuItems = [
-    { name: 'How It Works', href: '#' },
-    { name: 'About Growniq', href: '#' },
-    { name: 'Blog / Tips', href: '#' },
-    { name: 'Support', href: '#' }
-  ];
+    if (targetId) {
+      if (pathname === '/') {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        router.push(`${path}#${targetId}`);
+      }
+    } else {
+      router.push(path);
+    }
+  };
 
   return (
     <>
       {/* Mobile Header - Only visible on mobile */}
-      <header className="lg:hidden bg-[#164925] py-3 px-4 sticky top-0 z-50">
+      <header className="lg:hidden bg-[#164925] py-3 px-4 sticky top-0 z-50 shadow-md">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="">
+          <div className="cursor-pointer" onClick={() => router.push('/')}>
             <Image src="/images/mobi-logo.svg" alt="groniq logo" width={80} height={24} />
           </div>
 
           {/* Hamburger Menu Button */}
           <button
-            onClick={toggleMenu}
-            className=""
+            onClick={() => window.open("https://www.figma.com/design/BlW3DX6fTXmzEButibgqB7/Growniq-Web?node-id=1-2268&m=dev", "_blank")}
+            className="focus:outline-none"
             aria-label="Toggle menu"
           >
             <Image src="/images/hemburger-menu.svg" alt="hemburger-menu" width={32} height={32} />
@@ -56,15 +62,16 @@ export default function MobileHeader() {
 
       {/* Mobile Menu Full Screen */}
       <div
-        className={`lg:hidden fixed inset-0 bg-gradient-to-br from-gray-50 to-gray-100 z-50 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
+        className={`lg:hidden fixed inset-0 bg-[#FFFAF3] z-50 transform transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
       >
         <div className="h-full flex flex-col">
           {/* Header with tagline and close button */}
-          <div className="relative bg-white px-6 py-6 border-b border-gray-200">
+          <div className="relative bg-white px-6 py-6 border-b border-[rgba(22,73,37,0.1)]">
             <div className="flex items-start justify-between">
               <div className="flex-1 pr-8">
-                <p className="text-[#164925] text-base font-medium leading-relaxed">
+                <p className="text-[#164925] text-base font-medium leading-relaxed font-poppins">
                   Let's grow something beautiful today!
                 </p>
               </div>
@@ -73,7 +80,7 @@ export default function MobileHeader() {
                 onClick={toggleMenu}
                 className="flex-shrink-0 w-8 h-8 flex items-center justify-center text-gray-600 hover:text-gray-900"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 text-[#164925]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -84,48 +91,77 @@ export default function MobileHeader() {
               </button>
             </div>
             {/* Decorative plant illustration */}
-            <div className="absolute top-0 right-12 text-6xl opacity-50">
+            <div className="absolute top-0 right-12 text-6xl opacity-20">
               🌿
             </div>
           </div>
 
           {/* Menu Content */}
-          <div className="flex-1 overflow-y-auto px-6 py-8">
+          <div className="flex-1 overflow-y-auto px-6 py-8 font-nunito">
             {/* Primary Menu Items */}
-            <nav className="space-y-1 mb-8">
-              {menuItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.href}
-                  className="block text-[#164925] hover:text-[#1a5c3a] font-medium py-3 transition-colors text-base"
-                  onClick={toggleMenu}
-                >
-                  {item.name}
-                </a>
-              ))}
+            <nav className="space-y-2 mb-8">
+              <a
+                href="/"
+                className="block text-[#164925] hover:text-[#1a5c3a] font-semibold py-3 transition-colors text-lg"
+                onClick={(e) => handleNavClick(e, null, '/')}
+              >
+                Home
+              </a>
+              <a
+                href="#expert-services"
+                className="block text-[#164925] hover:text-[#1a5c3a] font-semibold py-3 transition-colors text-lg"
+                onClick={(e) => handleNavClick(e, 'expert-services')}
+              >
+                Book a Service
+              </a>
+              <a
+                href="#digi-nursery"
+                className="block text-[#164925] hover:text-[#1a5c3a] font-semibold py-3 transition-colors text-lg"
+                onClick={(e) => handleNavClick(e, 'digi-nursery')}
+              >
+                Shop Plants
+              </a>
+              <a
+                href="#ai-care"
+                className="block text-[#164925] hover:text-[#1a5c3a] font-semibold py-3 transition-colors text-lg"
+                onClick={(e) => handleNavClick(e, 'ai-care')}
+              >
+                Smart Care with AI
+              </a>
             </nav>
 
             {/* Divider */}
-            <div className="border-t border-gray-300 my-6"></div>
+            <div className="border-t border-[rgba(22,73,37,0.15)] my-6"></div>
 
             {/* Secondary Menu Items */}
-            <nav className="space-y-1">
-              {secondaryMenuItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.href}
-                  className="block text-[#164925] hover:text-[#1a5c3a] font-medium py-3 transition-colors text-base"
-                  onClick={toggleMenu}
-                >
-                  {item.name}
-                </a>
-              ))}
+            <nav className="space-y-2">
+              <a
+                href="/about-us"
+                className="block text-[#164925] hover:text-[#1a5c3a] font-medium py-3 transition-colors text-base"
+                onClick={(e) => handleNavClick(e, null, '/about-us')}
+              >
+                About Us
+              </a>
+              <a
+                href="/terms-of-service"
+                className="block text-[#164925] hover:text-[#1a5c3a] font-medium py-3 transition-colors text-base"
+                onClick={(e) => handleNavClick(e, null, '/terms-of-service')}
+              >
+                Terms of Service
+              </a>
+              <a
+                href="/privacy-policy"
+                className="block text-[#164925] hover:text-[#1a5c3a] font-medium py-3 transition-colors text-base"
+                onClick={(e) => handleNavClick(e, null, '/privacy-policy')}
+              >
+                Privacy Policy
+              </a>
             </nav>
           </div>
 
           {/* Footer - App Download */}
-          <div className="bg-white px-6 py-6 border-t border-gray-200">
-            <p className="text-sm text-gray-700 mb-3 text-center">Download the Growniq app</p>
+          <div className="bg-white px-6 py-6 border-t border-[rgba(22,73,37,0.1)]">
+            <p className="text-sm text-[#164925] mb-3 text-center font-medium">Download the Growniq app</p>
             <div className="flex items-center justify-center gap-3">
               {/* Google Play Button */}
               <a

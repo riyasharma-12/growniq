@@ -2,9 +2,12 @@
 
 import { useState } from 'react';
 import { InstagramIcon, LinkedInIcon, YouTubeIcon, FacebookIcon } from './icons';
+import Link from 'next/link';
+import DownloadModal from './DownloadModal';
 
 export default function MobileFooter() {
   const [openSection, setOpenSection] = useState(null);
+  const [isDownloadOpen, setIsDownloadOpen] = useState(false);
 
   const toggleSection = (section) => {
     setOpenSection(openSection === section ? null : section);
@@ -12,20 +15,12 @@ export default function MobileFooter() {
 
   const footerSections = [
     {
-      id: 'support',
-      title: 'Support Center',
-      links: [
-        { name: 'Help Center', href: '#' },
-        { name: 'Contact Us', href: '#' },
-      ]
-    },
-    {
       id: 'links',
       title: 'Important Links',
       links: [
-        { name: 'Services', href: '#' },
-        { name: 'Pricing', href: '#' },
-        { name: 'About Us', href: '#' },
+        { name: 'Services', href: '/#expert-services' },
+        { name: 'Pricing', href: '#', isDownloadTrigger: true },
+        { name: 'About Us', href: '/about-us' },
         { name: 'Blog', href: '#' }
       ]
     },
@@ -33,8 +28,8 @@ export default function MobileFooter() {
       id: 'policies',
       title: 'Our Policies',
       links: [
-        { name: 'Terms of Service', href: '#' },
-        { name: 'Privacy Policy', href: '#' },
+        { name: 'Terms of Service', href: '/terms-of-service' },
+        { name: 'Privacy Policy', href: '/privacy-policy' },
         { name: 'Refund Policy', href: '#' }
       ]
     },
@@ -42,7 +37,7 @@ export default function MobileFooter() {
       id: 'company',
       title: 'Company Info',
       links: [
-        { name: 'About Growniq', href: '#' },
+        { name: 'About Growniq', href: '/about-us' },
         { name: 'Careers', href: '#' },
         { name: 'Partners', href: '#' }
       ]
@@ -50,21 +45,23 @@ export default function MobileFooter() {
   ];
 
   return (
-    <footer className="lg:hidden bg-[#164925] text-white">
+    <footer className="lg:hidden bg-[#164925] text-white border-t border-[rgba(255,255,255,0.1)]">
       <div className="container mx-auto px-4 py-8">
+        
         {/* Accordion Sections */}
         <div className="space-y-0">
           {footerSections.map((section) => (
-            <div key={section.id} className="border-b border-white/90">
+            <div key={section.id} className="border-b border-white/10">
               {/* Accordion Header */}
               <button
                 onClick={() => toggleSection(section.id)}
-                className="w-full flex items-center justify-between py-4 text-left "
+                className="w-full flex items-center justify-between py-4 text-left focus:outline-none"
               >
-                <span className="text-[13px] font-normal">{section.title}</span>
+                <span className="text-sm font-semibold font-poppins">{section.title}</span>
                 <svg
-                  className={`w-5 h-5 transition-transform duration-300 ${openSection === section.id ? 'rotate-45' : ''
-                    }`}
+                  className={`w-4 h-4 transition-transform duration-300 ${
+                    openSection === section.id ? 'rotate-180' : ''
+                  }`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -73,25 +70,39 @@ export default function MobileFooter() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M12 4v16m8-8H4"
+                    d="M19 9l-7 7-7-7"
                   />
                 </svg>
               </button>
 
               {/* Accordion Content */}
               <div
-                className={`overflow-hidden transition-all duration-300 ${openSection === section.id ? 'max-h-96 pb-4' : 'max-h-0'
-                  }`}
+                className={`overflow-hidden transition-all duration-300 ${
+                  openSection === section.id ? 'max-h-60 pb-4' : 'max-h-0'
+                }`}
               >
-                <ul className="space-y-3 pl-2">
+                <ul className="space-y-3 pl-2 font-nunito">
                   {section.links.map((link, index) => (
                     <li key={index}>
-                      <a
-                        href={link.href}
-                        className="text-sm text-gray-300 hover:text-white transition-colors"
-                      >
-                        {link.name}
-                      </a>
+                      {link.isDownloadTrigger ? (
+                        <a
+                          href="#"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            window.open("https://www.figma.com/design/BlW3DX6fTXmzEButibgqB7/Growniq-Web?node-id=1602-326&m=dev", "_blank");
+                          }}
+                          className="text-sm text-gray-300 hover:text-white transition-colors"
+                        >
+                          {link.name}
+                        </a>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          className="text-sm text-gray-300 hover:text-white transition-colors"
+                        >
+                          {link.name}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -100,30 +111,43 @@ export default function MobileFooter() {
           ))}
         </div>
 
+        {/* Contact info in accordion-like layout for mobile */}
+        <div className="border-b border-white/10 py-4">
+          <h4 className="text-sm font-semibold font-poppins mb-3 text-[#FFE9CA]">Contact Us</h4>
+          <p className="text-xs text-gray-300 leading-relaxed font-nunito">
+            Call: +91 9717104342<br />
+            Email: contact@growniq.in<br />
+            Growniq Private Limited<br />
+            2nd Floor, Plot No. 121, Sector 44,<br />
+            Gurugram, Haryana – 122003, India
+          </p>
+        </div>
+
         {/* Social Media Section */}
-        <div className="mt-8 pt-6">
-          <h4 className="text-start text-base font-medium mb-4">Follow Us</h4>
-          <div className="flex items-center gap-3">
-            <a href="#" >
-              <FacebookIcon className="" />
+        <div className="mt-8 pt-2">
+          <h4 className="text-start text-sm font-semibold font-poppins mb-4">Follow Us</h4>
+          <div className="flex items-center gap-4">
+            <a href="#" className="hover:opacity-80 transition-opacity" aria-label="Facebook">
+              <FacebookIcon className="w-6 h-6" />
             </a>
-            <a href="#" >
-              <InstagramIcon className="w-5 h-5" />
+            <a href="#" className="hover:opacity-80 transition-opacity" aria-label="Instagram">
+              <InstagramIcon className="w-6 h-6" />
             </a>
-            <a href="#" >
-              <YouTubeIcon className="" />
+            <a href="#" className="hover:opacity-80 transition-opacity" aria-label="YouTube">
+              <YouTubeIcon className="w-6 h-6" />
             </a>
-            <a href="#" >
-              <LinkedInIcon className="" />
+            <a href="#" className="hover:opacity-80 transition-opacity" aria-label="LinkedIn">
+              <LinkedInIcon className="w-6 h-6" />
             </a>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="mt-7 pt-4">
-          <p className="text-sm text-white">© 2025 Growniq</p>
+        <div className="mt-8 pt-4 border-t border-white/10 text-center">
+          <p className="text-xs text-gray-400 font-nunito">© 2026 Growniq Private Limited. All rights reserved.</p>
         </div>
       </div>
+      <DownloadModal open={isDownloadOpen} onClose={() => setIsDownloadOpen(false)} />
     </footer>
   );
 }

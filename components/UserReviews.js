@@ -6,7 +6,10 @@ import { LeftArrow, RightArrow } from './icons';
 export default function UserReviews() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollContainerRef = useRef(null);
-  const [lightboxImage, setLightboxImage] = useState(null);
+  
+  // Lightbox states
+  const [activeReviewId, setActiveReviewId] = useState(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   const blogs = [
     {
@@ -44,7 +47,7 @@ export default function UserReviews() {
       id: 3,
       rating: 5,
       title: 'Professional Gardening Service',
-      description: '"I used to call a gardener through the guard or a friend, but then I found out Growniq is coming soon with an app  related to gardening. I contacted them through the their webiste, and now I’m very happy and satisfied with their team. All the best to the team for the app waiting.',
+      description: '"I used to call a gardener through the guard or a friend, but then I found out Growniq is coming soon with an app related to gardening. I contacted them through their website, and now I’m very happy and satisfied with their team. All the best to the team for the app waiting."',
       author: 'Hemika Raghav',
       date: 'Sec -50, Gurgaon',
       images: [
@@ -74,7 +77,6 @@ export default function UserReviews() {
       authorRole: 'IT Professional',
       location: 'Sec -21, Dwarka, New Delhi'
     },
-
   ];
 
   const handlePrev = () => {
@@ -108,7 +110,7 @@ export default function UserReviews() {
         {[...Array(5)].map((_, index) => (
           <svg
             key={index}
-            className={`w-4 h-4 ${index < rating ? 'text-green' : 'text-green'}`}
+            className="w-4 h-4 text-green"
             fill="currentColor"
             viewBox="0 0 20 20"
           >
@@ -119,84 +121,106 @@ export default function UserReviews() {
     );
   };
 
+  // Find the active review for the lightbox
+  const activeReview = blogs.find((b) => b.id === activeReviewId);
+
+  const handlePrevImage = (e) => {
+    e.stopPropagation();
+    if (!activeReview) return;
+    setActiveImageIndex((prev) =>
+      prev === 0 ? activeReview.images.length - 1 : prev - 1
+    );
+  };
+
+  const handleNextImage = (e) => {
+    e.stopPropagation();
+    if (!activeReview) return;
+    setActiveImageIndex((prev) =>
+      prev === activeReview.images.length - 1 ? 0 : prev + 1
+    );
+  };
+
   return (
     <>
-      <section id="user-reviews" className="scroll-mt-24 md:scroll-mt-32 bg-[#FFFAF3] py-6 sm:py-12 lg:py-20 -mt-[1px]">
-        <div className="container mx-auto px-4 sm:px-6">
+      <section id="user-reviews" className="scroll-mt-24 md:scroll-mt-32 bg-[#FFFAF3] py-12 md:py-20 -mt-[1px]">
+        <div className="container mx-auto px-4 sm:px-6 max-w-[1200px]">
           {/* Header */}
-          <div className="text-center mb-10 sm:mb-12 lg:mb-16">
-            <h2 className="text-[22px] md:text-4xl md:font-normal text-[#164925] mb-3 sm:mb-4">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-5xl font-medium text-[#164925] mb-4 font-poppins">
               Why our customers keep coming back
             </h2>
-            <p className="text-sm sm:text-base text-green max-w-3xl mx-auto mb-10">
+            <p className="text-base md:text-lg text-green max-w-3xl mx-auto font-nunito">
               Experience the future of gardening with our upcoming AI features
             </p>
           </div>
 
           {/* Carousel Container */}
-          <div className="relative -mx-4">
+          <div className="relative">
             <div
               ref={scrollContainerRef}
-              className="overflow-x-auto overflow-y-hidden scrollbar-hide scroll-smooth mb-8"
-              style={{ scrollSnapType: 'x mandatory' }}
+              className="overflow-x-auto overflow-y-hidden scrollbar-hide scroll-smooth mb-8 [scroll-snap-type:x_mandatory]"
             >
               <div className="flex gap-6 lg:gap-8 pb-4">
                 {blogs.map((blog) => (
                   <div
                     key={blog.id}
-                    className="pl-4 last:pr-4 flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(28.571%-22.857px)] overflow-hidden md:basis-[340px] basis-[288px]"
-                    style={{ scrollSnapAlign: 'start' }}
+                    className="flex-shrink-0 w-[288px] sm:w-[340px] overflow-hidden [scroll-snap-align:start]"
                   >
                     {/* Card Content */}
-                    <div className=" md:space-y-5 ">
-                      {/* Rating and Stars */}
-                      <div className="flex items-center gap-1">
-                        <span className="text-base font-bold text-green">{blog.rating}/5</span>
-                        {renderStars(blog.rating)}
+                    <div className="space-y-4 bg-white p-6 rounded-2xl border border-[rgba(22,73,37,0.08)] shadow-sm h-full flex flex-col justify-between">
+                      <div className="space-y-4">
+                        {/* Rating and Stars */}
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-base font-bold text-green">{blog.rating}/5</span>
+                          {renderStars(blog.rating)}
+                        </div>
+
+                        {/* Title */}
+                        <h4 className="text-lg font-semibold text-green font-poppins leading-snug">
+                          {blog.title}
+                        </h4>
+
+                        {/* Description */}
+                        <p className="text-sm text-green/95 leading-relaxed font-nunito line-clamp-6">
+                          {blog.description}
+                        </p>
                       </div>
 
-                      {/* Title */}
-                      <h4 className="text-lg sm:text-xl font-normal text-green mb-2 !mt-2">
-                        {blog.title}
-                      </h4>
+                      <div>
+                        {/* Images Grid */}
+                        <div className="flex gap-2 mb-5 mt-4">
+                          {blog.images.map((image, index) => (
+                            <button
+                              key={index}
+                              type="button"
+                              onClick={() => {
+                                setActiveReviewId(blog.id);
+                                setActiveImageIndex(index);
+                              }}
+                              className="rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-green shrink-0"
+                            >
+                              <img
+                                src={image}
+                                alt={`Garden ${index + 1}`}
+                                className="w-12 h-12 object-cover hover:scale-110 transition-transform duration-300 rounded-lg"
+                              />
+                            </button>
+                          ))}
+                        </div>
 
-                      {/* Description */}
-                      <p className="text-sm text-green leading-relaxed mb-5 h-[136px]">
-                        {blog.description}
-                      </p>
-
-
-
-                      {/* Images Grid */}
-                      <div className="flex gap-2 mb-5">
-                        {blog.images.map((image, index) => (
-                          <button
-                            key={index}
-                            type="button"
-                            onClick={() => setLightboxImage(image)}
-                            className="rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-green"
-                          >
-                            <img
-                              src={image}
-                              alt={`Garden ${index + 1}`}
-                              className="w-16 h-16 object-cover hover:scale-110 transition-transform duration-300"
-                            />
-                          </button>
-                        ))}
-                      </div>
-
-                      {/* Author Info */}
-                      <div className="flex items-center gap-3">
-                        <img
-                          src={blog.authorImage}
-                          alt={blog.author}
-                          className="w-9 h-9 rounded-full object-cover"
-                        />
-                        <div className="flex-1">
-                          <p className="text-xs font-normal text-green">
-                            {blog.author}, {blog.authorRole}
-                          </p>
-                          <p className="text-xs text-green font-normal">{blog.location}</p>
+                        {/* Author Info */}
+                        <div className="flex items-center gap-3 border-t border-dashed border-[rgba(22,73,37,0.1)] pt-4">
+                          <img
+                            src={blog.authorImage}
+                            alt={blog.author}
+                            className="w-10 h-10 rounded-full object-cover"
+                          />
+                          <div className="flex-1 min-w-0">
+                            <p className="text-xs font-semibold text-green truncate font-poppins">
+                              {blog.author}, {blog.authorRole}
+                            </p>
+                            <p className="text-[11px] text-green/80 truncate font-nunito">{blog.location}</p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -207,17 +231,17 @@ export default function UserReviews() {
 
             {/* Navigation Arrows */}
             <div className="hidden md:block">
-              <div className="flex items-center justify-end gap-5 mt-8">
+              <div className="flex items-center justify-end gap-5 mt-4">
                 <button
                   onClick={handlePrev}
-                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-green flex items-center justify-center "
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-green flex items-center justify-center hover:bg-green hover:text-white transition-colors"
                   aria-label="Previous blog"
                 >
                   <LeftArrow className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
                 <button
                   onClick={handleNext}
-                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-green flex items-center justify-center"
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-green flex items-center justify-center hover:bg-green hover:text-white transition-colors"
                   aria-label="Next blog"
                 >
                   <RightArrow className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -226,35 +250,71 @@ export default function UserReviews() {
             </div>
           </div>
         </div>
-        {lightboxImage && (
+
+        {/* Interactive Lightbox Modal */}
+        {activeReview && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70"
-            onClick={() => setLightboxImage(null)}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm"
+            onClick={() => setActiveReviewId(null)}
           >
             <div
-              className="relative  w-full"
+              className="relative w-full max-w-4xl px-4 flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
+              {/* Close Button */}
               <button
                 type="button"
                 aria-label="Close"
-                onClick={() => setLightboxImage(null)}
-                className="absolute -top-9 md:top-4 right-4 w-6 h-6 bg-white text-green shadow rounded-full flex items-center justify-center hover:bg-gray-100"
+                onClick={() => setActiveReviewId(null)}
+                className="absolute top-4 right-4 z-50 w-10 h-10 bg-white/90 hover:bg-white text-green shadow rounded-full flex items-center justify-center transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="w-4 h-4"
+                  className="w-6 h-6"
                 >
                   <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 11-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clipRule="evenodd" />
                 </svg>
               </button>
-              <img
-                src={lightboxImage}
-                alt="Selected"
-                className="w-full h-auto max-h-[100vh] object-contain bg-black/40"
-              />
+
+              {/* Prev Image Button */}
+              {activeReview.images.length > 1 && (
+                <button
+                  type="button"
+                  onClick={handlePrevImage}
+                  className="absolute left-6 z-50 w-12 h-12 bg-white/85 hover:bg-white text-green shadow rounded-full flex items-center justify-center transition-colors"
+                  aria-label="Previous image"
+                >
+                  <LeftArrow className="w-6 h-6" />
+                </button>
+              )}
+
+              {/* Active Image */}
+              <div className="relative w-full aspect-square md:aspect-[4/3] max-h-[80vh] rounded-2xl overflow-hidden shadow-2xl bg-black/20 flex items-center justify-center">
+                <img
+                  src={activeReview.images[activeImageIndex]}
+                  alt="Review garden view"
+                  className="max-w-full max-h-full object-contain"
+                />
+                
+                {/* Image Counter Badge */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 bg-black/60 text-white text-xs rounded-full font-medium tracking-wide font-nunito">
+                  {activeImageIndex + 1} / {activeReview.images.length}
+                </div>
+              </div>
+
+              {/* Next Image Button */}
+              {activeReview.images.length > 1 && (
+                <button
+                  type="button"
+                  onClick={handleNextImage}
+                  className="absolute right-6 z-50 w-12 h-12 bg-white/85 hover:bg-white text-green shadow rounded-full flex items-center justify-center transition-colors"
+                  aria-label="Next image"
+                >
+                  <RightArrow className="w-6 h-6" />
+                </button>
+              )}
             </div>
           </div>
         )}

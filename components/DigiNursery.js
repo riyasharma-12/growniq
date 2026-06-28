@@ -15,32 +15,32 @@ export default function DigiNursery() {
 
                     <ul className='mt-[30px] flex gap-3 flex-wrap'>
 
-                        <li className='bg-white flex gap-2 py-2 px-3 rounded-3xl'>
+                        <li className='bg-white flex gap-2 py-2 px-3 rounded-3xl animate-float-1 hover:shadow-md transition-shadow'>
                             <img src="images/plant.svg" alt="palnts" />
                             <span>Plants</span>
                         </li>
 
-                        <li className='bg-white flex gap-2 py-2 px-3 rounded-3xl'>
+                        <li className='bg-white flex gap-2 py-2 px-3 rounded-3xl animate-float-2 hover:shadow-md transition-shadow'>
                             <img src="images/pots.svg" alt="palnts" />
                             <span>Pots</span>
                         </li>
 
-                        <li className='bg-white flex gap-2 py-2 px-3 rounded-3xl'>
+                        <li className='bg-white flex gap-2 py-2 px-3 rounded-3xl animate-float-3 hover:shadow-md transition-shadow'>
                             <img src="images/seeds.svg" alt="palnts" />
                             <span>Seeds</span>
                         </li>
 
-                        <li className='bg-white flex gap-2 py-2 px-3 rounded-3xl'>
+                        <li className='bg-white flex gap-2 py-2 px-3 rounded-3xl animate-float-4 hover:shadow-md transition-shadow'>
                             <img src="images/tools.svg" alt="palnts" />
                             <span>Tools</span>
                         </li>
 
-                        <li className='bg-white flex gap-2 py-2 px-3 rounded-3xl'>
+                        <li className='bg-white flex gap-2 py-2 px-3 rounded-3xl animate-float-5 hover:shadow-md transition-shadow'>
                             <img src="images/diy-kits.svg" alt="palnts" />
                             <span>DIY Kits</span>
                         </li>
 
-                        <li className='bg-white flex gap-2 py-2 px-3 rounded-3xl'>
+                        <li className='bg-white flex gap-2 py-2 px-3 rounded-3xl animate-float-6 hover:shadow-md transition-shadow'>
                             <img src="images/Fertilizer.svg" alt="Fertilizer" />
                             <span>Fertilizer</span>
                         </li>

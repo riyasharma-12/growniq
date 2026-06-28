@@ -10,7 +10,7 @@ export default function DownloadWidget() {
 
     const handleStoreClick = (e) => {
         e.preventDefault();
-        setIsModalOpen(true);
+        window.open("https://www.figma.com/design/BlW3DX6fTXmzEButibgqB7/Growniq-Web?node-id=1602-326&m=dev", "_blank");
     };
 
     const handleCloseModal = () => {

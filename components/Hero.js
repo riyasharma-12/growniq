@@ -92,12 +92,12 @@ export default function Hero() {
             </div> */}
 
             {/* Quote Form */}
-            <div className="md:bg-gradient-to-br from-orange-100 to-orange-50 md:p-8 rounded-2xl">
-              <form onSubmit={(e) => e.preventDefault()} className="md:space-y-4">
-                <div className="hidden sm:grid sm:grid-cols-2 gap-4">
+            <div className="bg-[rgba(255,249,240,0.65)] backdrop-blur-md border border-white/60 shadow-lg p-6 md:p-8 rounded-2xl">
+              <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
                   {/* Select Service */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-[#164925] mb-2">
                       Select Service
                     </label>
                     <div className='relative'>
@@ -111,14 +111,18 @@ export default function Hero() {
                       <select
                         value={service}
                         onChange={(e) => setService(e.target.value)}
-                        className="appearance-none h-12 w-full px-3 py-2  rounded-lg border border-rgba(22, 64, 37, 0.20) bg-white text-[#164925] focus:outline-none focus:ring-[#164925] focus:border-transparent"
+                        className="appearance-none h-12 w-full px-3 py-2 rounded-lg border border-[rgba(22,73,37,0.2)] bg-white text-[#164925] focus:outline-none focus:ring-1 focus:ring-[#164925] focus:border-transparent"
                         required
                       >
                         <option value="">Choose a service</option>
-                        <option value="gardening">Gardening</option>
-                        <option value="landscaping">Landscaping</option>
-                        <option value="plant-care">Plant Care</option>
-                        <option value="maintenance">Garden Maintenance</option>
+                        <option value="book-a-gardener">Book a Gardner</option>
+                        <option value="monthly-plant-care">Monthly plant care</option>
+                        <option value="lawn-maintenance">Lawn Maintenance</option>
+                        <option value="terrace-garden-maintenance">Terrace Garden Maintenance</option>
+                        <option value="new-home-plant-setup">New Home Plant Setup</option>
+                        <option value="garden-heavy-work">Garden Heavy Work</option>
+                        <option value="workspace-plant-care">Workspace Plant Care</option>
+                        <option value="plant-repotting">Plant Repotting</option>
                       </select>
 
 
@@ -128,14 +132,14 @@ export default function Hero() {
                   {/* Enter Location */}
                   <div>
                     <label className="block text-sm font-medium text-[#164925] mb-2">
-                      Enter Location
+                      Enter Pincode
                     </label>
                     <input
                       type="text"
                       value={location}
                       onChange={(e) => setLocation(e.target.value)}
                       placeholder="Enter your location"
-                      className="h-12 w-full px-3 py-2 rounded-lg border border-rgba(22, 64, 37, 0.20) bg-white text-[#164925] focus:outline-none focus:ring-[#164925] focus:border-transparent"
+                      className="h-12 w-full px-3 py-2 rounded-lg border border-[rgba(22,73,37,0.2)] bg-white text-[#164925] focus:outline-none focus:ring-1 focus:ring-[#164925] focus:border-transparent"
                       required
                     />
                   </div>
@@ -145,34 +149,33 @@ export default function Hero() {
                 <button
                   type="button"
                   onClick={handleGetQuote}
-                  className="w-full text-base sm:w-auto px-6 py-3 sm:px-8 bg-[#164925] text-white font-medium rounded-lg hover:bg-[#1a5c3a] transition hover:shadow-lg"
+                  className="w-full text-base px-6 py-3 bg-[#164925] text-white font-medium rounded-lg hover:bg-[#1a5c3a] transition hover:shadow-lg"
                 >
                   Get Instant Quote
                 </button>
               </form>
 
               {/* Stats */}
-              <div className="flex items-center justify-between flex-col md:flex-row gap-6 mt-6 pt-2 md:pt-6">
+              <div className="flex items-center justify-between flex-row gap-6 mt-6 pt-6 border-t border-dashed border-[rgba(22,73,37,0.2)]">
                 <div className="flex items-center gap-2">
                   <div className="flex -space-x-2">
-                    <div className="w-8 h-8 rounded-full bg-gray-300 border-2 border-white">
-                      <Image src="/images/avtar-1.png" alt="Professional gardener at work" width={40} height={40} className="object-cover w-full h-full transition-opacity duration-300" />
+                    <div className="w-8 h-8 rounded-full bg-gray-300 border-2 border-white relative overflow-hidden">
+                      <Image src="/images/avtar-1.png" alt="Professional gardener at work" fill className="object-cover" />
                     </div>
-                    <div className="w-8 h-8 rounded-full bg-gray-400 border-2 border-white">
-                      <Image src="/images/avtar-2.png" alt="Professional gardener at work" width={40} height={40} className="object-cover w-full h-full transition-opacity duration-300" />
+                    <div className="w-8 h-8 rounded-full bg-gray-400 border-2 border-white relative overflow-hidden">
+                      <Image src="/images/avtar-2.png" alt="Professional gardener at work" fill className="object-cover" />
                     </div>
-                    <div className="w-8 h-8 rounded-full bg-gray-500 border-2 border-white">
-                      <Image src="/images/avtar-3.png" alt="Professional gardener at work" width={40} height={40} className="object-cover w-full h-full transition-opacity duration-300" />
+                    <div className="w-8 h-8 rounded-full bg-gray-500 border-2 border-white relative overflow-hidden">
+                      <Image src="/images/avtar-3.png" alt="Professional gardener at work" fill className="object-cover" />
                     </div>
                   </div>
                   <div className="text-xs sm:text-sm">
                     <div className="font-semibold text-[#164925]">1000+</div>
-                    <div className="text-[#164925]">Users actively booking</div>
+                    <div className="text-[#164925] whitespace-nowrap">Users actively booking</div>
                   </div>
                 </div>
-                <div className="lg:hidden border-t border-dashed border-green w-full h-[2px]"></div>
-                <div className="text-xs sm:text-sm text-right flex md:block gap-3">
-                  <div className="font-semibold text-[#164925] flex items-center gap-1">
+                <div className="text-xs sm:text-sm text-right">
+                  <div className="font-semibold text-[#164925] flex items-center justify-end gap-1">
                     5/5
                     <div className="flex text-[#164925]">
                       {[...Array(5)].map((_, i) => (
@@ -182,7 +185,7 @@ export default function Hero() {
                       ))}
                     </div>
                   </div>
-                  <div className="text-green">Rating by users</div>
+                  <div className="text-[#164925] whitespace-nowrap">Rating by users</div>
                 </div>
               </div>
             </div>

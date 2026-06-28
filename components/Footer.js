@@ -1,120 +1,132 @@
 'use client';
 
 import { useState } from 'react';
-import {LeafIcon, InstagramIcon, LinkedInIcon, YouTubeIcon, CallIcon, MailIcon, MassegeIcon, FacebookIcon, TwitterIcon } from './icons';
+import Link from 'next/link';
+import { LeafIcon, InstagramIcon, LinkedInIcon, YouTubeIcon, CallIcon, MailIcon, FacebookIcon } from './icons';
+import DownloadModal from './DownloadModal';
 
 export default function Footer() {
-  const [email, setEmail] = useState('');
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    // Handle subscription logic here
-    console.log('Subscribing email:', email);
-    setEmail('');
-  };
+  const [open, setOpen] = useState(false);
 
   return (
-    <footer className="hidden lg:block bg-green text-white py-8 sm:py-12">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* Brand Section */}
-          <div className="space-y-4">
-            <div className="flex  gap-3 mb-2">
-              <LeafIcon />
-              <h4 className='font-bold text-base sm:text-2xl'>Growniq</h4>
+    <footer className="hidden lg:block bg-[#164925] text-white py-12 border-t border-[rgba(255,255,255,0.1)]">
+      <div className="container mx-auto px-4 sm:px-6 max-w-[1200px]">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
+          
+          {/* Column 1: Brand & Socials */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <LeafIcon className="w-8 h-8 text-[#FFE9CA]" />
+              <h4 className="font-bold text-2xl font-poppins tracking-wide">Growniq</h4>
             </div>
-            <p className="text-gray-300 text-sm leading-relaxed max-w-xs">
-              Professional gardening and landscaping services with eco-friendly practices and transparent pricing.
+            <p className="text-[#FFFAF3] opacity-80 text-sm leading-relaxed max-w-xs font-nunito">
+              Let's grow something beautiful today! One platform for all your green needs, services, store &amp; AI care.
             </p>
             {/* Social Icons */}
-            <div className="flex items-center gap-3 pt-2">
-              <a href="#" >
-                <FacebookIcon className="" />
+            <div className="flex items-center gap-4 pt-2">
+              <a href="#" className="hover:opacity-80 transition-opacity" aria-label="Facebook">
+                <FacebookIcon className="w-6 h-6" />
               </a>
-              <a href="#" >
-                <InstagramIcon className="w-5 h-5" />
+              <a href="#" className="hover:opacity-80 transition-opacity" aria-label="Instagram">
+                <InstagramIcon className="w-6 h-6 text-white" />
               </a>
-              <a href="#" >
-                <YouTubeIcon className="" />
+              <a href="#" className="hover:opacity-80 transition-opacity" aria-label="YouTube">
+                <YouTubeIcon className="w-6 h-6" />
               </a>
-              <a href="#" >
-                <LinkedInIcon className="" />
+              <a href="#" className="hover:opacity-80 transition-opacity" aria-label="LinkedIn">
+                <LinkedInIcon className="w-6 h-6" />
               </a>
-            
-             
-          
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Column 2: Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-base sm:text-lg">Quick Links</h4>
-            <ul className="space-y-3 text-sm text-gray-300">
-              <li><a href="#" className="hover:text-white transition">Services</a></li>
-              <li><a href="#" className="hover:text-white transition">Pricing</a></li>
-              <li><a href="#" className="hover:text-white transition">FAQ</a></li>
-              <li><a href="#" className="hover:text-white transition">Blog</a></li>
-              <li><a href="/about-us" className="hover:text-white transition">About Us</a></li>
-              <li><a href="#" className="hover:text-white transition">Contact</a></li>
-            </ul>
-          </div>
-
-          {/* Contact Us */}
-          <div>
-            <h4 className="font-semibold mb-4 text-base sm:text-lg">Contact Us</h4>
-            <ul className="space-y-3 text-sm text-gray-300">
-              <li className="flex items-center gap-2">
-                <CallIcon className="w-4 h-4 flex-shrink-0" />
-                <a href="tel:+919717104342" className="hover:text-white transition">+91 9717104342</a>
+            <h4 className="font-semibold mb-5 text-lg font-poppins text-[#FFE9CA]">Quick Links</h4>
+            <ul className="space-y-3.5 text-sm font-nunito text-[#FFFAF3] opacity-90">
+              <li>
+                <Link href="/#expert-services" className="hover:text-[#FFE9CA] transition-colors">
+                  Services
+                </Link>
               </li>
-              <li className="flex items-center gap-2">
-                <MailIcon className="w-4 h-4 flex-shrink-0" />
-                <a href="mailto:contact@growniq.in" className="hover:text-white transition break-all">contact@growniq.in</a>
+              <li>
+                <a href="#" onClick={(e) => { e.preventDefault(); window.open("https://www.figma.com/design/BlW3DX6fTXmzEButibgqB7/Growniq-Web?node-id=1602-326&m=dev", "_blank"); }} className="hover:text-[#FFE9CA] transition-colors">
+                  Pricing
+                </a>
               </li>
-              <li className="flex items-center gap-2">
-                <MassegeIcon className="w-4 h-4 flex-shrink-0" />
-                <a href="#" className="hover:text-white transition">WhatsApp Support</a>
+              <li>
+                <Link href="/about-us" className="hover:text-[#FFE9CA] transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <a href="#" className="hover:text-[#FFE9CA] transition-colors">
+                  Blog
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Stay Updated */}
+          {/* Column 3: Policies */}
           <div>
-            <h4 className="font-semibold mb-4 text-base sm:text-lg">Stay Updated</h4>
-            <p className="text-sm text-gray-300 mb-4">
-              Get seasonal gardening tips & exclusive offers
-            </p>
-            <form onSubmit={handleSubscribe} className="space-y-3">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="w-full px-4 py-2.5 rounded bg-white/10 border border-white/20 text-white placeholder-gray-400 text-sm focus:outline-none focus:border-white/40 transition"
-                required
-              />
-              <button
-                type="submit"
-                className="w-full px-4 py-2.5 rounded bg-white text-[#164925] font-medium text-sm hover:bg-gray-100 transition"
-              >
-                Subscribe
-              </button>
-            </form>
+            <h4 className="font-semibold mb-5 text-lg font-poppins text-[#FFE9CA]">Our Policies</h4>
+            <ul className="space-y-3.5 text-sm font-nunito text-[#FFFAF3] opacity-90">
+              <li>
+                <Link href="/terms-of-service" className="hover:text-[#FFE9CA] transition-colors">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy-policy" className="hover:text-[#FFE9CA] transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <a href="#" className="hover:text-[#FFE9CA] transition-colors">
+                  Refund Policy
+                </a>
+              </li>
+            </ul>
           </div>
+
+          {/* Column 4: Contact Us */}
+          <div>
+            <h4 className="font-semibold mb-5 text-lg font-poppins text-[#FFE9CA]">Contact Us</h4>
+            <ul className="space-y-4 text-sm font-nunito text-[#FFFAF3] opacity-90">
+              <li className="flex items-center gap-3">
+                <CallIcon className="w-5 h-5 shrink-0 text-[#FFE9CA]" />
+                <a href="tel:+919717104342" className="hover:text-[#FFE9CA] transition-colors">
+                  +91 9717104342
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <MailIcon className="w-5 h-5 shrink-0 text-[#FFE9CA]" />
+                <a href="mailto:contact@growniq.in" className="hover:text-[#FFE9CA] transition-colors break-all">
+                  contact@growniq.in
+                </a>
+              </li>
+              <li className="text-xs leading-relaxed text-[#FFFAF3]/80">
+                Growniq Private Limited<br />
+                2nd Floor, Plot No. 121, Sector 44,<br />
+                Gurugram, Haryana – 122003, India
+              </li>
+            </ul>
+          </div>
+
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 mt-8 sm:mt-12 pt-6 sm:pt-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-gray-300">
-            <p>© 2024 Growniq. All rights reserved.</p>
+        <div className="border-t border-white/10 mt-10 pt-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-[#FFFAF3] opacity-80 font-nunito">
+            <p>© 2026 Growniq Private Limited. All rights reserved.</p>
             <div className="flex items-center gap-4 sm:gap-6">
-              <a href="#" className="hover:text-white transition">Terms of Service</a>
-              <a href="#" className="hover:text-white transition">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition">Cookie Policy</a>
+              <Link href="/terms-of-service" className="hover:text-[#FFE9CA] transition-colors">Terms of Service</Link>
+              <Link href="/privacy-policy" className="hover:text-[#FFE9CA] transition-colors">Privacy Policy</Link>
+              <a href="#" className="hover:text-[#FFE9CA] transition-colors">Cookie Policy</a>
             </div>
           </div>
         </div>
       </div>
+      <DownloadModal open={open} onClose={() => setOpen(false)} />
     </footer>
   );
 }
