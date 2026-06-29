@@ -73,7 +73,7 @@ export default function Hero() {
             {/* Quote Form */}
             <div className="bg-[rgba(255,249,240,0.65)] backdrop-blur-md border border-white/60 shadow-lg p-6 md:p-8 rounded-2xl">
               <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   {/* Select Service */}
                   <div>
                     <label className="block text-sm font-medium text-[#164925] mb-2">

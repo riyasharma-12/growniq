@@ -13,10 +13,10 @@ export default function Home() {
       <Hero />
       <ExpertServices />
       <DigiNursery />
-      <DownloadWidget />
       <WhyChoose />
       <AiWidget />
       <UserReviews />
+      <DownloadWidget />
       <FaqWidget />
     </main>
   )

@@ -158,12 +158,12 @@ export default function ExpertServices() {
         {/* Download Growniq App - Per Figma design */}
         <div className="text-center mt-10 md:mt-14">
           <p className="text-sm md:text-base text-[#164925] mb-3 font-medium">Download Growniq App</p>
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex items-center justify-center gap-4">
             <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer">
-              <Image src="/images/app-store.png" alt="App Store" width={32} height={32} />
+              <Image src="/images/app-store.png" alt="Download on the Apple Store" width={207} height={60} className="object-contain h-[50px] md:h-[60px] w-auto" />
             </a>
             <a href="https://play.google.com" target="_blank" rel="noopener noreferrer">
-              <Image src="/images/play-store.png" alt="Play Store" width={32} height={32} />
+              <Image src="/images/play-store.png" alt="Get it on Google Play" width={196} height={60} className="object-contain h-[50px] md:h-[60px] w-auto" />
             </a>
           </div>
         </div>

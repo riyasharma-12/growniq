@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { GreenApple, GooglePlayIcon } from './icons';
 import DownloadModal from './DownloadModal';
 
 export default function DownloadWidget() {
@@ -46,57 +45,59 @@ export default function DownloadWidget() {
             {/* Modal component - rendered at the root level */}
             <DownloadModal open={isModalOpen} onClose={handleCloseModal} />
 
-            <section className="hidden md:block bg-[#FFFAF3] py-12 sm:py-16 lg:py-20">
-                <div className="container mx-auto px-4 sm:px-6">
-                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center justify-center">
-
-                        <div className="">
-                            <Image
-                                src="/images/login-screen.png"
-                                alt="Login Screen"
-                                className="rounded-lg"
-                                width={315}
-                                height={500}
-                            />
-                        </div>
-                        <div className=" mt-8">
-                            <Image
-                                src="/images/qr-screen.png"
-                                alt="QR Screen"
-                                className="rounded-lg"
-                                width={580}
-                                height={540}
-                            />
-                            <div className="flex justify-start items-center gap-3 pt-2">
-                                <div className="flex items-center gap-3">
-                                    <a
-                                        href="#"
-                                        className="cursor-pointer"
-                                        onClick={handleStoreClick}
-                                    >
-                                        <GreenApple className="w-6 h-6" />
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="cursor-pointer"
-                                        onClick={handleStoreClick}
-                                    >
-                                        <GooglePlayIcon className="w-6 h-6" />
-                                    </a>
-                                </div>
-                                <span 
-                                    className="text-sm text-green font-medium cursor-pointer"
-                                    onClick={handleStoreClick}
-                                >
-                                    Download the app
-                                </span>
+            <section className="hidden md:block bg-[#FFFAF3] py-16 lg:py-20 -mt-[1px] overflow-hidden">
+                <div className="container mx-auto px-4 sm:px-6 max-w-[1200px]">
+                    <div className="relative rounded-[32px] bg-gradient-to-br from-[#d7ebe7] to-[#e8f5f0] p-12 lg:p-16 min-h-[476px] overflow-hidden">
+                        
+                        {/* Left Content */}
+                        <div className="relative z-10 max-w-[633px]">
+                            <div className="space-y-6">
+                                <h2 className="text-4xl lg:text-[56px] font-semibold text-[#164925] leading-tight font-poppins">
+                                    Download the Growniq App
+                                </h2>
+                                <p className="text-base lg:text-lg text-[#164925]/80 max-w-[424px] font-nunito leading-relaxed">
+                                    Everything you need for gardening and plant care, made easy & quick.
+                                </p>
+                            </div>
+                            
+                            {/* Store Badges */}
+                            <div className="flex items-center gap-4 mt-10">
+                                <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" onClick={handleStoreClick}>
+                                    <Image src="/images/app-store.png" alt="Download on the Apple Store" width={207} height={60} className="object-contain h-[60px] w-auto hover:opacity-90 transition-opacity" />
+                                </a>
+                                <a href="https://play.google.com" target="_blank" rel="noopener noreferrer" onClick={handleStoreClick}>
+                                    <Image src="/images/play-store.png" alt="Get it on Google Play" width={196} height={60} className="object-contain h-[60px] w-auto hover:opacity-90 transition-opacity" />
+                                </a>
                             </div>
                         </div>
 
+                        {/* Right Decorative Elements */}
+                        <div className="absolute right-0 top-0 bottom-0 w-[45%] pointer-events-none">
+                            {/* Decorative leaf line */}
+                            <div className="absolute left-0 top-[80px] w-[3px] h-[70%] bg-[#164925]/10 rounded-full"></div>
+                            
+                            {/* Top-right masked image blob */}
+                            <div className="absolute right-8 top-12 w-[280px] h-[280px] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] overflow-hidden shadow-lg opacity-90">
+                                <img 
+                                    src="/images/service-1.png" 
+                                    alt="Gardening" 
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            
+                            {/* Bottom-left masked image blob */}
+                            <div className="absolute left-12 bottom-0 w-[240px] h-[250px] rounded-[60%_40%_30%_70%/50%_60%_40%_50%] overflow-hidden shadow-lg opacity-85">
+                                <img 
+                                    src="/images/service-2.png" 
+                                    alt="Plant care" 
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                        </div>
                     </div>
-
                 </div>
             </section>
         </>
     );
 }
+

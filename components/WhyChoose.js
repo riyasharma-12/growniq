@@ -6,18 +6,18 @@ export default function WhyChoose() {
   const features = [
     {
       id: 1,
-      title: 'Trusted & Certified Gardeners',
-      description: 'We handpick and train our gardeners for your peace of mind.'
+      title: 'Trusted & Verified Gardeners',
+      description: 'Verified and trained gardeners you can trust'
     },
     {
       id: 2,
-      title: 'Transparent & Fair Pricing',
-      description: 'Clear pricing with no hidden charges.'
+      title: 'Transparent & fair Pricing',
+      description: 'Clear pricing with no surprises'
     },
     {
       id: 3,
       title: 'Easy Booking & Quick Support',
-      description: 'Hassle-free booking and dedicated customer support.'
+      description: 'Smooth booking experience with reliable support'
     }
   ];
 
@@ -62,13 +62,13 @@ export default function WhyChoose() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl md:text-2xl font-semibold text-[#164925] font-poppins leading-snug">
-                    Customers are satisfied and happy with our services
+                    Customers are satisfied and Happy with our services
                   </h3>
                 </div>
               </div>
 
               <p className="text-sm md:text-base text-[#164925] opacity-90 leading-relaxed font-nunito">
-                Growniq transforms every corner of your world — from cozy balconies and home gardens to rooftops and outdoor spaces — into a serene green oasis through expert gardening, landscaping, and maintenance services.
+                Growniq transforms every space from balconies and home gardens to rooftops and open areas into a calm, beautiful green oasis with expert gardening, landscaping, and maintenance services.
               </p>
             </div>
 
