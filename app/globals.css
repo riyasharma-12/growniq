@@ -164,17 +164,6 @@ html {
     background: #164925;
   }
 
-  h2 {
-    font-size: 22px !important;
-    font-weight: 500 !important;
-  }
-
-  h3 {
-    text-align: center !important;
-    font-size: 15px !important;
-    font-weight: 500 !important;
-  }
-
   .topBanner-bg {
     background-image: url("/images/mobi-top-banner-bg.png");
     background-size: cover;

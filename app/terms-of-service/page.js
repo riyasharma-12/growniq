@@ -10,16 +10,16 @@ export default function TermsOfService() {
   return (
     <div className="min-h-screen bg-[#FFFAF3] py-6 md:py-10">
       <div className="container mx-auto px-4 sm:px-6 max-w-[1200px]">
-        
+
         {/* Breadcrumb / Back Link */}
-        <div className="mb-6 flex items-center gap-2">
-          <Link 
-            href="/" 
+        <div className="hidden md:flex mb-6 flex items-center gap-2">
+          <Link
+            href="/"
             className="flex items-center gap-2 text-[#164925] font-medium text-sm md:text-base hover:opacity-80 transition-opacity"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-              <polyline points="9 22 9 12 15 12 15 22"/>
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
             </svg>
             <span className="underline [text-underline-position:from-font] decoration-solid">Back To Home Screen</span>
           </Link>
@@ -35,54 +35,55 @@ export default function TermsOfService() {
           <h1 className="text-3xl md:text-6xl font-medium text-[#164925] leading-tight tracking-tight font-poppins">
             Our Terms of Service
           </h1>
-          <p className="text-base md:text-lg text-[#164925] opacity-90 font-nunito max-w-2xl mx-auto">
+          <p className="hidden md:flex text-base md:text-lg text-[#164925] opacity-90 font-nunito max-w-2xl mx-auto">
             Read our Terms below to learn more about your rights and responsibilities as a Growniq user.
+          </p>
+
+          <p className="md:hidden flex  items-center justify-center text-center text-sm text-[#164925] opacity-90 font-nunito font-medium ">
+            Updated, 17 March 2025
           </p>
         </div>
 
         {/* Interactive Tabs */}
-        <div className="max-w-[900px] mx-auto bg-white rounded-3xl shadow-md border border-[rgba(22,73,37,0.1)] overflow-hidden mb-12">
-          
+        <div className="max-w-[1200px] mx-auto  overflow-hidden mb-12">
+
           {/* Tab Headers */}
-          <div className="flex border-b border-[#8aa492]/30 bg-[#FFFAF3]/50">
+          <div className="max-w-[600px] mx-auto flex border-b border-[#8aa492]/30 bg-[#FFFAF3]/50">
             <button
               onClick={() => setActiveTab('customer')}
-              className={`flex-1 py-4 md:py-5 text-center font-poppins text-lg md:text-xl font-medium transition-all border-b-4 ${
-                activeTab === 'customer'
-                  ? 'border-[#164925] text-[#164925] bg-white'
-                  : 'border-transparent text-[#164925]/60 hover:text-[#164925] hover:bg-white/30'
-              }`}
+              className={`flex-1 py-4 md:py-5 text-center font-poppins text-lg md:text-xl font-medium transition-all border-b-2 ${activeTab === 'customer'
+                ? 'border-[#164925] text-[#164925]'
+                : 'border-transparent text-[#164925]/60 hover:text-[#164925] hover:bg-white/30'
+                }`}
             >
               Customer
             </button>
             <button
               onClick={() => setActiveTab('partner')}
-              className={`flex-1 py-4 md:py-5 text-center font-poppins text-lg md:text-xl font-medium transition-all border-b-4 ${
-                activeTab === 'partner'
-                  ? 'border-[#164925] text-[#164925] bg-white'
-                  : 'border-transparent text-[#164925]/60 hover:text-[#164925] hover:bg-white/30'
-              }`}
+              className={`flex-1 py-4 md:py-5 text-center font-poppins text-lg md:text-xl font-medium transition-all border-b-2 ${activeTab === 'partner'
+                ? 'border-[#164925] text-[#164925] '
+                : 'border-transparent text-[#164925]/60 hover:text-[#164925] hover:bg-white/30'
+                }`}
             >
               Partner
             </button>
             <button
               onClick={() => setActiveTab('gardner')}
-              className={`flex-1 py-4 md:py-5 text-center font-poppins text-lg md:text-xl font-medium transition-all border-b-4 ${
-                activeTab === 'gardner'
-                  ? 'border-[#164925] text-[#164925] bg-white'
-                  : 'border-transparent text-[#164925]/60 hover:text-[#164925] hover:bg-white/30'
-              }`}
+              className={`flex-1 py-4 md:py-5 text-center font-poppins text-lg md:text-xl font-medium transition-all border-b-2 ${activeTab === 'gardner'
+                ? 'border-[#164925] text-[#164925] '
+                : 'border-transparent text-[#164925]/60 hover:text-[#164925] hover:bg-white/30'
+                }`}
             >
               Gardner
             </button>
           </div>
 
           {/* Tab Content */}
-          <div className="p-6 md:p-10 text-[#164925] space-y-8 font-nunito">
-            
+          <div className="p-3 md:p-6 text-[#164925]  bg-[#FFFAF3] space-y-8 font-nunito">
+
             {activeTab === 'customer' && (
               <div className="space-y-8 animate-fadeIn">
-                
+
                 <div className="space-y-3">
                   <h3 className="text-xl md:text-2xl font-semibold font-poppins">1. INTRODUCTION</h3>
                   <p className="leading-relaxed text-sm md:text-base opacity-90">
@@ -285,9 +286,9 @@ export default function TermsOfService() {
         </div>
 
         {/* Download App Section */}
-        <div className="border-t border-[rgba(22,73,37,0.1)] mt-12 pt-8">
+        {/* <div className="border-t border-[rgba(22,73,37,0.1)] mt-12 pt-8">
           <DownloadWidget />
-        </div>
+        </div> */}
       </div>
     </div>
   );

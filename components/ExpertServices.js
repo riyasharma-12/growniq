@@ -11,27 +11,27 @@ export default function ExpertServices() {
   const services = [
     {
       id: 1,
-      title: 'Book a Gardner',
+      title: 'Book A Gardner',
       image: '/images/service-1.png',
-      alt: 'Book a Gardner'
+      alt: 'Book A Gardner'
     },
     {
       id: 2,
-      title: 'Monthly plant care',
+      title: 'Monthly Plant Care',
       image: '/images/service-2.png',
-      alt: 'Monthly plant care'
+      alt: 'Monthly Plant Care'
     },
     {
       id: 3,
-      title: 'Lawn Maintenance',
-      image: '/images/service-4.png',
-      alt: 'Lawn Maintenance'
-    },
-    {
-      id: 4,
       title: 'Terrace Garden Maintenance',
       image: '/images/service-3.png',
       alt: 'Terrace Garden Maintenance'
+    },
+    {
+      id: 4,
+      title: 'Lawn Maintenance',
+      image: '/images/service-4.png',
+      alt: 'Lawn Maintenance'
     },
     {
       id: 5,
@@ -76,7 +76,7 @@ export default function ExpertServices() {
       const container = scrollContainerRef.current;
       const cardWidth = container.scrollWidth / services.length;
       const scrollPosition = cardWidth * index;
-      
+
       container.scrollTo({
         left: scrollPosition,
         behavior: 'smooth'
@@ -85,47 +85,46 @@ export default function ExpertServices() {
   };
 
   return (
-    <section className="bg-[#FFFAF3] py-10 md:py-16 -mt-[1px]">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section className=" py-10 md:py-16 -mt-[1px]">
+      <div className="container mx-auto px-4 sm:px-6 max-w-[1200px]">
         {/* Header */}
-        <div className="text-center mb-10 sm:mb-12">
-          <div className="flex items-center justify-center">
-            <div className="mb-4 md:hidden mx-auto">
-              <Image src="/images/leaf-icon.svg" alt="leaf-icon" width={24} height={24} />
-            </div>
+        <div className="text-center mb-8 md:mb-12">
+          {/* Leaf Icon - Centered for both mobile and desktop */}
+          <div className="flex items-center justify-center mb-3">
+            <Image src="/images/leaf-icon.svg" alt="leaf-icon" width={24} height={24} className="w-[20px] h-[20px] md:w-[24px] md:h-[24px]" />
           </div>
-          <h2 className="text-[22px] md:text-4xl md:font-normal text-[#164925] mb-3 sm:mb-4">
+          <h2 className="text-[22px] md:text-4xl font-medium md:font-normal text-[#164925] mb-2 sm:mb-4">
             Our Expert Services
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-green max-w-3xl mx-auto">
+          <p className="text-xs sm:text-base text-green max-w-3xl mx-auto font-nunito px-4">
             Professional gardening and landscaping services tailored to your needs
           </p>
         </div>
 
-        {/* Services Carousel */}
-        <div className="relative">
-          <div 
+        {/* Desktop View: Carousel Slider */}
+        <div className="hidden lg:block relative">
+          <div
             ref={scrollContainerRef}
-            className="overflow-x-auto scrollbar-hide scroll-smooth mb-8 [scroll-snap-type:x_mandatory]"
+            className="overflow-x-auto scrollbar-hide scroll-smooth mb-6 [scroll-snap-type:x_mandatory]"
           >
             <div className="flex gap-6 lg:gap-8 pb-4">
               {services.map((service) => (
                 <div
                   key={service.id}
-                  className="flex-shrink-0 w-[288px] overflow-hidden cursor-pointer [scroll-snap-align:start]"
+                  className="flex-shrink-0 w-[270px] flex flex-col rounded-2xl overflow-hidden cursor-pointer [scroll-snap-align:start]"
                 >
                   {/* Service Image */}
-                  <div className="relative h-[192px] w-[288px] overflow-hidden rounded-2xl">
+                  <div className="relative h-[180px] w-[270px] overflow-hidden rounded-t-2xl">
                     <img
                       src={service.image}
                       alt={service.alt}
-                      className="w-full h-full object-cover rounded-2xl transition-transform duration-300 ease-out transform hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-300 ease-out transform hover:scale-105"
                     />
                   </div>
 
-                  {/* Service Content */}
-                  <div className="pt-4 text-center">
-                    <h3 className="text-lg md:text-xl font-medium text-green leading-7">
+                  {/* Service Content - Cream background box rounded at bottom */}
+                  <div className="bg-[#FFE9CA] py-3.5 px-3 text-center flex items-center justify-center min-h-[58px] rounded-b-2xl">
+                    <h3 className="text-[14px] font-semibold text-[#164925] leading-tight font-poppins">
                       {service.title}
                     </h3>
                   </div>
@@ -134,36 +133,62 @@ export default function ExpertServices() {
             </div>
           </div>
 
-          {/* Navigation Arrows - Centered per Figma */}
-          <div className="hidden md:block">      
-            <div className="hidden sm:flex items-center justify-center gap-5 mt-4">
-              <button
-                onClick={handlePrev}
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-green flex items-center justify-center hover:bg-green hover:text-white transition-colors"
-                aria-label="Previous service"
-              >
-                <LeftArrow className="w-5 h-5 sm:w-6 sm:h-6" />
-              </button>
-              <button
-                onClick={handleNext}
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-green flex items-center justify-center hover:bg-green hover:text-white transition-colors"
-                aria-label="Next service"
-              >
-                <RightArrow className="w-5 h-5 sm:w-6 sm:h-6" />
-              </button>
-            </div>
+          {/* Navigation Arrows */}
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <button
+              onClick={handlePrev}
+              className="w-[42px] h-[42px] rounded-full border border-[rgba(22,73,37,0.3)] flex items-center justify-center hover:bg-[#164925] hover:border-[#164925] group transition-all"
+              aria-label="Previous service"
+            >
+              <LeftArrow className="w-[6px] h-[11px] stroke-[#164925] group-hover:stroke-white transition-colors" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="w-[42px] h-[42px] rounded-full border border-[rgba(22,73,37,0.3)] flex items-center justify-center hover:bg-[#164925] hover:border-[#164925] group transition-all"
+              aria-label="Next service"
+            >
+              <RightArrow className="w-[6px] h-[11px] stroke-[#164925] group-hover:stroke-white transition-colors" />
+            </button>
           </div>
         </div>
 
-        {/* Download Growniq App - Per Figma design */}
+        {/* Mobile & Tablet View: 2-Line Horizontal Scroll */}
+        <div className="lg:hidden overflow-x-auto scrollbar-hide pb-4">
+          <div className="grid grid-rows-2 grid-flow-col gap-4 w-max px-4">
+            {services.map((service) => (
+              <div
+                key={service.id}
+                className="w-[200px] flex flex-col rounded-2xl overflow-hidden cursor-pointer"
+              >
+                {/* Service Image */}
+                <div className="relative h-[100px] w-[200px] overflow-hidden rounded-t-2xl">
+                  <img
+                    src={service.image}
+                    alt={service.alt}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Service Content - Cream background box rounded at bottom */}
+                <div className="bg-[#FFE9CA] py-2 px-2 text-center flex items-center justify-center min-h-[46px] rounded-b-2xl">
+                  <h3 className="text-[12px] font-semibold text-[#164925] leading-tight font-poppins">
+                    {service.title}
+                  </h3>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Download Growniq App Buttons */}
         <div className="text-center mt-10 md:mt-14">
-          <p className="text-sm md:text-base text-[#164925] mb-3 font-medium">Download Growniq App</p>
-          <div className="flex items-center justify-center gap-4">
-            <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer">
-              <Image src="/images/app-store.png" alt="Download on the Apple Store" width={207} height={60} className="object-contain h-[50px] md:h-[60px] w-auto" />
+          <p className="text-xs md:text-sm text-[#164925] mb-4 font-medium font-nunito">Download Growniq App</p>
+          <div className="flex items-center justify-center gap-3.5 px-4 flex-wrap">
+            <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity">
+              <Image src="/images/608.png" alt="Download on the Apple Store" width={140} height={42} className="object-contain h-[42px] w-auto" />
             </a>
-            <a href="https://play.google.com" target="_blank" rel="noopener noreferrer">
-              <Image src="/images/play-store.png" alt="Get it on Google Play" width={196} height={60} className="object-contain h-[50px] md:h-[60px] w-auto" />
+            <a href="https://play.google.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity">
+              <Image src="/images/609.png" alt="Get it on Google Play" width={140} height={42} className="object-contain h-[42px] w-auto" />
             </a>
           </div>
         </div>
