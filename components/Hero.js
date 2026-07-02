@@ -1,7 +1,18 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
+
+const serviceOptions = [
+  { value: 'book-a-gardener', label: 'Book a Gardner' },
+  { value: 'monthly-plant-care', label: 'Monthly plant care' },
+  { value: 'lawn-maintenance', label: 'Lawn Maintenance' },
+  { value: 'terrace-garden-maintenance', label: 'Terrace Garden Maintenance' },
+  { value: 'new-home-plant-setup', label: 'New Home Plant Setup' },
+  { value: 'garden-heavy-work', label: 'Garden Heavy Work' },
+  { value: 'workspace-plant-care', label: 'Workspace Plant Care' },
+  { value: 'plant-repotting', label: 'Plant Repotting' },
+];
 
 export default function Hero() {
   const [service, setService] = useState('');
@@ -12,6 +23,8 @@ export default function Hero() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formError, setFormError] = useState('');
+  const [isServiceDropdownOpen, setIsServiceDropdownOpen] = useState(false);
+  const serviceDropdownRef = useRef(null);
   const slides = [
     '/images/Gardening-Image-atf-3.png',
     '/images/AI-Plant-atf-2.png',
@@ -43,6 +56,17 @@ export default function Hero() {
     return () => clearInterval(slideInterval);
   }, [nextSlide, isPaused]);
 
+  // Close service dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (serviceDropdownRef.current && !serviceDropdownRef.current.contains(e.target)) {
+        setIsServiceDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   // Go to specific slide
   const goToSlide = (index) => {
     setCurrent(index);
@@ -56,14 +80,14 @@ export default function Hero() {
   return (
     <section className="heroBanner py-0 lg:py-16">
       <div className="container mx-auto px-0 lg:px-6 max-w-[1200px]">
-        <div className="grid lg:grid-cols-2 gap-0 lg:gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-0 lg:gap-12 items-start lg:items-stretch">
 
           {/* Left Content */}
           <div className="topBanner-bg px-4 lg:px-0 space-y-5 lg:space-y-6 relative">
             {/* Heading */}
             <div>
               <h1 className="hidden lg:block text-[26px] lg:text-[40px] font-medium text-[#164925] leading-[34px] lg:leading-[52px]">
-                All your green needs, Services, Store &amp; AI care in one app <Image src="/images/Subtract.png" alt="" width={21} height={26} className="inline-block ml-1 -mt-1 w-[18px] h-[22px] lg:w-[21px] lg:h-[26px]" />
+                All your green needs, Services, Store &amp; AI care in one app <Image src="/images/subtract2.svg" alt="" width={21} height={26} className="inline-block ml-1 -mt-1 w-[18px] h-[22px] lg:w-[21px] lg:h-[26px]" />
               </h1>
 
               <h1 className=" mt-4 lg:hidden text-[26px] lg:text-[40px] font-medium text-[#164925] leading-[34px] lg:leading-[52px]">
@@ -119,7 +143,7 @@ export default function Hero() {
             <div className="flex flex-col lg:hidden items-center justify-center gap-4 pt-4 mt-4 border-t border-dashed border-[rgba(22,73,37,0.2)]">
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
-                  <div className="w-7 h-7 rounded-full bg-gray-300 border-2 border-white relative overflow-hidden">
+                  <div className="w-7 h-7 rounded-full bg-gray-300  relative overflow-hidden">
                     <Image src="/images/avtar-1.png" alt="User" fill className="object-cover" />
                   </div>
                   <div className="w-7 h-7 rounded-full bg-gray-400 border-2 border-white relative overflow-hidden">
@@ -158,7 +182,7 @@ export default function Hero() {
             </div>
 
             {/* Desktop Quote Form */}
-            <div className="hidden lg:block bg-[#FFE9CA] backdrop-blur-md border border-white/60 shadow-lg p-6 lg:p-8 rounded-2xl">
+            <div className="hidden lg:block bg-[#FFE9CA] backdrop-blur-md  p-6 lg:p-8 rounded-2xl">
               <form onSubmit={(e) => e.preventDefault()} className="space-y-5">
                 <div className="space-y-4">
                   {/* Select Service - Horizontal layout */}
@@ -166,30 +190,52 @@ export default function Hero() {
                     <label className="text-[14px] font-semibold text-[#164925] whitespace-nowrap min-w-[120px]">
                       Select Service
                     </label>
-                    <div className='relative flex-1'>
-                      <div className='absolute top-1/2 right-3 -translate-y-1/2 pointer-events-none'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <div className="relative flex-1" ref={serviceDropdownRef}>
+                      {/* Trigger Button */}
+                      <button
+                        type="button"
+                        onClick={() => setIsServiceDropdownOpen(!isServiceDropdownOpen)}
+                        className="appearance-none h-[44px] w-full px-4 py-2 rounded-lg border border-[rgba(22,73,37,0.2)] bg-white text-left text-[14px] focus:outline-none focus:ring-1 focus:ring-[#164925] focus:border-transparent flex items-center justify-between"
+                      >
+                        <span className={service ? 'text-[#164925]' : 'text-[#164925]/50'}>
+                          {service ? serviceOptions.find(s => s.value === service)?.label : 'Choose a service'}
+                        </span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          className={`transition-transform duration-200 ${isServiceDropdownOpen ? 'rotate-180' : ''}`}
+                        >
                           <g opacity="0.5">
                             <path d="M4 6L8 10L12 6" stroke="#164925" strokeLinecap="round" strokeLinejoin="round" />
                           </g>
                         </svg>
-                      </div>
-                      <select
-                        value={service}
-                        onChange={(e) => setService(e.target.value)}
-                        className="appearance-none h-[44px] w-full px-4 py-2 rounded-lg border border-[rgba(22,73,37,0.2)] bg-white text-[#164925] text-[14px] focus:outline-none focus:ring-1 focus:ring-[#164925] focus:border-transparent"
-                        required
-                      >
-                        <option value="">Choose a service</option>
-                        <option value="book-a-gardener">Book a Gardner</option>
-                        <option value="monthly-plant-care">Monthly plant care</option>
-                        <option value="lawn-maintenance">Lawn Maintenance</option>
-                        <option value="terrace-garden-maintenance">Terrace Garden Maintenance</option>
-                        <option value="new-home-plant-setup">New Home Plant Setup</option>
-                        <option value="garden-heavy-work">Garden Heavy Work</option>
-                        <option value="workspace-plant-care">Workspace Plant Care</option>
-                        <option value="plant-repotting">Plant Repotting</option>
-                      </select>
+                      </button>
+
+                      {/* Custom Dropdown Menu */}
+                      {isServiceDropdownOpen && (
+                        <div className="absolute top-full left-0 mt-2 w-full bg-white rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] py-2 z-50 border border-[rgba(22,73,37,0.08)]">
+                          {serviceOptions.map((option) => (
+                            <button
+                              key={option.value}
+                              type="button"
+                              className={`w-full text-left px-5 py-[10px] text-[14px] font-poppins transition-colors
+                                ${service === option.value
+                                  ? 'bg-[#D7EBE7] text-[#164925] font-medium'
+                                  : 'text-[#333333] hover:bg-[#F5F5F5] font-normal'
+                                }`}
+                              onClick={() => {
+                                setService(option.value);
+                                setIsServiceDropdownOpen(false);
+                              }}
+                            >
+                              {option.label}
+                            </button>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
 
@@ -210,27 +256,30 @@ export default function Hero() {
                 </div>
 
                 {/* Submit Button */}
-                <button
-                  type="button"
-                  onClick={handleGetQuote}
-                  className="w-full text-[15px] px-6 py-3 bg-[#164925] text-white font-medium rounded-lg hover:bg-[#1a5c3a] transition hover:shadow-lg"
-                >
-                  Get Instant Quote
-                </button>
+                <div className="flex items-center gap-4">
+                  <div className="min-w-[120px]" />
+                  <button
+                    type="button"
+                    onClick={handleGetQuote}
+                    className="flex-1 text-[15px] px-6 py-3 bg-[#164925] text-white font-medium rounded-lg hover:bg-[#1a5c3a] transition hover:shadow-lg"
+                  >
+                    Get Instant Quote
+                  </button>
+                </div>
               </form>
 
               {/* Desktop Stats */}
               <div className="flex items-center justify-between flex-row gap-6 mt-6 pt-6 border-t border-dashed border-[rgba(22,73,37,0.2)]">
                 <div className="flex items-center gap-2">
                   <div className="flex -space-x-2">
-                    <div className="w-8 h-8 rounded-full bg-gray-300 border-2 border-white relative overflow-hidden">
-                      <Image src="/images/avtar-1.png" alt="Professional gardener at work" fill className="object-cover" />
+                    <div className="w-8 h-8 rounded-full  relative overflow-hidden">
+                      <Image src="/images/m1.png" alt="Professional gardener at work" fill className="object-cover" />
                     </div>
-                    <div className="w-8 h-8 rounded-full bg-gray-400 border-2 border-white relative overflow-hidden">
-                      <Image src="/images/avtar-2.png" alt="Professional gardener at work" fill className="object-cover" />
+                    <div className="w-8 h-8 rounded-full  relative overflow-hidden">
+                      <Image src="/images/m2.png" alt="Professional gardener at work" fill className="object-cover" />
                     </div>
-                    <div className="w-8 h-8 rounded-full bg-gray-500 border-2 border-white relative overflow-hidden">
-                      <Image src="/images/avtar-3.png" alt="Professional gardener at work" fill className="object-cover" />
+                    <div className="w-8 h-8 rounded-full   relative overflow-hidden">
+                      <Image src="/images/m3.png" alt="Professional gardener at work" fill className="object-cover" />
                     </div>
                   </div>
                   <div className="text-xs sm:text-sm">
@@ -276,32 +325,24 @@ export default function Hero() {
                 >
                   {!isSubmitted ? (
                     /* ═══ FORM STATE ═══ */
-                    <div className="mx-auto w-full max-w-md lg:max-w-sm bg-white rounded-t-2xl lg:rounded-2xl shadow-xl overflow-hidden transform transition-transform duration-300 ease-out translate-y-0 lg:translate-y-0">
+                    <div className="mx-auto w-full max-w-md lg:max-w-sm bg-[#FFFAF3] rounded-t-2xl lg:rounded-2xl shadow-xl overflow-hidden transform transition-transform duration-300 ease-out translate-y-0 lg:translate-y-0">
 
-                      {/* Top Image Strip */}
-                      {/* <div className="relative h-[100px] lg:h-[90px] overflow-hidden">
-                        <img
-                          src="/images/Gardening-Image-atf-3.png"
-                          alt="Garden"
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-white/30 to-transparent" />
-                      </div> */}
-
-                      <div className="p-5 lg:p-4">
-                        <div className="flex items-start justify-between mb-1">
-                          <h3 className="text-[17px] lg:text-[15px] font-semibold text-[#164925]">Get in touch!</h3>
+                      <div className="p-6">
+                        <div className="flex items-start justify-between mb-2">
+                          <h3 className="text-[20px] font-bold text-[#164925] font-poppins">Get in touch!</h3>
                           <button
                             aria-label="Close"
-                            className="-m-1 p-1 rounded"
+                            className="-m-1 p-1 rounded-full hover:bg-black/5 transition-colors"
                             onClick={() => { setIsContactOpen(false); setTimeout(() => { setIsSubmitted(false); setFormError(''); }, 300); }}
                           >
-                            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#164925">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#164925">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                           </button>
                         </div>
-                        <p className="text-xs text-[#164925]/70 mb-4 lg:mb-3 font-nunito">Please give us information and we will get back to you as soon as possible.</p>
+                        <p className="text-sm text-[#164925] opacity-80 mb-5 font-nunito leading-relaxed">
+                          Please give us information and we will get back to you as soon as possible.
+                        </p>
 
                         <form
                           onSubmit={async (e) => {
@@ -335,16 +376,18 @@ export default function Hero() {
                               setIsSubmitting(false);
                             }
                           }}
-                          className="space-y-3.5 lg:space-y-2.5"
+                          className="space-y-4"
                         >
                           {/* Select Service */}
-                          <div>
-                            <label className="block text-[13px] lg:text-[12px] font-medium text-[#164925] mb-1.5 lg:mb-1">Select Service<span className="text-red-500">*</span></label>
+                          <div className="space-y-1 text-left">
+                            <label className="block text-[14px] font-semibold text-[#164925] font-poppins">
+                              Select Service<span className="text-red-500">*</span>
+                            </label>
                             <div className="relative">
                               <select
                                 value={service}
                                 onChange={(e) => setService(e.target.value)}
-                                className="appearance-none w-full h-11 lg:h-9 px-3 rounded-lg border border-[rgba(22,73,37,0.2)] bg-white text-[#164925] text-[13px] lg:text-[12px] focus:outline-none focus:ring-1 focus:ring-[#164925]"
+                                className="appearance-none w-full h-11 px-4 rounded-xl border border-[rgba(22,73,37,0.2)] bg-white text-[#164925] text-[14px] focus:outline-none focus:border-[#164925] focus:ring-1 focus:ring-[#164925] transition-colors"
                                 required
                               >
                                 <option value="">Choose a service</option>
@@ -357,7 +400,7 @@ export default function Hero() {
                                 <option value="workspace-plant-care">Workspace Plant Care</option>
                                 <option value="plant-repotting">Plant Repotting</option>
                               </select>
-                              <div className="absolute top-1/2 right-3 -translate-y-1/2 pointer-events-none">
+                              <div className="absolute top-1/2 right-4 -translate-y-1/2 pointer-events-none">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="none">
                                   <path d="M4 6L8 10L12 6" stroke="#164925" strokeOpacity="0.5" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
@@ -366,40 +409,46 @@ export default function Hero() {
                           </div>
 
                           {/* Enter Pincode */}
-                          <div>
-                            <label className="block text-[13px] lg:text-[12px] font-medium text-[#164925] mb-1.5 lg:mb-1">Enter Pincode<span className="text-red-500">*</span></label>
+                          <div className="space-y-1 text-left">
+                            <label className="block text-[14px] font-semibold text-[#164925] font-poppins">
+                              Enter Pincode<span className="text-red-500">*</span>
+                            </label>
                             <input
                               type="text"
                               value={location}
                               onChange={(e) => setLocation(e.target.value)}
-                              placeholder="Enter your pincode"
-                              className="w-full h-11 lg:h-9 px-3 rounded-lg border border-[rgba(22,73,37,0.2)] bg-white text-[#164925] text-[13px] lg:text-[12px] focus:outline-none focus:ring-1 focus:ring-[#164925]"
+                              placeholder=""
+                              className="w-full h-11 px-4 rounded-xl border border-[rgba(22,73,37,0.2)] bg-white text-[#164925] text-[14px] focus:outline-none focus:border-[#164925] focus:ring-1 focus:ring-[#164925] transition-colors"
                               required
                             />
                           </div>
 
                           {/* Name */}
-                          <div>
-                            <label className="block text-[13px] lg:text-[12px] font-medium text-[#164925] mb-1.5 lg:mb-1">Name<span className="text-red-500">*</span></label>
+                          <div className="space-y-1 text-left">
+                            <label className="block text-[14px] font-semibold text-[#164925] font-poppins">
+                              Name<span className="text-red-500">*</span>
+                            </label>
                             <input
                               type="text"
                               value={contactName}
                               onChange={(e) => { setContactName(e.target.value); setFormError(''); }}
-                              placeholder="Your name"
-                              className="w-full h-11 lg:h-9 px-3 rounded-lg border border-[rgba(22,73,37,0.2)] bg-white text-[#164925] text-[13px] lg:text-[12px] focus:outline-none focus:ring-1 focus:ring-[#164925]"
+                              placeholder=""
+                              className="w-full h-11 px-4 rounded-xl border border-[rgba(22,73,37,0.2)] bg-white text-[#164925] text-[14px] focus:outline-none focus:border-[#164925] focus:ring-1 focus:ring-[#164925] transition-colors"
                               required
                             />
                           </div>
 
                           {/* Mobile Number */}
-                          <div>
-                            <label className="block text-[13px] lg:text-[12px] font-medium text-[#164925] mb-1.5 lg:mb-1">Mobile Number<span className="text-red-500">*</span></label>
+                          <div className="space-y-1 text-left">
+                            <label className="block text-[14px] font-semibold text-[#164925] font-poppins">
+                              Mobile Number <span className="text-red-500">*</span>
+                            </label>
                             <input
                               type="tel"
                               value={contactMobile}
                               onChange={(e) => { setContactMobile(e.target.value); setFormError(''); }}
-                              placeholder="Enter mobile number"
-                              className="w-full h-11 lg:h-9 px-3 rounded-lg border border-[rgba(22,73,37,0.2)] bg-white text-[#164925] text-[13px] lg:text-[12px] focus:outline-none focus:ring-1 focus:ring-[#164925]"
+                              placeholder=""
+                              className="w-full h-11 px-4 rounded-xl border border-[rgba(22,73,37,0.2)] bg-white text-[#164925] text-[14px] focus:outline-none focus:border-[#164925] focus:ring-1 focus:ring-[#164925] transition-colors"
                               required
                             />
                           </div>
@@ -413,7 +462,7 @@ export default function Hero() {
                           <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full rounded-lg bg-[#164925] text-white text-[14px] lg:text-[13px] font-medium py-3 lg:py-2.5 hover:bg-[#1a5c3a] transition disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                            className="w-full h-12 rounded-xl bg-[#164925] text-white text-[15px] font-medium hover:bg-[#123a1d] transition disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer mt-2"
                           >
                             {isSubmitting ? (
                               <>
@@ -432,46 +481,54 @@ export default function Hero() {
                     </div>
                   ) : (
                     /* ═══ THANK YOU STATE ═══ */
-                    <div className="mx-auto w-full max-w-[320px] bg-white rounded-2xl shadow-2xl overflow-hidden font-poppins">
+                    <div className="relative mx-auto w-full max-w-[340px] md:max-w-[520px] bg-[#FFFDF9] rounded-[24px] shadow-2xl p-6 md:p-8 font-poppins text-left">
                       {/* Close Button */}
                       <button
                         onClick={() => { setIsContactOpen(false); setTimeout(() => { setIsSubmitted(false); setContactName(''); setContactMobile(''); setService(''); setLocation(''); setFormError(''); }, 300); }}
                         aria-label="Close"
-                        className="absolute top-4 right-4 z-20 w-7 h-7 flex items-center justify-center rounded-full bg-black/10 text-gray-500 hover:bg-black/20 hover:text-gray-700 transition-colors"
+                        className="absolute top-4 right-4 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-[#164925]/10 text-[#164925] hover:bg-[#164925]/20 transition-colors"
                       >
-                        <svg width="10" height="10" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                         </svg>
                       </button>
 
-                      {/* Flower Image with Dashed Border */}
-                      <div className="flex justify-center pt-7 pb-4 px-6">
-                        <div className="relative w-[160px] h-[160px] rounded-2xl border-2 border-dashed border-[#164925]/40 p-2 flex items-center justify-center">
+                      {/* Flex container: column on mobile, row on desktop */}
+                      <div className="flex flex-col md:flex-row items-center md:items-stretch gap-6 md:gap-8">
+                        {/* Left Side: Graphic Image */}
+                        <div className="flex items-center justify-center shrink-0 w-[140px] h-[140px] md:w-[180px] md:h-[180px]">
                           <img
-                            src="/images/popup.png"
+                            src="/images/thanks.png"
                             alt="Thank You Flowers"
-                            className="w-full h-full object-cover rounded-xl"
+                            className="w-full h-full object-contain"
                           />
                         </div>
-                      </div>
 
-                      {/* Thank You Content */}
-                      <div className="text-center px-6 pb-7">
-                        <h3 className="text-[#164925] font-bold text-lg leading-snug mb-1">
-                          Thank You
-                        </h3>
-                        <p className="text-[#164925]/80 font-medium text-sm mb-1">
-                          We've Got Your Request
-                        </p>
-                        <p className="text-gray-500 text-xs mb-5 font-nunito">
-                          We'll get back to you as soon as possible!
-                        </p>
-                        <button
-                          onClick={() => { setIsContactOpen(false); setTimeout(() => { setIsSubmitted(false); setContactName(''); setContactMobile(''); setService(''); setLocation(''); setFormError(''); }, 300); }}
-                          className="w-full max-w-[200px] rounded-lg bg-[#164925] text-white text-sm font-medium py-2.5 hover:bg-[#1b532c] transition-colors"
-                        >
-                          Explore Now
-                        </button>
+                        {/* Right Side: Text Content & Explore Button */}
+                        <div className="flex flex-col justify-between text-center md:text-left flex-1 py-1 md:py-2">
+                          <div className="space-y-2 md:space-y-3">
+                            <div className="text-[#164925]">
+                              <h3 className="text-xl md:text-2xl font-bold leading-tight">
+                                Thank You,
+                              </h3>
+                              <h3 className="text-xl md:text-2xl font-bold leading-tight">
+                                We've Got Your Request
+                              </h3>
+                            </div>
+                            <p className="text-[#164925] opacity-80 text-xs md:text-sm font-medium font-nunito leading-normal">
+                              Team Growniq will connect with you soon
+                            </p>
+                          </div>
+
+                          <div className="mt-5 md:mt-auto flex justify-center md:justify-start">
+                            <button
+                              onClick={() => { setIsContactOpen(false); setTimeout(() => { setIsSubmitted(false); setContactName(''); setContactMobile(''); setService(''); setLocation(''); setFormError(''); }, 300); }}
+                              className="px-8 py-2 rounded-full border border-[#164925] text-[#164925] text-[13px] md:text-[14px] font-semibold bg-transparent hover:bg-[#164925] hover:text-[#FFE9CA] transition-all duration-300 cursor-pointer"
+                            >
+                              Explore More
+                            </button>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -481,9 +538,9 @@ export default function Hero() {
           </div>
 
           {/* Right Image Carousel */}
-          <div className="relative order-first lg:order-last">
+          <div className="relative order-first lg:order-last lg:flex lg:flex-col">
             <div
-              className="relative rounded-none lg:rounded-3xl overflow-hidden"
+              className="relative rounded-none lg:rounded-3xl overflow-hidden lg:flex-1 lg:flex lg:flex-col lg:h-full"
               onTouchStart={(e) => setTouchStartX(e.changedTouches[0].clientX)}
               onTouchMove={(e) => setTouchEndX(e.changedTouches[0].clientX)}
               onTouchEnd={() => {
@@ -501,18 +558,18 @@ export default function Hero() {
               }}
             >
               <div
-                className="w-full h-[220px] lg:h-[580px] relative overflow-hidden"
+                className="w-full h-[220px] lg:h-full lg:flex-1 relative overflow-hidden"
               >
                 <div
-                  className="flex transition-transform duration-500 ease-in-out"
+                  className="flex lg:h-full transition-transform duration-500 ease-in-out"
                   style={{ transform: `translateX(-${current * 100}%)` }}
                 >
                   {slides.map((slide, index) => (
-                    <div key={index} className="w-full flex-shrink-0">
+                    <div key={index} className="w-full h-full flex-shrink-0 lg:h-full">
                       <img
                         src={slide}
                         alt={`Slide ${index + 1}`}
-                        className="object-cover w-full h-[220px] lg:h-[580px]"
+                        className="object-cover w-full h-[220px] lg:h-full"
                       />
                     </div>
                   ))}

@@ -165,15 +165,15 @@ export const AiStar = () => (
     </svg>
 )
 
-export const RightArrow = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
-        <path d="M0.5 0.499977L4.813 4.81298L0.5 9.12598" stroke="#164925" stroke-linecap="round" stroke-linejoin="round" />
+export const RightArrow = ({ className }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none" className={className}>
+        <path d="M0.5 0.499977L4.813 4.81298L0.5 9.12598" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
 )
 
-export const LeftArrow = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="6" height="11" viewBox="0 0 6 11" fill="none">
-        <path d="M5.04004 0.500078L0.500039 5.04008L5.04004 9.58008" stroke="#164925" stroke-linecap="round" stroke-linejoin="round" />
+export const LeftArrow = ({ className }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="6" height="11" viewBox="0 0 6 11" fill="none" className={className}>
+        <path d="M5.04004 0.500078L0.500039 5.04008L5.04004 9.58008" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
 )
 

@@ -181,9 +181,11 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import DownloadModal from './DownloadModal';
 
 export default function DigiNursery() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isDownloadOpen, setIsDownloadOpen] = useState(false);
 
   const productImages = [
     '/images/service-1.png',
@@ -235,10 +237,10 @@ export default function DigiNursery() {
 
           {/* Desktop Mockup Overlay Container */}
           <div className="hidden lg:block relative w-full h-full">
-            <img src="/images/group.png" alt="DigiNursery" className="w-full h-full object-cover" />
+            <img src="/images/video.svg" alt="DigiNursery" className="w-full h-full object-cover" />
 
             {/* Screen content overlay (fits inside the iPhone mockup screen) */}
-            <div
+            {/* <div
               className="absolute overflow-hidden bg-white"
               style={{
                 top: '17.3%',
@@ -255,25 +257,25 @@ export default function DigiNursery() {
                 alt="Product screen"
                 className="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
               />
-            </div>
+            </div> */}
 
             {/* SVG Overlay containing the animated circle traveling along the dotted path */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none z-20" viewBox="0 0 768 634">
+            {/* <svg className="absolute inset-0 w-full h-full pointer-events-none z-20" viewBox="0 0 768 634">
               <path id="desktop-curve" d="M 640,250 C 660,280 625,360 670,375" fill="none" stroke="none" />
               <circle r="6" fill="#ED5213">
                 <animateMotion dur="3.5s" repeatCount="indefinite">
                   <mpath href="#desktop-curve" />
                 </animateMotion>
               </circle>
-            </svg>
+            </svg> */}
           </div>
 
           {/* Mobile Mockup Overlay Container */}
           <div className="lg:hidden relative w-full aspect-[656/564]">
-            <img src="/images/group.png" alt="DigiNursery" className="w-full h-full object-cover" />
+            <img src="/images/basket.svg" alt="DigiNursery" className="w-full h-full object-cover" />
 
             {/* Mobile screen content overlay */}
-            <div
+            {/* <div
               className="absolute overflow-hidden bg-white"
               style={{
                 top: '28.3%',
@@ -290,17 +292,17 @@ export default function DigiNursery() {
                 alt="Product screen"
                 className="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
               />
-            </div>
+            </div> */}
 
             {/* SVG Overlay for mobile curves */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none z-20" viewBox="0 0 656 564">
+            {/* <svg className="absolute inset-0 w-full h-full pointer-events-none z-20" viewBox="0 0 656 564">
               <path id="mobile-curve" d="M 450,220 C 470,250 430,340 470,360" fill="none" stroke="none" />
               <circle r="5" fill="#ED5213">
                 <animateMotion dur="3.5s" repeatCount="indefinite">
                   <mpath href="#mobile-curve" />
                 </animateMotion>
               </circle>
-            </svg>
+            </svg> */}
           </div>
         </div>
 
@@ -349,18 +351,33 @@ export default function DigiNursery() {
           {/* Download App Buttons - Matching Figma Layout */}
           <div className="mt-8 lg:mt-12 text-left">
             <p className="text-xs text-[#164925] mb-3.5 font-medium font-nunito">Download Growniq App</p>
-            <div className="flex items-center gap-3.5 flex-wrap">
-              <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity">
-                <Image src="/images/608.png" alt="Download on the Apple Store" width={140} height={42} className="object-contain h-[42px] w-auto" />
+            <div className="flex flex-row items-center gap-3">
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsDownloadOpen(true);
+                }}
+                className="hover:opacity-90 transition-opacity"
+              >
+                <Image src="/images/608.svg" alt="Download on the Apple Store" width={140} height={50} className="object-contain h-[38px] md:h-[50px] w-auto" />
               </a>
-              <a href="https://play.google.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity">
-                <Image src="/images/609.png" alt="Get it on Google Play" width={140} height={42} className="object-contain h-[42px] w-auto" />
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsDownloadOpen(true);
+                }}
+                className="hover:opacity-90 transition-opacity"
+              >
+                <Image src="/images/609.svg" alt="Get it on Google Play" width={140} height={50} className="object-contain h-[38px] md:h-[50px] w-auto" />
               </a>
             </div>
           </div>
         </div>
 
       </div>
+      <DownloadModal open={isDownloadOpen} onClose={() => setIsDownloadOpen(false)} />
     </div>
   );
 }

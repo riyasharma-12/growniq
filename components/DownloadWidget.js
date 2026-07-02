@@ -9,7 +9,7 @@ export default function DownloadWidget() {
 
     const handleStoreClick = (e) => {
         e.preventDefault();
-        window.open("https://www.figma.com/design/BlW3DX6fTXmzEButibgqB7/Growniq-Web?node-id=1602-326&m=dev", "_blank");
+        setIsModalOpen(true);
     };
 
     const handleCloseModal = () => {
@@ -25,7 +25,7 @@ export default function DownloadWidget() {
                     {/* Desktop View (md and above) */}
                     <div className="hidden md:block relative w-full aspect-[1208/484] max-w-[1208px] mx-auto overflow-hidden">
                         <img
-                            src="/images/reviews1.png"
+                            src="/images/reviews1.svg"
                             alt="Download Growniq App"
                             className="w-full h-full object-contain"
                         />
@@ -48,7 +48,7 @@ export default function DownloadWidget() {
                     {/* Mobile View (below md) */}
                     <div className="block md:hidden relative w-full aspect-[328/626] max-w-[328px] mx-auto overflow-hidden">
                         <img
-                            src="/images/reviews.png"
+                            src="/images/reviews2.svg"
                             alt="Download Growniq App"
                             className="w-full h-full object-contain"
                         />

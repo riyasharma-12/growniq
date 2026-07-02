@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -50,103 +49,135 @@ export default function AiWidget() {
     }
   };
 
-  /* ─── shared arrow SVGs ─── */
-  const ChevronLeft = ({ size = 8 }) => (
-    <svg width={size} height={size * 1.6} viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M6.5 1L1.5 6.5L6.5 12" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-  const ChevronRight = ({ size = 8 }) => (
-    <svg width={size} height={size * 1.6} viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1.5 1L6.5 6.5L1.5 12" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-
   return (
+    // <section
+    //   id="ai-care"
+    //   className="relative overflow-hidden -mt-[1px]"
+    //   style={{
+    //     background: 'linear-gradient(160deg, #164925 0%, #1b532c 28%, #4a7a58 52%, #b8d8ca 76%, #e4ede8 100%)',
+    //   }}
+    // >
+
     <section
       id="ai-care"
-      className="relative overflow-hidden -mt-[1px]"
+      className="relative overflow-hidden -mt-[1px] bg-cover bg-center bg-no-repeat"
       style={{
-        background: 'linear-gradient(160deg, #164925 0%, #1b532c 28%, #4a7a58 52%, #b8d8ca 76%, #e4ede8 100%)',
+        backgroundImage: "url('/images/bg1.png')",
       }}
     >
 
       {/* ═══════════════════════════════════
           DESKTOP  (md and above)
       ═══════════════════════════════════ */}
-      <div className="hidden md:block relative" style={{ minHeight: '400px' }}>
+      <div className="hidden md:block relative" style={{ minHeight: '500px' }}>
         {/* Container that mirrors page max-width */}
         <div className="mx-auto px-10 lg:px-20 xl:px-28" style={{ maxWidth: '1200px' }}>
           {/* Left text block — sits in normal flow */}
           <div className="flex flex-col justify-center py-12" style={{ maxWidth: '50%' }}>
-            {/* Coming Soon Badge */}
-            <div className="mb-6">
-              <img
-                src="/images/coming-soon-badge.png"
-                alt="Coming Soon"
-                className="h-[38px] w-auto object-contain"
-              />
+
+            {/* Custom Premium Coming Soon Badge with Glow (Figma design) */}
+            <div className="mb-6 inline-flex animate-pulse">
+              {/* <div 
+                className="p-[1.5px] rounded-full"
+                style={{
+                  background: 'linear-gradient(90deg, #FFEF5C 0%, #3BF683 25%, #2FD5F6 50%, #703BF6 75%, #F62F8A 100%)',
+                  boxShadow: '0 0 20px rgba(255, 239, 92, 0.45), 0 0 20px rgba(112, 59, 246, 0.45)',
+                }}
+              > */}
+
+              <div
+                className="p-[1.5px] rounded-full"
+                style={{
+                  background:
+                    'linear-gradient(90deg, #FFEF5C 0%, #3BF683 25%, #2FD5F6 50%, #703BF6 75%, #F62F8A 100%)',
+                  boxShadow: `
+      0 0 40px 8px rgba(255, 239, 92, 0.7),
+      0 0 40px 8px rgba(112, 59, 246, 0.7)
+    `,
+                }}
+              >
+                <div className="bg-white rounded-full px-3 py-1 flex items-center gap-1.5">
+                  {/* Twinkle star icon */}
+                  <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 0L9.8 6.2L16 8L9.8 9.8L8 16L6.2 9.8L0 8L6.2 6.2L8 0Z" fill="#ff5a36" />
+                  </svg>
+                  <span className="text-[10px] md:text-[15px] font-extrabold text-[#ff5a36] font-poppins uppercase tracking-wider whitespace-nowrap">
+                    Coming Soon
+                  </span>
+                </div>
+              </div>
             </div>
 
             {/* Titles */}
             <div className="mb-8">
-              <p className="text-white/80 text-[18px] font-medium font-poppins mb-2">
+              <p className="text-white text-[35px] font-medium font-poppins mb-2">
                 AI Plant care
               </p>
-              <h2 className="font-bold text-white font-poppins leading-tight" style={{ fontSize: '36px' }}>
+              <h2 className="font-semibold text-white font-poppins leading-tight" style={{ fontSize: '35px' }}>
                 Expert Care for Any Plant
               </h2>
             </div>
 
             {/* Description */}
-            <p className="text-white/70 text-[15px] font-medium font-poppins mb-5">
-              Scan plant and get Instant diagnosis.
-            </p>
-
-            {/* Arrow buttons */}
-            <div className="flex items-center gap-3">
-              <button
-                onClick={handleArrowClick}
-                aria-label="Previous"
-                className="w-[44px] h-[44px] rounded-full border border-white/50 bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300"
-              >
-                <ChevronLeft size={8} />
-              </button>
-              <button
-                onClick={handleArrowClick}
-                aria-label="Next"
-                className="w-[44px] h-[44px] rounded-full bg-[#164925] flex items-center justify-center hover:bg-[#1a5c3a] transition-all duration-300"
-              >
-                <ChevronRight size={8} />
-              </button>
+            <div
+              className="absolute z-20 bottom-12"
+              style={{ maxWidth: '48%' }}
+            >
+              <p className="text-[#164925] text-[20px] font-medium font-poppins mb-[20px] leading-snug">
+                Scan plant and get Instant diagnosis.
+              </p>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={handleArrowClick}
+                  aria-label="Previous"
+                  className="w-[34px] h-[34px] rounded-full border border-white/50 bg-white/10 flex items-center justify-center cursor-pointer"
+                >
+                  <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 7H1M1 7L7 1M1 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                <button
+                  onClick={handleArrowClick}
+                  aria-label="Next"
+                  className="w-[34px] h-[34px] rounded-full bg-[#164925] flex items-center justify-center cursor-pointer"
+                >
+                  <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Plant image — absolute, flush to right & bottom */}
+        {/* Clean plant image & scan frame box (no pre-drawn items) */}
         <div
           className="absolute bottom-0 right-0 flex items-end justify-end"
           style={{ width: '48%', height: '100%', pointerEvents: 'none' }}
         >
-          {/* Scan overlay */}
+          {/* Scan overlay - styled exactly like Figma */}
           <div
-            className="absolute z-20"
-            style={{ right: '55%', top: '15%', width: '35%', aspectRatio: '1' }}
+            className="absolute z-20 pointer-events-none"
+            style={{ right: '55%', top: '15%', width: '35%', aspectRatio: '1.1' }}
           >
-            <div className="absolute -top-[3px] -left-[3px] w-6 h-6 border-t-4 border-l-4 border-white rounded-tl-sm" />
-            <div className="absolute -top-[3px] -right-[3px] w-6 h-6 border-t-4 border-r-4 border-white rounded-tr-sm" />
-            <div className="absolute -bottom-[3px] -left-[3px] w-6 h-6 border-b-4 border-l-4 border-white rounded-bl-sm" />
-            <div className="absolute -bottom-[3px] -right-[3px] w-6 h-6 border-b-4 border-r-4 border-white rounded-br-sm" />
-            <div className="absolute inset-0 border border-dashed border-white/30 rounded-lg" />
-            <div className="absolute left-0 w-full h-[3px] bg-[#00FF73] shadow-[0_0_15px_#00FF73] animate-scan" />
-            <div className="absolute top-[25%] left-[45%] w-2.5 h-2.5 bg-white rounded-full shadow-[0_0_8px_white] animate-ping" />
-            <div className="absolute top-[25%] left-[45%] w-2.5 h-2.5 bg-white rounded-full shadow-[0_0_8px_white]" />
-            <div className="absolute top-[40%] left-[30%] w-2 h-2 bg-white rounded-full shadow-[0_0_6px_white] animate-ping [animation-delay:0.4s]" />
-            <div className="absolute top-[40%] left-[30%] w-2 h-2 bg-white rounded-full shadow-[0_0_6px_white] [animation-delay:0.4s]" />
-            <div className="absolute top-[35%] right-[25%] w-2 h-2 bg-white rounded-full shadow-[0_0_6px_white] animate-ping [animation-delay:0.8s]" />
-            <div className="absolute top-[35%] right-[25%] w-2 h-2 bg-white rounded-full shadow-[0_0_6px_white] [animation-delay:0.8s]" />
-            <div className="absolute bottom-[35%] left-[50%] w-3 h-3 bg-white rounded-full shadow-[0_0_10px_white] animate-ping [animation-delay:1.2s]" />
-            <div className="absolute bottom-[35%] left-[50%] w-3 h-3 bg-white rounded-full shadow-[0_0_10px_white] [animation-delay:1.2s]" />
+            {/* Corner Brackets */}
+            <div className="absolute -top-[2.5px] -left-[2.5px] w-6 h-6 border-t-[3.5px] border-l-[3.5px] border-white rounded-tl-[3px] z-10" />
+            <div className="absolute -top-[2.5px] -right-[2.5px] w-6 h-6 border-t-[3.5px] border-r-[3.5px] border-white rounded-tr-[3px] z-10" />
+            <div className="absolute -bottom-[2.5px] -left-[2.5px] w-6 h-6 border-b-[3.5px] border-l-[3.5px] border-white rounded-bl-[3px] z-10" />
+            <div className="absolute -bottom-[2.5px] -right-[2.5px] w-6 h-6 border-b-[3.5px] border-r-[3.5px] border-white rounded-br-[3px] z-10" />
+
+            {/* Dashed Border */}
+            <div className="absolute inset-0 border border-dashed border-white/20 rounded-[2px] z-10" />
+
+            {/* Scan Image from assets */}
+            <img
+              src="/images/scan.png"
+              alt="Scan Overlay"
+              className="absolute inset-0 w-full h-full object-cover rounded-[2px] opacity-95"
+            />
+
+            {/* Animating Scanning Line */}
+            <div className="absolute left-0 w-full h-[2.5px] bg-[#00FF73] shadow-[0_0_12px_#00FF73] animate-scan z-20" />
           </div>
 
           <img
@@ -162,11 +193,6 @@ export default function AiWidget() {
           MOBILE  (below md)
       ═══════════════════════════════════ */}
       <div className="block md:hidden">
-        {/* Top row: text left + image right */}
-
-
-        {/* Bottom row: description + buttons, full width */}
-        {/* Bottom row: description + buttons, full width */}
         <div className="block md:hidden">
           <div
             className="relative overflow-hidden rounded-2xl"
@@ -174,14 +200,28 @@ export default function AiWidget() {
           >
             {/* Top-left: badge + headings */}
             <div className="relative z-10 px-4 pt-5" style={{ maxWidth: '60%' }}>
-              <div className="mb-3">
-                <img
-                  src="/images/coming-soon-badge.png"
-                  alt="Coming Soon"
-                  className="h-[35px] w-auto object-contain"
-                />
+
+              {/* Premium Coming Soon CSS Badge for Mobile */}
+              <div className="mb-3 inline-flex animate-pulse">
+                <div
+                  className="p-[1px] rounded-full"
+                  style={{
+                    background: 'linear-gradient(90deg, #FFEF5C 0%, #3BF683 25%, #2FD5F6 50%, #703BF6 75%, #F62F8A 100%)',
+                    boxShadow: '0 0 15px rgba(255, 239, 92, 0.4), 0 0 15px rgba(112, 59, 246, 0.4)',
+                  }}
+                >
+                  <div className="bg-white rounded-full px-2.5 py-0.5 flex items-center gap-1.2">
+                    <svg width="10" height="10" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8 0L9.8 6.2L16 8L9.8 9.8L8 16L6.2 9.8L0 8L6.2 6.2L8 0Z" fill="#ff5a36" />
+                    </svg>
+                    <span className="text-[9px] font-extrabold text-[#ff5a36] font-poppins uppercase tracking-wider whitespace-nowrap">
+                      Coming Soon
+                    </span>
+                  </div>
+                </div>
               </div>
-              <p className="text-white/80 text-[11px] font-medium font-poppins mb-1 leading-tight">
+
+              <p className="text-white text-[11px] font-medium font-poppins mb-1 leading-tight">
                 AI Plant care
               </p>
               <h2
@@ -192,7 +232,7 @@ export default function AiWidget() {
               </h2>
             </div>
 
-            {/* Plant image - bleeds to bottom + right edges, BIG */}
+            {/* Plant image - clean, no brain badge */}
             <div
               className="absolute z-0"
               style={{ right: -25, bottom: 0, width: '68%', height: '72%' }}
@@ -204,47 +244,53 @@ export default function AiWidget() {
               />
             </div>
 
-            {/* Scan overlay - sits ON TOP of the leaf, upper-left area of image */}
+            {/* Scan overlay - sits ON TOP of the leaf */}
             <div
               className="absolute z-10 pointer-events-none"
-              style={{ left: '40%', top: '38%', width: '25%', aspectRatio: '1' }}
+              style={{ left: '42%', top: '42%', width: '22%', aspectRatio: '1.1' }}
             >
-              <div className="absolute -top-[2px] -left-[2px] w-4 h-4 border-t-[3px] border-l-[3px] border-white rounded-tl-sm" />
-              <div className="absolute -top-[2px] -right-[2px] w-4 h-4 border-t-[3px] border-r-[3px] border-white rounded-tr-sm" />
-              <div className="absolute -bottom-[2px] -left-[2px] w-4 h-4 border-b-[3px] border-l-[3px] border-white rounded-bl-sm" />
-              <div className="absolute -bottom-[2px] -right-[2px] w-4 h-4 border-b-[3px] border-r-[3px] border-white rounded-br-sm" />
-              <div className="absolute inset-0 border border-dashed border-white/30 rounded-lg" />
-              <div className="absolute left-0 w-full h-[2px] bg-[#00FF73] shadow-[0_0_10px_#00FF73] animate-scan" />
-              <div className="absolute top-[25%] left-[45%] w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_6px_white] animate-ping" />
-              <div className="absolute top-[25%] left-[45%] w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_6px_white]" />
-              <div className="absolute top-[40%] left-[30%] w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_5px_white] animate-ping [animation-delay:0.4s]" />
-              <div className="absolute top-[40%] left-[30%] w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_5px_white] [animation-delay:0.4s]" />
-              <div className="absolute bottom-[35%] left-[50%] w-2 h-2 bg-white rounded-full shadow-[0_0_8px_white] animate-ping [animation-delay:1.2s]" />
-              <div className="absolute bottom-[35%] left-[50%] w-2 h-2 bg-white rounded-full shadow-[0_0_8px_white] [animation-delay:1.2s]" />
+              <div className="absolute -top-[1.5px] -left-[1.5px] w-4 h-4 border-t-[2.5px] border-l-[2.5px] border-white rounded-tl-[2px] z-10" />
+              <div className="absolute -top-[1.5px] -right-[1.5px] w-4 h-4 border-t-[2.5px] border-r-[2.5px] border-white rounded-tr-[2px] z-10" />
+              <div className="absolute -bottom-[1.5px] -left-[1.5px] w-4 h-4 border-b-[2.5px] border-l-[2.5px] border-white rounded-bl-[2px] z-10" />
+              <div className="absolute -bottom-[1.5px] -right-[1.5px] w-4 h-4 border-b-[2.5px] border-r-[2.5px] border-white rounded-br-[2px] z-10" />
+              <div className="absolute inset-0 border border-dashed border-white/20 rounded-[2px] z-10" />
+
+              {/* Scan Image */}
+              <img
+                src="/images/scan.png"
+                alt="Scan Overlay"
+                className="absolute inset-0 w-full h-full object-cover rounded-[2px] opacity-95"
+              />
+
+              <div className="absolute left-0 w-full h-[2px] bg-[#00FF73] shadow-[0_0_8px_#00FF73] animate-scan z-20" />
             </div>
 
-            {/* Bottom-left: description + buttons, floats over the image */}
+            {/* Bottom-left: description + buttons */}
             <div
               className="absolute z-20 left-4 bottom-6"
               style={{ maxWidth: '48%' }}
             >
-              <p className="text-white/70 text-[12px] font-medium font-poppins mb-3 leading-snug">
+              <p className="text-white/90 text-[12px] font-medium font-poppins mb-[20px] leading-snug">
                 Scan plant and get Instant diagnosis.
               </p>
               <div className="flex items-center gap-3">
                 <button
                   onClick={handleArrowClick}
                   aria-label="Previous"
-                  className="w-[34px] h-[34px] rounded-full border border-white/50 bg-white/10 flex items-center justify-center"
+                  className="w-[34px] h-[34px] rounded-full border border-white/50 bg-white/10 flex items-center justify-center cursor-pointer"
                 >
-                  <ChevronLeft size={16} />
+                  <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 7H1M1 7L7 1M1 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </button>
                 <button
                   onClick={handleArrowClick}
                   aria-label="Next"
-                  className="w-[34px] h-[34px] rounded-full bg-[#164925] flex items-center justify-center"
+                  className="w-[34px] h-[34px] rounded-full bg-[#164925] flex items-center justify-center cursor-pointer"
                 >
-                  <ChevronRight size={16} />
+                  <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </button>
               </div>
             </div>
@@ -265,20 +311,17 @@ export default function AiWidget() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Desktop Left Side / Mobile Top: Image */}
-              <div className="relative w-full h-[180px] md:h-full md:w-[44%] flex-shrink-0 overflow-hidden bg-white">
-                <img
-                  src="/images/flowerpop.png"
-                  alt="Coming Soon Sprout"
-                  className="w-full h-full object-cover"
-                />
-                
-                {/* Circular Coming Soon Badge */}
-                <div className="absolute top-[8%] left-[32%] md:top-[28%] md:left-[16%] w-[84px] md:w-[125px] z-10">
-                  <img
-                    src="/images/comingsoon.png"
-                    alt="Coming Soon Badge"
-                    className="w-full h-auto object-contain animate-pulse"
-                  />
+              <div className="relative w-full h-[230px] md:h-full md:w-[44%] flex-shrink-0 overflow-hidden bg-[url('/images/plant3.png')] md:bg-[url('/images/download-popup-desk.png')] bg-cover bg-center md:bg-left bg-no-repeat">
+
+                {/* Circular Coming Soon Badge — now animated */}
+                <div className="absolute z-10 pointer-events-none left-1/2 -translate-x-1/2 top-[25px] w-[140px] h-[140px] md:left-[95px] md:translate-x-0 md:top-[90px] md:w-[170px] md:h-[170px]">
+                  <div className="w-full h-full animate-[spin_16s_linear_infinite] flex items-center justify-center">
+                    <img
+                      src="/images/comingsoon.png"
+                      alt="Coming Soon Badge"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
                 </div>
 
                 {/* Mobile Only: Brand Logo & Close Button overlaid on image */}
@@ -298,7 +341,7 @@ export default function AiWidget() {
 
               {/* Desktop Right Side / Mobile Bottom: Form Content */}
               <div className="flex-1 p-6 md:p-8 flex flex-col justify-between h-full bg-[#FFFAF3] min-h-[220px]">
-                
+
                 {/* Desktop Only Header: Logo & Close Button */}
                 <div className="hidden md:flex items-center justify-between">
                   <img src="/images/growniq-green-logo.svg" alt="Growniq Logo" className="h-7 w-auto" />
@@ -375,48 +418,56 @@ export default function AiWidget() {
           ) : (
             /* ═══ THANK YOU STATE ═══ */
             <div
-              className="relative w-full max-w-[320px] md:max-w-[420px] rounded-3xl bg-white shadow-2xl overflow-hidden font-poppins"
+              className="relative mx-auto w-full max-w-[340px] md:max-w-[520px] bg-[#FFFDF9] rounded-[24px] shadow-2xl p-6 md:p-8 font-poppins text-left"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
               <button
                 onClick={closeModal}
                 aria-label="Close"
-                className="absolute top-4 right-4 z-20 w-7 h-7 flex items-center justify-center rounded-full bg-black/10 text-gray-500 hover:bg-black/20 hover:text-gray-700 transition-colors"
+                className="absolute top-4 right-4 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-[#164925]/10 text-[#164925] hover:bg-[#164925]/20 transition-colors"
               >
-                <svg width="10" height="10" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
               </button>
 
-              {/* Flower Image with Dashed Border */}
-              <div className="flex justify-center pt-7 pb-4 px-6">
-                <div className="relative w-[160px] h-[160px] md:w-[180px] md:h-[180px] rounded-2xl border-2 border-dashed border-[#164925]/40 p-2 flex items-center justify-center">
+              {/* Flex container: column on mobile, row on desktop */}
+              <div className="flex flex-col md:flex-row items-center md:items-stretch gap-6 md:gap-8">
+                {/* Left Side: Graphic Image */}
+                <div className="flex items-center justify-center shrink-0 w-[140px] h-[140px] md:w-[180px] md:h-[180px]">
                   <img
-                    src="/images/popup.png"
+                    src="/images/thanks.png"
                     alt="Thank You Flowers"
-                    className="w-full h-full object-cover rounded-xl"
+                    className="w-full h-full object-contain"
                   />
                 </div>
-              </div>
 
-              {/* Thank You Content */}
-              <div className="text-center px-6 pb-7">
-                <h3 className="text-[#164925] font-bold text-lg md:text-xl leading-snug mb-1">
-                  Thank You
-                </h3>
-                <p className="text-[#164925]/80 font-medium text-sm md:text-base mb-1">
-                  We've Got Your Request
-                </p>
-                <p className="text-gray-500 text-xs md:text-sm mb-5 font-nunito">
-                  We'll notify you when the app is ready!
-                </p>
-                <button
-                  onClick={closeModal}
-                  className="w-full max-w-[200px] rounded-lg bg-[#164925] text-white text-sm font-medium py-2.5 hover:bg-[#1b532c] transition-colors"
-                >
-                  Explore Now
-                </button>
+                {/* Right Side: Text Content & Explore Button */}
+                <div className="flex flex-col justify-between text-center md:text-left flex-1 py-1 md:py-2">
+                  <div className="space-y-2 md:space-y-3">
+                    <div className="text-[#164925]">
+                      <h3 className="text-xl md:text-2xl font-bold leading-tight">
+                        Thank You,
+                      </h3>
+                      <h3 className="text-xl md:text-2xl font-bold leading-tight">
+                        We've Got Your Request
+                      </h3>
+                    </div>
+                    <p className="text-[#164925] opacity-80 text-xs md:text-sm font-medium font-nunito leading-normal">
+                      Team Growniq will connect with you soon
+                    </p>
+                  </div>
+
+                  <div className="mt-5 md:mt-auto flex justify-center md:justify-start">
+                    <button
+                      onClick={closeModal}
+                      className="px-8 py-2 rounded-full border border-[#164925] text-[#164925] text-[13px] md:text-[14px] font-semibold bg-transparent hover:bg-[#164925] hover:text-[#FFE9CA] transition-all duration-300 cursor-pointer"
+                    >
+                      Explore More
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           )}

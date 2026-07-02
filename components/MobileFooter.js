@@ -145,7 +145,7 @@ export default function MobileFooter() {
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                window.open("https://www.figma.com/design/BlW3DX6fTXmzEButibgqB7/Growniq-Web?node-id=1602-326&m=dev", "_blank");
+                setIsDownloadOpen(true);
               }}
               className="flex items-center gap-2 px-3 py-1.5 border border-white/30 rounded-lg text-white hover:bg-white/10 transition-colors w-[145px] justify-center bg-[#164925]"
             >
@@ -166,7 +166,7 @@ export default function MobileFooter() {
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                window.open("https://www.figma.com/design/BlW3DX6fTXmzEButibgqB7/Growniq-Web?node-id=1602-326&m=dev", "_blank");
+                setIsDownloadOpen(true);
               }}
               className="flex items-center gap-2 px-3 py-1.5 border border-white/30 rounded-lg text-white hover:bg-white/10 transition-colors w-[145px] justify-center bg-[#164925]"
             >
@@ -217,12 +217,12 @@ export default function MobileFooter() {
             href="#"
             onClick={(e) => {
               e.preventDefault();
-              window.open("https://www.figma.com/design/BlW3DX6fTXmzEButibgqB7/Growniq-Web?node-id=1602-326&m=dev", "_blank");
+              setIsDownloadOpen(true);
             }}
             className="flex-shrink-0"
           >
             <img
-              src="/images/609.png"
+              src="/images/609.svg"
               alt="Get it on Google Play"
               className="h-9 w-auto object-contain"
             />
@@ -231,12 +231,12 @@ export default function MobileFooter() {
             href="#"
             onClick={(e) => {
               e.preventDefault();
-              window.open("https://www.figma.com/design/BlW3DX6fTXmzEButibgqB7/Growniq-Web?node-id=1602-326&m=dev", "_blank");
+              setIsDownloadOpen(true);
             }}
             className="flex-shrink-0"
           >
             <img
-              src="/images/608.png"
+              src="/images/608.svg"
               alt="Download on the App Store"
               className="h-9 w-auto object-contain"
             />
