@@ -312,44 +312,46 @@ export default function DigiNursery() {
             <Image src="/images/growniq-green-logo.svg" alt="logo" width={131} height={39} />
           </div>
 
-          <h2 className="text-[26px] lg:text-[40px] font-bold leading-tight font-poppins">
+          <h2 className="text-[40px] lg:text-[40px] font-semibold leading-tight font-poppins">
             Growniq <span className="block">Digi-nursery</span>
           </h2>
 
-          <p className="mt-4 text-[14px] leading-relaxed font-nunito text-[#164925]">
+          <p className="mt-4 text-[16px] leading-relaxed font-nunito text-[#164925] px-2">
             The first-ever marketplace that brings all nearby nurseries and garden stores to your Growniq app.
           </p>
 
           {/* Tags list */}
-          <ul className="mt-6 flex gap-2.5 flex-wrap font-poppins text-[13px] font-semibold text-[#164925]">
-            <li className="bg-white flex items-center gap-2 py-2 px-4 rounded-full animate-float-1 hover:shadow-md transition-shadow cursor-pointer">
+          <ul className="mt-6 flex gap-2.5 flex-wrap font-poppins text-[13px] font-nunito text-[#164925]">
+            <li className="bg-white flex items-center gap-2 py-2 px-4 rounded-full hover:shadow-md transition-shadow cursor-pointer">
               <img src="/images/plant.svg" alt="plants" className="w-[16px] h-[16px]" />
               <span>Plants</span>
             </li>
-            <li className="bg-white flex items-center gap-2 py-2 px-4 rounded-full animate-float-2 hover:shadow-md transition-shadow cursor-pointer">
+            <li className="bg-white flex items-center gap-2 py-2 px-4 rounded-full hover:shadow-md transition-shadow cursor-pointer">
               <img src="/images/pots.svg" alt="pots" className="w-[16px] h-[16px]" />
               <span>Pots</span>
             </li>
-            <li className="bg-white flex items-center gap-2 py-2 px-4 rounded-full animate-float-3 hover:shadow-md transition-shadow cursor-pointer">
-              <img src="/images/seeds.svg" alt="seeds" className="w-[16px] h-[16px]" />
-              <span>Seeds</span>
-            </li>
-            <li className="bg-white flex items-center gap-2 py-2 px-4 rounded-full animate-float-4 hover:shadow-md transition-shadow cursor-pointer">
-              <img src="/images/tools.svg" alt="tools" className="w-[16px] h-[16px]" />
-              <span>Tools</span>
-            </li>
-            <li className="bg-white flex items-center gap-2 py-2 px-4 rounded-full animate-float-5 hover:shadow-md transition-shadow cursor-pointer">
+            <li className="bg-white flex items-center gap-2 py-2 px-4 rounded-full hover:shadow-md transition-shadow cursor-pointer">
               <img src="/images/diy-kits.svg" alt="diy kits" className="w-[16px] h-[16px]" />
               <span>DIY kits</span>
             </li>
-            <li className="bg-white flex items-center gap-2 py-2 px-4 rounded-full animate-float-6 hover:shadow-md transition-shadow cursor-pointer">
+            <li className="bg-white flex items-center gap-2 py-2 px-4 rounded-full hover:shadow-md transition-shadow cursor-pointer">
+              <img src="/images/seeds.svg" alt="seeds" className="w-[16px] h-[16px]" />
+              <span>Seeds</span>
+            </li>
+
+            <li className="bg-white flex items-center gap-2 py-2 px-4 rounded-full hover:shadow-md transition-shadow cursor-pointer">
+              <img src="/images/tools.svg" alt="tools" className="w-[16px] h-[16px]" />
+              <span>Tools</span>
+            </li>
+
+            <li className="bg-white flex items-center gap-2 py-2 px-4 rounded-full hover:shadow-md transition-shadow cursor-pointer">
               <img src="/images/Fertilizer.svg" alt="fertilizer" className="w-[16px] h-[16px]" />
               <span>Fertilizer</span>
             </li>
           </ul>
 
           {/* Download App Buttons - Matching Figma Layout */}
-          <div className="mt-8 lg:mt-12 text-left">
+          <div className="hidden lg:block mt-8 lg:mt-12 text-left">
             <p className="text-xs text-[#164925] mb-3.5 font-medium font-nunito">Download Growniq App</p>
             <div className="flex flex-row items-center gap-3">
               <a

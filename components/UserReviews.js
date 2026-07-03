@@ -37,7 +37,7 @@ export default function UserReviews() {
     {
       id: 1,
       rating: 5,
-      title: 'Best Gardening Service Ever',
+      title: 'Best Gardening Service ',
       description: 'We heard about the service from a friend and decided to give it a try. The team was highly professional and knowledgeable, and their gardeners were both supportive and helpful throughout the process.',
       author: 'Sunita',
       images: [
@@ -98,28 +98,7 @@ export default function UserReviews() {
     },
   ];
 
-  const [isHovered, setIsHovered] = useState(false);
 
-  useEffect(() => {
-    let animationFrameId;
-    const speed = 0.8; // Smooth scrolling speed in pixels/frame
-
-    const scroll = () => {
-      if (!isHovered && scrollContainerRef.current) {
-        const container = scrollContainerRef.current;
-        const singleWidth = container.scrollWidth / 3;
-        if (container.scrollLeft >= singleWidth) {
-          container.scrollLeft = container.scrollLeft - singleWidth;
-        } else {
-          container.scrollLeft += speed;
-        }
-      }
-      animationFrameId = requestAnimationFrame(scroll);
-    };
-
-    animationFrameId = requestAnimationFrame(scroll);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [isHovered]);
 
   const handlePrev = () => {
     if (scrollContainerRef.current) {
@@ -203,7 +182,7 @@ export default function UserReviews() {
       {/* Download Growniq App Bar */}
       <div className=" bg-[#FFFAF3] py-3 md:py-4">
         <div className="container  mx-auto px-4 sm:px-6 max-w-[1200px]">
-          <div className="flex flex-col items-center justify-center gap-3 sm:gap-6">
+          <div className="hidden lg:flex flex-col items-center justify-center gap-3 sm:gap-6">
             <span className="text-[#164925] text-sm md:text-base font-medium font-poppins whitespace-nowrap">
               Download Growniq App
             </span>
@@ -253,7 +232,7 @@ export default function UserReviews() {
             <h2 className="text-3xl md:text-5xl font-medium text-[#164925] mb-4 font-poppins">
               Why our customers keep coming back
             </h2>
-            <p className="text-base md:text-lg text-[#164925] max-w-3xl mx-auto font-nunito">
+            <p className="text-[16px] md:text-lg text-[#164925] max-w-3xl mx-auto font-nunito">
               Experience the future of gardening with our upcoming AI features
             </p>
           </div>
@@ -266,10 +245,6 @@ export default function UserReviews() {
         >
           <div
             ref={scrollContainerRef}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            onTouchStart={() => setIsHovered(true)}
-            onTouchEnd={() => setIsHovered(false)}
             className="bg-[#FFFAF3] overflow-x-auto overflow-y-hidden scrollbar-hide"
           >
             <div className="flex gap-6 lg:gap-8 pb-4">
@@ -289,12 +264,12 @@ export default function UserReviews() {
                       </div>
 
                       {/* Title */}
-                      <h4 className="text-lg font-semibold text-[#164925] font-poppins leading-snug">
+                      <h4 className="text-[18px] font-semibold text-[#164925] font-poppins leading-snug">
                         {blog.title}
                       </h4>
 
                       {/* Description */}
-                      <p className="text-sm text-[#164925] leading-relaxed font-nunito line-clamp-6 opacity-90">
+                      <p className="text-[13px] text-[#164925] leading-relaxed font-nunito line-clamp-6 opacity-90">
                         {blog.description}
                       </p>
                     </div>
@@ -318,7 +293,7 @@ export default function UserReviews() {
                               <img
                                 src={image}
                                 alt={`Garden ${idx + 1}`}
-                                className="w-12 h-12 object-cover hover:scale-110 transition-transform duration-300 rounded-lg"
+                                className="w-20 h-20 object-cover hover:scale-110 transition-transform duration-300 rounded-lg"
                               />
                               {isLast && (
                                 <div className="absolute inset-0 bg-black/55 flex items-center justify-center rounded-lg">
@@ -333,11 +308,11 @@ export default function UserReviews() {
                       {/* Author Info */}
                       <div className="pt-4 border-t border-dashed border-[rgba(22,73,37,0.1)]">
                         <div className="min-w-0">
-                          <p className="text-xs font-semibold text-[#164925] font-poppins">
+                          <p className="text-[12px] font-semibold text-[#164925] font-poppins">
                             <span className="hidden md:inline">{blog.author}, {blog.authorRole}</span>
                             <span className="inline md:hidden">{blog.author} / {blog.authorRole}</span>
                           </p>
-                          <p className="text-[11px] text-[#164925] opacity-70 font-nunito mt-0.5">
+                          <p className="text-[12px] text-[#164925] opacity-70 font-nunito mt-0.5">
                             {blog.location}
                           </p>
                         </div>
@@ -351,7 +326,7 @@ export default function UserReviews() {
         </div>
 
         {/* Centered Controls Area */}
-        <div className="container mx-auto px-4 sm:px-6 max-w-[1200px]">
+        <div className="hidden lg:block  container mx-auto px-4 sm:px-6 max-w-[1200px]">
           {/* Navigation Arrows */}
           <div className="flex items-center justify-center gap-4 mt-6">
             <button

@@ -173,7 +173,7 @@ export default function FaqWidget({
                   onClick={() => setOpenIndex(isOpen ? -1 : idx)}
                   className="w-full flex items-center justify-between text-left py-4 md:py-5 gap-4"
                 >
-                  <span className="text-[16px] sm:text-[18px] md:text-[20px] font-semibold text-[#164925] font-poppins leading-snug">
+                  <span className="text-[15px] sm:text-[18px] md:text-[20px] font-medium text-[#164925] font-poppins leading-snug">
                     {item.q}
                   </span>
                   <span
@@ -199,7 +199,7 @@ export default function FaqWidget({
                     id={contentId}
                     role="region"
                     aria-labelledby={buttonId}
-                    className="pb-5 text-[14px] sm:text-[15px] md:text-base font-normal leading-relaxed text-[#164925] font-nunito opacity-90"
+                    className="pb-5 text-[16px] sm:text-[15px] md:text-base font-normal leading-relaxed text-[#164925] font-nunito opacity-90"
                   >
                     {item.a}
                   </div>

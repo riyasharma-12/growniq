@@ -19,10 +19,10 @@ export default function WhyChoose() {
               className="object-contain"
             />
           </div>
-          <h2 className="text-3xl md:text-[40px] font-medium text-[#164925] mb-4 font-poppins leading-tight">
+          <h2 className="text-3xl md:text-[36px] font-medium text-[#164925] mb-4 font-poppins leading-tight">
             Why Choose Growniq
           </h2>
-          <p className="text-sm md:text-lg text-[#164925] opacity-90 max-w-2xl mx-auto font-nunito">
+          <p className="text-[16px] px-4 md:text-lg text-[#164925] opacity-90 max-w-2xl mx-auto font-nunito">
             We're committed to providing the best gardening and landscaping experience
           </p>
         </div>
@@ -52,40 +52,40 @@ export default function WhyChoose() {
               </div>
 
               {/* Title (Using div to bypass global h3 !important styling in globals.css) */}
-              <div className="text-lg md:text-xl font-semibold text-[#164925] font-poppins leading-tight text-left">
+              <div className="text-lg md:text-sm font-semibold text-[#164925] font-poppins leading-tight text-left">
                 Customers are satisfied and happy with our services
               </div>
 
               {/* Description Paragraph */}
-              <p className="text-xs md:text-sm text-[#164925] opacity-90 leading-relaxed font-nunito text-left">
+              <p className="text-[16px] md:text-sm text-[#164925] opacity-90 leading-relaxed font-nunito text-left">
                 Growniq transforms every corner of your world from cozy balconies and home gardens to rooftops and outdoor spaces into a serene green oasis through expert gardening and landscaping landscaping, and maintenance services.
               </p>
 
               {/* Features List Inside the Card */}
               <div className="space-y-5 pt-3">
                 <div className="space-y-1 text-left">
-                  <div className="text-sm md:text-base font-semibold text-[#164925] font-poppins">
+                  <div className="text-[18px] md:text-base font-medium text-[#164925] font-poppins">
                     Trusted & Verified Gardeners
                   </div>
-                  <p className="text-xs md:text-sm text-[#164925] opacity-90 leading-relaxed font-nunito">
+                  <p className="text-[16px] md:text-sm text-[#164925] opacity-90 leading-relaxed font-nunito">
                     Verified and trained gardeners you can trust
                   </p>
                 </div>
 
                 <div className="space-y-1 text-left">
-                  <div className="text-sm md:text-base font-semibold text-[#164925] font-poppins">
+                  <div className="text-[18px] md:text-base font-medium text-[#164925] font-poppins">
                     Transparent & Fair Pricing
                   </div>
-                  <p className="text-xs md:text-sm text-[#164925] opacity-90 leading-relaxed font-nunito">
+                  <p className="text-[16px] md:text-sm text-[#164925] opacity-90 leading-relaxed font-nunito">
                     Clear pricing with no surprises
                   </p>
                 </div>
 
                 <div className="space-y-1 text-left">
-                  <div className="text-sm md:text-base font-semibold text-[#164925] font-poppins">
+                  <div className="text-[18px] md:text-base font-medium text-[#164925] font-poppins">
                     Easy Booking & Quick Support
                   </div>
-                  <p className="text-xs md:text-sm text-[#164925] opacity-90 leading-relaxed font-nunito">
+                  <p className="text-[16px] md:text-sm text-[#164925] opacity-90 leading-relaxed font-nunito">
                     Smooth booking experience with reliable support
                   </p>
                 </div>
@@ -154,7 +154,7 @@ export default function WhyChoose() {
                 </div>
                 <div className="flex-1 pt-1">
                   {/* Using div to bypass global h3 !important styling in globals.css */}
-                  <div className="text-[22px] xl:text-[24px] font-semibold text-[#164925] font-poppins leading-snug text-left">
+                  <div className="text-[24px] xl:text-[24px] font-semibold text-[#164925] font-poppins leading-snug text-left">
                     Customers are satisfied and Happy with our services
                   </div>
                 </div>

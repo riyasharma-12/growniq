@@ -76,7 +76,8 @@ export default function AiWidget() {
           <div className="flex flex-col justify-center py-12" style={{ maxWidth: '50%' }}>
 
             {/* Custom Premium Coming Soon Badge with Glow (Figma design) */}
-            <div className="mb-6 inline-flex animate-pulse">
+            {/* <div className="mb-6 inline-flex animate-pulse"> */}
+            <div className="mb-6 inline-flex ">
               {/* <div 
                 className="p-[1.5px] rounded-full"
                 style={{
@@ -87,17 +88,17 @@ export default function AiWidget() {
 
               <div
                 className="p-[1.5px] rounded-full"
-                style={{
-                  background:
-                    'linear-gradient(90deg, #FFEF5C 0%, #3BF683 25%, #2FD5F6 50%, #703BF6 75%, #F62F8A 100%)',
-                  boxShadow: `
-      0 0 40px 8px rgba(255, 239, 92, 0.7),
-      0 0 40px 8px rgba(112, 59, 246, 0.7)
-    `,
-                }}
+              //             style={{
+              //               background:
+              //                 'linear-gradient(90deg, #FFEF5C 0%, #3BF683 25%, #2FD5F6 50%, #703BF6 75%, #F62F8A 100%)',
+              //               boxShadow: `
+              //   0 0 40px 8px rgba(255, 239, 92, 0.7),
+              //   0 0 40px 8px rgba(112, 59, 246, 0.7)
+              // `,
+              //             }}
               >
                 <div className="bg-white rounded-full px-3 py-1 flex items-center gap-1.5">
-                  {/* Twinkle star icon */}
+
                   <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 0L9.8 6.2L16 8L9.8 9.8L8 16L6.2 9.8L0 8L6.2 6.2L8 0Z" fill="#ff5a36" />
                   </svg>
@@ -153,12 +154,12 @@ export default function AiWidget() {
         {/* Clean plant image & scan frame box (no pre-drawn items) */}
         <div
           className="absolute bottom-0 right-0 flex items-end justify-end"
-          style={{ width: '48%', height: '100%', pointerEvents: 'none' }}
+          style={{ width: '40%', height: '95%', pointerEvents: 'none' }}
         >
           {/* Scan overlay - styled exactly like Figma */}
           <div
             className="absolute z-20 pointer-events-none"
-            style={{ right: '55%', top: '15%', width: '35%', aspectRatio: '1.1' }}
+            style={{ right: '45%', top: '10%', width: '42%', aspectRatio: '1.1' }}
           >
             {/* Corner Brackets */}
             <div className="absolute -top-[2.5px] -left-[2.5px] w-6 h-6 border-t-[3.5px] border-l-[3.5px] border-white rounded-tl-[3px] z-10" />
@@ -170,11 +171,11 @@ export default function AiWidget() {
             <div className="absolute inset-0 border border-dashed border-white/20 rounded-[2px] z-10" />
 
             {/* Scan Image from assets */}
-            <img
+            {/* <img
               src="/images/scan.png"
               alt="Scan Overlay"
               className="absolute inset-0 w-full h-full object-cover rounded-[2px] opacity-95"
-            />
+            /> */}
 
             {/* Animating Scanning Line */}
             <div className="absolute left-0 w-full h-[2.5px] bg-[#00FF73] shadow-[0_0_12px_#00FF73] animate-scan z-20" />
@@ -196,19 +197,19 @@ export default function AiWidget() {
         <div className="block md:hidden">
           <div
             className="relative overflow-hidden rounded-2xl"
-            style={{ minHeight: '340px' }}
+            style={{ minHeight: '540px' }}
           >
             {/* Top-left: badge + headings */}
-            <div className="relative z-10 px-4 pt-5" style={{ maxWidth: '60%' }}>
+            <div className="relative z-10  pl-6 pt-5" style={{ maxWidth: '85%' }}>
 
               {/* Premium Coming Soon CSS Badge for Mobile */}
-              <div className="mb-3 inline-flex animate-pulse">
+              <div className="mb-3 inline-flex ">
                 <div
                   className="p-[1px] rounded-full"
-                  style={{
-                    background: 'linear-gradient(90deg, #FFEF5C 0%, #3BF683 25%, #2FD5F6 50%, #703BF6 75%, #F62F8A 100%)',
-                    boxShadow: '0 0 15px rgba(255, 239, 92, 0.4), 0 0 15px rgba(112, 59, 246, 0.4)',
-                  }}
+                // style={{
+                //   background: 'linear-gradient(90deg, #FFEF5C 0%, #3BF683 25%, #2FD5F6 50%, #703BF6 75%, #F62F8A 100%)',
+                //   boxShadow: '0 0 15px rgba(255, 239, 92, 0.4), 0 0 15px rgba(112, 59, 246, 0.4)',
+                // }}
                 >
                   <div className="bg-white rounded-full px-2.5 py-0.5 flex items-center gap-1.2">
                     <svg width="10" height="10" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -221,12 +222,12 @@ export default function AiWidget() {
                 </div>
               </div>
 
-              <p className="text-white text-[11px] font-medium font-poppins mb-1 leading-tight">
+              <p className="text-white text-[24px] font-medium font-poppins mb-1 leading-tight">
                 AI Plant care
               </p>
               <h2
-                className="font-bold text-white font-poppins leading-snug"
-                style={{ fontSize: '16px', lineHeight: '1.25' }}
+                className="font-semibold text-white font-poppins leading-snug"
+                style={{ fontSize: '24px', lineHeight: '32px' }}
               >
                 Expert Care for Any Plant
               </h2>
@@ -235,7 +236,7 @@ export default function AiWidget() {
             {/* Plant image - clean, no brain badge */}
             <div
               className="absolute z-0"
-              style={{ right: -25, bottom: 0, width: '68%', height: '72%' }}
+              style={{ right: -30, bottom: 0, width: '90%', height: '95%' }}
             >
               <img
                 src="/images/plantImage.png"
@@ -247,22 +248,22 @@ export default function AiWidget() {
             {/* Scan overlay - sits ON TOP of the leaf */}
             <div
               className="absolute z-10 pointer-events-none"
-              style={{ left: '42%', top: '42%', width: '22%', aspectRatio: '1.1' }}
+              style={{ left: '20%', top: '30%', width: '49%', aspectRatio: '0.98' }}
             >
-              <div className="absolute -top-[1.5px] -left-[1.5px] w-4 h-4 border-t-[2.5px] border-l-[2.5px] border-white rounded-tl-[2px] z-10" />
-              <div className="absolute -top-[1.5px] -right-[1.5px] w-4 h-4 border-t-[2.5px] border-r-[2.5px] border-white rounded-tr-[2px] z-10" />
-              <div className="absolute -bottom-[1.5px] -left-[1.5px] w-4 h-4 border-b-[2.5px] border-l-[2.5px] border-white rounded-bl-[2px] z-10" />
-              <div className="absolute -bottom-[1.5px] -right-[1.5px] w-4 h-4 border-b-[2.5px] border-r-[2.5px] border-white rounded-br-[2px] z-10" />
+              <div className="absolute -top-[2px] -left-[2px] w-5 h-5 border-t-[3px] border-l-[3px] border-white rounded-tl-[3px] z-10" />
+              <div className="absolute -top-[2px] -right-[2px] w-5 h-5 border-t-[3px] border-r-[3px] border-white rounded-tr-[3px] z-10" />
+              <div className="absolute -bottom-[2px] -left-[2px] w-5 h-5 border-b-[3px] border-l-[3px] border-white rounded-bl-[3px] z-10" />
+              <div className="absolute -bottom-[2px] -right-[2px] w-5 h-5 border-b-[3px] border-r-[3px] border-white rounded-br-[3px] z-10" />
               <div className="absolute inset-0 border border-dashed border-white/20 rounded-[2px] z-10" />
 
               {/* Scan Image */}
-              <img
+              {/* <img
                 src="/images/scan.png"
                 alt="Scan Overlay"
-                className="absolute inset-0 w-full h-full object-cover rounded-[2px] opacity-95"
-              />
+                className="absolute inset-0 w-full h-full object-cover rounded-[2px] opacity-65"
+              /> */}
 
-              <div className="absolute left-0 w-full h-[2px] bg-[#00FF73] shadow-[0_0_8px_#00FF73] animate-scan z-20" />
+              <div className="absolute left-0 w-full h-[2.5px] bg-[#00FF73] shadow-[0_0_10px_#00FF73] animate-scan z-20" />
             </div>
 
             {/* Bottom-left: description + buttons */}
@@ -270,7 +271,7 @@ export default function AiWidget() {
               className="absolute z-20 left-4 bottom-6"
               style={{ maxWidth: '48%' }}
             >
-              <p className="text-white/90 text-[12px] font-medium font-poppins mb-[20px] leading-snug">
+              <p className="text-[#164925] text-[12px] font-medium font-poppins mb-[20px] leading-snug">
                 Scan plant and get Instant diagnosis.
               </p>
               <div className="flex items-center gap-3">

@@ -20,7 +20,7 @@ export default function DownloadModal({ open, onClose }) {
             <div className="absolute inset-0 bg-black/60 transition-opacity" onClick={onClose} />
 
             {/* Modal Card */}
-            <div className="relative w-full max-w-[705px] md:h-[469px] h-[580px] rounded-[24px] bg-[#FFFAF3] overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.15)] flex flex-col md:flex-row transform transition-all duration-300">
+            <div className="relative w-full max-w-[705px] md:h-[469px] h-[530px] rounded-[24px] bg-[#FFFAF3] overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.15)] flex flex-col md:flex-row transform transition-all duration-300">
 
                 {/* Close Button - Responsive layout (circular white on mobile, simple borderless on desktop) */}
                 <button
@@ -54,7 +54,7 @@ export default function DownloadModal({ open, onClose }) {
                 </div>
 
                 {/* Right Column (Form & Details Area) */}
-                <div className="flex-1 flex flex-col justify-between p-6 md:p-9 text-left z-10">
+                <div className="flex-1 flex flex-col md:justify-between p-6 md:p-9 text-left z-10">
                     {/* Desktop Green Logo */}
                     <div className="hidden md:block">
                         <Image src="/images/growniq-green-logo.svg" alt="Logo" width={100} height={30} />
@@ -62,7 +62,7 @@ export default function DownloadModal({ open, onClose }) {
 
                     {/* Text Title & Form */}
                     <div className="mt-4 md:mt-2">
-                        <h3 className="text-[19px] md:text-[22px] font-bold text-[#164925] font-poppins leading-tight tracking-tight">
+                        <h3 className="text-[19px] md:text-[22px] font-medium text-[#164925] font-poppins leading-tight tracking-tight">
                             You are in the right place,
                             <br className="hidden md:block" /> Growniq app is sprouting soon
                         </h3>
@@ -87,8 +87,10 @@ export default function DownloadModal({ open, onClose }) {
                     </div>
 
                     {/* Dotted Divider & Contact Info */}
-                    <div className="mt-6">
-                        <div className="border-t border-dotted border-[rgba(22,73,37,0.45)] my-4"></div>
+                    <div className="mt-1">
+                        {/* <div className="border-t border-dotted border-[rgba(22,73,37,0.45)] my-4"></div>
+                         */}
+                        <div className="w-full border-t border-dashed border-[#164925] my-4"></div>
                         <div className="flex flex-row items-center justify-between gap-2 text-[#164925]">
                             {/* Phone contact */}
                             <div className="flex items-center gap-2">

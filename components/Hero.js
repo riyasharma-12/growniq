@@ -78,20 +78,31 @@ export default function Hero() {
   };
 
   return (
-    <section className="heroBanner py-0 lg:py-16">
+    <section id="hero-section" className="heroBanner py-0 lg:py-16">
       <div className="container mx-auto px-0 lg:px-6 max-w-[1200px]">
         <div className="grid lg:grid-cols-2 gap-0 lg:gap-12 items-start lg:items-stretch">
 
           {/* Left Content */}
           <div className="topBanner-bg px-4 lg:px-0 space-y-5 lg:space-y-6 relative">
+            {/* Mobile handle indicator with side lines */}
+            <div className="lg:hidden flex items-center justify-between w-full pt-4">
+              <div className="h-[3px] flex-1 bg-[#E8D4B8]"></div>
+              <div className="w-[56px] h-[3px] bg-[#164925] rounded-full  shrink-0"></div>
+              <div className="h-[3px] flex-1 bg-[#E8D4B8]"></div>
+            </div>
+
             {/* Heading */}
             <div>
-              <h1 className="hidden lg:block text-[26px] lg:text-[40px] font-medium text-[#164925] leading-[34px] lg:leading-[52px]">
+              <h1 className="-mt-6 hidden lg:block text-[26px] lg:text-[40px] font-medium text-[#164925] leading-[34px] lg:leading-[52px]">
                 All your green needs, Services, Store &amp; AI care in one app <Image src="/images/subtract2.svg" alt="" width={21} height={26} className="inline-block ml-1 -mt-1 w-[18px] h-[22px] lg:w-[21px] lg:h-[26px]" />
               </h1>
 
               <h1 className=" mt-4 lg:hidden text-[26px] lg:text-[40px] font-medium text-[#164925] leading-[34px] lg:leading-[52px]">
-                All your green needs,  <br />  Services, Store &amp; <br /> AI care in one app <Image src="/images/Subtract.png" alt="" width={21} height={26} className="inline-block ml-1 -mt-1 w-[18px] h-[22px] lg:w-[21px] lg:h-[26px]" />
+                All your green needs,  <br />  Services, Store &amp; <br />
+                <span className="inline-flex items-center gap-1">
+                  AI care in one app
+                  <Image src="/images/subtract2.svg" alt="" width={21} height={26} className="w-[18px] h-[22px] lg:w-[21px] lg:h-[26px] shrink-0" />
+                </span>
               </h1>
 
               {/* Desktop subtitle - inline with dots */}
@@ -125,32 +136,34 @@ export default function Hero() {
               >
                 Get Instant Quote
               </button>
-              <button
-                type="button"
-                onClick={handleGetQuote}
+              <a
+                href="https://wa.me/919717104342"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-[48px] h-[48px] bg-[#164925] rounded-full flex items-center justify-center flex-shrink-0 hover:bg-[#1a5c3a] transition"
+                aria-label="Chat on WhatsApp"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
                   <path d="M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7293C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1469 21.5901 20.9046 21.7335 20.6408 21.8227C20.377 21.9119 20.0974 21.9451 19.82 21.92C16.7428 21.5856 13.787 20.5341 11.19 18.85C8.77383 17.3147 6.72534 15.2662 5.19 12.85C3.49998 10.2412 2.44824 7.27099 2.12 4.18C2.09501 3.90347 2.12788 3.62476 2.2165 3.36162C2.30513 3.09849 2.44757 2.85669 2.63477 2.65162C2.82196 2.44655 3.04981 2.28271 3.30379 2.17052C3.55778 2.05833 3.83234 2.00026 4.11 2H7.11C7.59531 1.99522 8.06579 2.16708 8.43376 2.48353C8.80173 2.79999 9.04208 3.23945 9.11 3.72C9.23662 4.68007 9.47145 5.62273 9.81 6.53C9.94455 6.88792 9.97366 7.27691 9.89391 7.65088C9.81415 8.02485 9.62886 8.36811 9.36 8.64L8.09 9.91C9.51356 12.4135 11.5865 14.4864 14.09 15.91L15.36 14.64C15.6319 14.3711 15.9752 14.1858 16.3491 14.1061C16.7231 14.0263 17.1121 14.0555 17.47 14.19C18.3773 14.5286 19.3199 14.7634 20.28 14.89C20.7658 14.9585 21.2094 15.2032 21.5265 15.5775C21.8437 15.9518 22.0122 16.4296 22 16.92Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-              </button>
+              </a>
             </div>
 
             {/* Mobile Arrow Graphic */}
 
 
             {/* Mobile Stats */}
-            <div className="flex flex-col lg:hidden items-center justify-center gap-4 pt-4 mt-4 border-t border-dashed border-[rgba(22,73,37,0.2)]">
+            <div className="flex flex-col lg:hidden items-center justify-center gap-3.5 mt-5">
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
                   <div className="w-7 h-7 rounded-full bg-gray-300  relative overflow-hidden">
-                    <Image src="/images/avtar-1.png" alt="User" fill className="object-cover" />
+                    <Image src="/images/m1.png" alt="User" fill className="object-cover" />
                   </div>
-                  <div className="w-7 h-7 rounded-full bg-gray-400 border-2 border-white relative overflow-hidden">
-                    <Image src="/images/avtar-2.png" alt="User" fill className="object-cover" />
+                  <div className="w-7 h-7 rounded-full bg-gray-400  relative overflow-hidden">
+                    <Image src="/images/m2.png" alt="User" fill className="object-cover" />
                   </div>
-                  <div className="w-7 h-7 rounded-full bg-gray-500 border-2 border-white relative overflow-hidden">
-                    <Image src="/images/avtar-3.png" alt="User" fill className="object-cover" />
+                  <div className="w-7 h-7 rounded-full bg-gray-500  relative overflow-hidden">
+                    <Image src="/images/m3.png" alt="User" fill className="object-cover" />
                   </div>
                 </div>
                 <div className="text-[11px]">
@@ -159,12 +172,12 @@ export default function Hero() {
                 </div>
 
               </div>
-              <div className="absolute top-[50px] right-[45px] lg:hidden w-[75px] h-[90px] pointer-events-none z-10">
+              <div className="absolute top-[90px] right-[45px] lg:hidden w-[75px] h-[90px] pointer-events-none z-10">
                 <Image src="/images/arrow-graphic.svg" alt="arrow" width={75} height={190} />
               </div>
 
-              {/* Vertical line separator */}
-              <div className="h-[1px] w-full bg-[rgba(22,73,37,0.15)] mx-1"></div>
+              {/* Dotted line separator */}
+              <div className="w-full border-t border-dashed border-[#164925]"></div>
 
               <div className="text-[11px] text-right flex-1 flex  ">
                 <div className="font-semibold text-[#164925] flex items-center justify-end gap-1">
@@ -268,8 +281,10 @@ export default function Hero() {
                 </div>
               </form>
 
+              {/* <div className="w-full border-t border-dashed border-[#164925]"></div> */}
+
               {/* Desktop Stats */}
-              <div className="flex items-center justify-between flex-row gap-6 mt-6 pt-6 border-t border-dashed border-[rgba(22,73,37,0.2)]">
+              <div className="flex items-center justify-between flex-row gap-6 mt-6 pt-6  w-full border-t border-dashed border-[#164925]">
                 <div className="flex items-center gap-2">
                   <div className="flex -space-x-2">
                     <div className="w-8 h-8 rounded-full  relative overflow-hidden">
@@ -575,20 +590,33 @@ export default function Hero() {
                   ))}
                 </div>
 
-                {/* Mobile Slide Indicators */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 lg:hidden">
-                  {slides.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => goToSlide(index)}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${current === index ? 'bg-white w-6' : 'bg-white/50'}`}
-                      aria-label={`Go to slide ${index + 1}`}
-                    />
-                  ))}
-                </div>
+
               </div>
 
               {/* Desktop Navigation Arrows */}
+              {/* <div className="hidden lg:block">
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center  z-20">
+                  <button
+                    className="w-[38px] h-[38px] rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:bg-white/30 transition-all duration-300 cursor-pointer"
+                    onClick={prevSlide}
+                    aria-label="Previous slide"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                  >
+                    <img src="/images/arrow1.svg" alt="Previous" className="w-full h-full object-contain" />
+                  </button>
+                  <button
+                    className="w-[38px] h-[38px] flex items-center justify-center hover:opacity-80 transition-all duration-300 cursor-pointer"
+                    onClick={nextSlide}
+                    aria-label="Next slide"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                  >
+                    <img src="/images/arrow2.svg" alt="Next" className="w-full h-full object-contain" />
+                  </button>
+                </div>
+              </div> */}
+
               <div className="hidden lg:block">
                 <div className="h-11 p-[2px] absolute rounded-full bg-gradient-to-b from-gray-200/20 to-gray-300/14 backdrop-blur-md bottom-8 left-1/2 -translate-x-1/2 flex">
                   <button
@@ -615,6 +643,7 @@ export default function Hero() {
                   </button>
                 </div>
               </div>
+
             </div>
           </div>
         </div>

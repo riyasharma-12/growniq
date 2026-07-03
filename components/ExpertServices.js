@@ -33,31 +33,31 @@ export default function ExpertServices() {
     {
       id: 1,
       title: 'Book A Gardner',
-      image: '/images/service-1.png',
+      image: '/images/garden.png',
       alt: 'Book A Gardner'
     },
     {
       id: 2,
       title: 'Monthly Plant Care',
-      image: '/images/service-2.png',
+      image: '/images/money.png',
       alt: 'Monthly Plant Care'
     },
     {
       id: 3,
       title: 'Terrace Garden Maintenance',
-      image: '/images/service-3.png',
+      image: '/images/terrace.png',
       alt: 'Terrace Garden Maintenance'
     },
     {
       id: 4,
       title: 'Lawn Maintenance',
-      image: '/images/service-4.png',
+      image: '/images/lawn.png',
       alt: 'Lawn Maintenance'
     },
     {
       id: 5,
       title: 'New Home Plant Setup',
-      image: '/images/service-5.png',
+      image: '/images/home.png',
       alt: 'New Home Plant Setup'
     },
     {
@@ -80,42 +80,7 @@ export default function ExpertServices() {
     }
   ];
 
-  const [isHovered, setIsHovered] = useState(false);
   const mobileScrollContainerRef = useRef(null);
-
-  useEffect(() => {
-    let animationFrameId;
-    const speed = 0.8; // Smooth scrolling speed in pixels/frame
-
-    const scroll = () => {
-      if (!isHovered) {
-        // Desktop container scroll ticker
-        if (scrollContainerRef.current && window.innerWidth >= 1024) {
-          const container = scrollContainerRef.current;
-          const maxScroll = container.scrollWidth / 2;
-          if (container.scrollLeft >= maxScroll) {
-            container.scrollLeft = container.scrollLeft - maxScroll;
-          } else {
-            container.scrollLeft += speed;
-          }
-        }
-        // Mobile container scroll ticker
-        if (mobileScrollContainerRef.current && window.innerWidth < 1024) {
-          const container = mobileScrollContainerRef.current;
-          const maxScroll = container.scrollWidth / 2;
-          if (container.scrollLeft >= maxScroll) {
-            container.scrollLeft = container.scrollLeft - maxScroll;
-          } else {
-            container.scrollLeft += speed;
-          }
-        }
-      }
-      animationFrameId = requestAnimationFrame(scroll);
-    };
-
-    animationFrameId = requestAnimationFrame(scroll);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [isHovered]);
 
   const handlePrev = () => {
     if (scrollContainerRef.current) {
@@ -160,7 +125,7 @@ export default function ExpertServices() {
   return (
     <section className="py-10 md:py-16 -mt-[1px] overflow-hidden">
       {/* Centered Header Container */}
-      <div className="container mx-auto px-4 sm:px-6 max-w-[1200px]">
+      <div className="container mx-auto px-4 sm:px-3 max-w-[1200px]">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">
           {/* Leaf Icon - Centered for both mobile and desktop */}
@@ -170,7 +135,7 @@ export default function ExpertServices() {
           <h2 className="text-[22px] md:text-4xl font-medium md:font-normal text-[#164925] mb-2 sm:mb-4">
             Our Expert Services
           </h2>
-          <p className="text-xs sm:text-base text-green max-w-3xl mx-auto font-nunito px-4">
+          <p className="text-[15px] sm:text-[15px] text-green max-w-3xl sm:max-w-4xl mx-auto font-nunito px-4">
             Professional gardening and landscaping services tailored to your needs
           </p>
         </div>
@@ -183,10 +148,6 @@ export default function ExpertServices() {
       >
         <div
           ref={scrollContainerRef}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          onTouchStart={() => setIsHovered(true)}
-          onTouchEnd={() => setIsHovered(false)}
           className="overflow-x-auto scrollbar-hide"
         >
           <div className="flex gap-6 lg:gap-8 pb-4">
@@ -239,20 +200,16 @@ export default function ExpertServices() {
         {/* Mobile & Tablet View: 2-Line Horizontal Scroll */}
         <div
           ref={mobileScrollContainerRef}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          onTouchStart={() => setIsHovered(true)}
-          onTouchEnd={() => setIsHovered(false)}
           className="lg:hidden overflow-x-auto scrollbar-hide pb-4"
         >
-          <div className="grid grid-rows-2 grid-flow-col gap-4 w-max px-4">
+          <div className="grid grid-rows-2 grid-flow-col gap-2 w-max px-1">
             {duplicatedServices.map((service, index) => (
               <div
                 key={`${service.id}-${index}-mob`}
                 className="w-[200px] flex flex-col rounded-2xl overflow-hidden cursor-pointer"
               >
                 {/* Service Image */}
-                <div className="relative h-[100px] w-[200px] overflow-hidden rounded-t-2xl">
+                <div className="relative h-[130px] w-[200px] overflow-hidden rounded-t-2xl">
                   <img
                     src={service.image}
                     alt={service.alt}
@@ -261,7 +218,7 @@ export default function ExpertServices() {
                 </div>
 
                 {/* Service Content - Cream background box rounded at bottom */}
-                <div className="bg-[#FFE9CA] py-2 px-2 text-center flex items-center justify-center min-h-[46px] rounded-b-2xl">
+                <div className="bg-[#FFE9CA] py-2 px-2 text-center flex items-center justify-center min-h-[60px] rounded-b-2xl">
                   <h3 className="text-[12px] font-semibold text-[#164925] leading-tight font-poppins">
                     {service.title}
                   </h3>
@@ -272,9 +229,9 @@ export default function ExpertServices() {
         </div>
 
         {/* Download Growniq App Buttons */}
-        <div className="text-center mt-10 md:mt-14">
+        <div className="hidden lg:block   text-center mt-10 md:mt-14">
           <p className="text-xs md:text-sm text-[#164925] mb-4 font-medium font-nunito">Download Growniq App</p>
-          <div className="flex flex-row items-center justify-center gap-3 px-4">
+          <div className=" flex flex-row items-center justify-center gap-3 px-4">
             <a
               href="#"
               onClick={(e) => {

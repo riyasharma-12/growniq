@@ -50,7 +50,7 @@ export default function MobileHeader() {
           </div>
 
           {/* Right: Hamburger Menu */}
-          <div className="flex items-center gap-3">
+          {/* <div className="flex items-center gap-3">
             <button
               onClick={toggleMenu}
               className="flex h-[34px] w-[34px] items-center justify-center rounded-full bg-[#FFFAF3] text-[#164925] focus:outline-none hover:bg-white active:bg-gray-100 transition-all cursor-pointer shadow-[0_2px_8px_rgba(0,0,0,0.06)]"
@@ -61,6 +61,22 @@ export default function MobileHeader() {
                 <path d="M5 15H19" stroke="#164925" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
+          </div> */}
+          <div className="flex items-center gap-3">
+            {/* <button
+              onClick={toggleMenu}
+              className="flex h-[34px] w-[34px] items-center justify-center rounded-full bg-[#FFFAF3] text-[#164925] focus:outline-none hover:bg-white active:bg-gray-100 transition-all cursor-pointer shadow-[0_2px_8px_rgba(0,0,0,0.06)]"
+              aria-label="Toggle menu"
+            > */}
+            <div onClick={toggleMenu}>
+              <img
+                src="/images/user.svg"
+                alt="Menu"
+                className=" object-contain"
+              />
+            </div>
+
+            {/* </button> */}
           </div>
         </div>
       </header>
@@ -122,7 +138,7 @@ export default function MobileHeader() {
                 className="block text-[#164925] font-semibold font-poppins py-3.5 transition-colors text-[17px] active:opacity-70"
                 onClick={(e) => handleNavClick(e, 'expert-services')}
               >
-                Book a Service
+                Services
               </a>
               <a
                 href="#digi-nursery"
@@ -131,13 +147,13 @@ export default function MobileHeader() {
               >
                 Shop Plants
               </a>
-              <a
+              {/* <a
                 href="#ai-care"
                 className="block text-[#164925] font-semibold font-poppins py-3.5 transition-colors text-[17px] active:opacity-70"
                 onClick={(e) => handleNavClick(e, 'ai-care')}
               >
                 Smart Care with AI
-              </a>
+              </a> */}
               {/* <a
                 href="#pricing"
                 className="block text-[#164925] font-semibold font-poppins py-3.5 transition-colors text-[17px] active:opacity-70"
@@ -148,17 +164,13 @@ export default function MobileHeader() {
             </nav>
 
             {/* Dotted Line Separator */}
-            <div className="border-t border-dotted border-[rgba(22,73,37,0.45)] my-5"></div>
+            {/* <div className="border-t border-dotted border-[rgba(22,73,37,0.45)] my-5"></div> */}
+
+            <div className="w-full border-t border-dashed border-[#164925]"></div>
 
             {/* Secondary Menu Items */}
             <nav className="flex flex-col">
-              <a
-                href="#how-it-works"
-                className="block text-[#164925] font-semibold font-poppins py-3.5 transition-colors text-[17px] active:opacity-70"
-                onClick={(e) => handleNavClick(e, 'how-it-works')}
-              >
-                How It Works
-              </a>
+
               <a
                 href="/about-us"
                 className="block text-[#164925] font-semibold font-poppins py-3.5 transition-colors text-[17px] active:opacity-70"
@@ -166,10 +178,26 @@ export default function MobileHeader() {
               >
                 About Growniq
               </a>
+
+              <a
+                href="/terms-of-service"
+                className="block text-[#164925] font-semibold font-poppins py-3.5 transition-colors text-[17px] active:opacity-70"
+                onClick={(e) => handleNavClick(e, 'how-it-works')}
+              >
+                Terms of Service
+              </a>
+
+              <a
+                href="/privacy-policy"
+                className="block text-[#164925] font-semibold font-poppins py-3.5 transition-colors text-[17px] active:opacity-70"
+                onClick={(e) => handleNavClick(e, 'how-it-works')}
+              >
+                Privacy Policy
+              </a>
               {/* <a
                 href="#blog"
                 className="block text-[#164925] font-semibold font-poppins py-3.5 transition-colors text-[17px] active:opacity-70"
-                onClick={(e) => handleNavClick(e, 'blog')}
+                onClick={(e => handleNavClick(e, 'blog')}
               >
                 Blog / Tips
               </a> */}
@@ -189,39 +217,33 @@ export default function MobileHeader() {
               Download Growniq App
             </p>
             <div className="flex items-center justify-center gap-3">
-              {/* Google Play Button */}
+
+
               <a
                 href="#"
-                onClick={openDownload}
-                className="flex-1 flex items-center gap-2 bg-[#164925] text-white px-3 py-2.5 rounded-xl hover:bg-[#123c1e] transition justify-center"
-                role="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsDownloadOpen(true);
+                }}
+                className="hover:opacity-90 transition-opacity"
               >
-                <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z" />
-                </svg>
-                <span className="flex flex-col leading-tight text-left">
-                  <span className="text-[7px] font-normal tracking-wide">GET IT ON</span>
-                  <span className="text-[12px] font-semibold -mt-0.5 whitespace-nowrap">Google Play</span>
-                </span>
+                <Image src="/images/608.svg" alt="Download on the Apple Store" width={160} height={60} className="object-contain h-[38px] md:h-[50px] w-auto" />
+              </a>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsDownloadOpen(true);
+                }}
+                className="hover:opacity-90 transition-opacity"
+              >
+                <Image src="/images/609.svg" alt="Get it on Google Play" width={160} height={60} className="object-contain h-[38px] md:h-[50px] w-auto" />
               </a>
 
-              {/* App Store Button */}
-              <a
-                href="#"
-                onClick={openDownload}
-                className="flex-1 flex items-center gap-2 bg-[#164925] text-white px-3 py-2.5 rounded-xl hover:bg-[#123c1e] transition justify-center"
-                role="button"
-              >
-                <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-                </svg>
-                <span className="flex flex-col leading-tight text-left">
-                  <span className="text-[7px] font-normal tracking-wide">Download on the</span>
-                  <span className="text-[12px] font-semibold -mt-0.5 whitespace-nowrap">App Store</span>
-                </span>
-              </a>
             </div>
           </div>
+
+
         </div>
       </div>
       <DownloadModal open={isDownloadOpen} onClose={() => setIsDownloadOpen(false)} />
