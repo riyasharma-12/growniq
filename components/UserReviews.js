@@ -238,7 +238,7 @@ export default function UserReviews() {
           </div>
         </div>
 
-        {/* Carousel Container - Starts at left container boundary, extends to right edge */}
+        {/* Carousel Container - Starts at left container boundary,  */}
         <div
           className="overflow-hidden mb-8"
           style={carouselStyle}
