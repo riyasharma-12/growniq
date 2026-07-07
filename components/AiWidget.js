@@ -135,10 +135,10 @@ export default function AiWidget() {
                 <button
                   onClick={handleArrowClick}
                   aria-label="Previous"
-                  className="w-[34px] h-[34px] rounded-full border border-white/50 bg-white/10 flex items-center justify-center cursor-pointer"
+                  className="w-[34px] h-[34px] rounded-full border border-[#164925] bg-white/10 flex items-center justify-center cursor-pointer"
                 >
                   <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17 7H1M1 7L7 1M1 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M17 7H1M1 7L7 1M1 7L7 13" stroke="green" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
                 <button
