@@ -7,7 +7,7 @@ import DownloadModal from './DownloadModal';
 
 export default function ExpertServices() {
   const scrollContainerRef = useRef(null);
-  const [carouselStyle, setCarouselStyle] = useState({});
+  const [leftOffset, setLeftOffset] = useState(24);
   const [isDownloadOpen, setIsDownloadOpen] = useState(false);
 
   useEffect(() => {
@@ -15,13 +15,8 @@ export default function ExpertServices() {
       const width = window.innerWidth;
       const containerWidth = 1200;
       const leftPadding = 24; // 1.5rem
-      const marginLeft = Math.max(leftPadding, (width - containerWidth) / 2 + leftPadding);
-      const carouselWidth = width - marginLeft;
-
-      setCarouselStyle({
-        marginLeft: `${marginLeft}px`,
-        width: `${carouselWidth}px`
-      });
+      const offset = Math.max(leftPadding, (width - containerWidth) / 2 + leftPadding);
+      setLeftOffset(offset);
     };
 
     handleResize();
@@ -63,19 +58,19 @@ export default function ExpertServices() {
     {
       id: 6,
       title: 'Garden Heavy Work',
-      image: '/images/Garden-Maintainnace.png',
+      image: '/images/s6.svg',
       alt: 'Garden Heavy Work'
     },
     {
       id: 7,
       title: 'Workspace Plant Care',
-      image: '/images/Indoor-Plants.png',
+      image: '/images/s8.svg',
       alt: 'Workspace Plant Care'
     },
     {
       id: 8,
       title: 'Plant Repotting',
-      image: '/images/Terrace-Garden.png',
+      image: '/images/s9.svg',
       alt: 'Plant Repotting'
     }
   ];
@@ -88,15 +83,8 @@ export default function ExpertServices() {
       const cardElement = container.querySelector('.service-card');
       if (cardElement) {
         const cardWidth = cardElement.offsetWidth;
-        const gap = 32; // lg:gap-8 is 32px
-        const singleWidth = container.scrollWidth / 2;
-        if (container.scrollLeft <= 10) {
-          container.scrollLeft = singleWidth;
-        }
-        container.scrollBy({
-          left: -(cardWidth + gap),
-          behavior: 'smooth'
-        });
+        const gap = 32;
+        container.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
       }
     }
   };
@@ -107,20 +95,11 @@ export default function ExpertServices() {
       const cardElement = container.querySelector('.service-card');
       if (cardElement) {
         const cardWidth = cardElement.offsetWidth;
-        const gap = 32; // lg:gap-8 is 32px
-        const singleWidth = container.scrollWidth / 2;
-        if (container.scrollLeft >= singleWidth - 10) {
-          container.scrollLeft = container.scrollLeft - singleWidth;
-        }
-        container.scrollBy({
-          left: cardWidth + gap,
-          behavior: 'smooth'
-        });
+        const gap = 32;
+        container.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
       }
     }
   };
-
-  const duplicatedServices = [...services, ...services];
 
   return (
     <section className="py-10 md:py-16 -mt-[1px] overflow-hidden">
@@ -142,16 +121,16 @@ export default function ExpertServices() {
       </div>
 
       {/* Desktop View: Carousel Slider - Starts at left container boundary, extends to right edge */}
-      <div
-        className="hidden lg:block overflow-hidden mb-6 "
-        style={carouselStyle}
-      >
+      <div className="hidden lg:block overflow-hidden mb-6 w-full">
         <div
           ref={scrollContainerRef}
-          className="overflow-x-auto scrollbar-hide"
+          className="overflow-x-auto scrollbar-hide w-full"
         >
-          <div className="flex gap-6 lg:gap-8 pb-4">
-            {duplicatedServices.map((service, index) => (
+          <div
+            className="flex gap-6 lg:gap-8 pb-4"
+            style={{ paddingLeft: `${leftOffset}px`, paddingRight: `${leftOffset}px` }}
+          >
+            {services.map((service, index) => (
               <div
                 key={`${service.id}-${index}`}
                 className="service-card flex-shrink-0 w-[230px] flex flex-col rounded-2xl overflow-hidden cursor-pointer"
@@ -166,8 +145,8 @@ export default function ExpertServices() {
                 </div>
 
                 {/* Service Content - Cream background box rounded at bottom */}
-                <div className="bg-[#FFE9CA] py-3.5 px-3 text-center flex items-center justify-center min-h-[58px] rounded-b-2xl">
-                  <h3 className="text-[14px] font-semibold text-[#164925] leading-tight font-poppins">
+                <div className="bg-[#FFE9CA] py-3.5 px-1 text-center flex items-center justify-center min-h-[58px] rounded-b-2xl">
+                  <h3 className="text-[14px] font-medium text-[#164925] leading-tight font-poppins">
                     {service.title}
                   </h3>
                 </div>
@@ -183,14 +162,14 @@ export default function ExpertServices() {
         <div className="hidden lg:flex items-center justify-center gap-4 mt-6">
           <button
             onClick={handlePrev}
-            className="w-[42px] h-[42px] rounded-full border border-[rgba(22,73,37,0.3)] bg-transparent flex items-center justify-center text-[#164925] hover:bg-[#164925] hover:border-[#164925] hover:text-white active:bg-[#164925] active:border-[#164925] active:text-white transition-all cursor-pointer group"
+            className="w-[42px] h-[42px] rounded-full border border-[#164925] bg-transparent flex items-center justify-center text-[#164925] hover:bg-[#164925] hover:border-[#164925] hover:text-white active:bg-[#164925] active:border-[#164925] active:text-white transition-all cursor-pointer group"
             aria-label="Previous service"
           >
             <LeftArrow className="w-[6px] h-[11px] stroke-current transition-colors" />
           </button>
           <button
             onClick={handleNext}
-            className="w-[42px] h-[42px] rounded-full border border-[rgba(22,73,37,0.3)] bg-transparent flex items-center justify-center text-[#164925] hover:bg-[#164925] hover:border-[#164925] hover:text-white active:bg-[#164925] active:border-[#164925] active:text-white transition-all cursor-pointer group"
+            className="w-[42px] h-[42px] rounded-full border border-[#164925] bg-transparent flex items-center justify-center text-[#164925] hover:bg-[#164925] hover:border-[#164925] hover:text-white active:bg-[#164925] active:border-[#164925] active:text-white transition-all cursor-pointer group"
             aria-label="Next service"
           >
             <RightArrow className="w-[6px] h-[11px] stroke-current transition-colors" />
@@ -202,8 +181,8 @@ export default function ExpertServices() {
           ref={mobileScrollContainerRef}
           className="lg:hidden overflow-x-auto scrollbar-hide pb-4"
         >
-          <div className="grid grid-rows-2 grid-flow-col gap-2 w-max px-1">
-            {duplicatedServices.map((service, index) => (
+          <div className="grid grid-rows-2 grid-flow-col gap-2 w-max">
+            {services.map((service, index) => (
               <div
                 key={`${service.id}-${index}-mob`}
                 className="w-[200px] flex flex-col rounded-2xl overflow-hidden cursor-pointer"
@@ -231,7 +210,7 @@ export default function ExpertServices() {
         {/* Download Growniq App Buttons */}
         <div className="hidden lg:block   text-center mt-10 md:mt-14">
           <p className="text-xs md:text-sm text-[#164925] mb-4 font-medium font-nunito">Download Growniq App</p>
-          <div className=" flex flex-row items-center justify-center gap-3 px-4">
+          <div className=" flex flex-row items-center justify-center gap-5 px-4">
             <a
               href="#"
               onClick={(e) => {

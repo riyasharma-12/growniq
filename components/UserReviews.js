@@ -3,10 +3,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { LeftArrow, RightArrow } from './icons';
 import DownloadModal from './DownloadModal';
+import Image from 'next/image';
 
 export default function UserReviews() {
   const scrollContainerRef = useRef(null);
-  const [carouselStyle, setCarouselStyle] = useState({});
+  const [leftOffset, setLeftOffset] = useState(24);
   const [isDownloadOpen, setIsDownloadOpen] = useState(false);
   const autoplayRef = useRef(null);
 
@@ -15,13 +16,8 @@ export default function UserReviews() {
       const width = window.innerWidth;
       const containerWidth = 1200;
       const leftPadding = 24; // 1.5rem
-      const marginLeft = Math.max(leftPadding, (width - containerWidth) / 2 + leftPadding);
-      const carouselWidth = width - marginLeft;
-
-      setCarouselStyle({
-        marginLeft: `${marginLeft}px`,
-        width: `${carouselWidth}px`
-      });
+      const offset = Math.max(leftPadding, (width - containerWidth) / 2 + leftPadding);
+      setLeftOffset(offset);
     };
 
     handleResize();
@@ -41,10 +37,10 @@ export default function UserReviews() {
       description: 'We heard about the service from a friend and decided to give it a try. The team was highly professional and knowledgeable, and their gardeners were both supportive and helpful throughout the process.',
       author: 'Sunita',
       images: [
-        '/images/review-SBO-1.png',
-        '/images/review-SBO-2.png',
+        '/images/r11.svg',
+        '/images/r12.svg',
       ],
-      authorImage: '/images/review-SBO-1.png',
+      authorImage: '/images/r11.svg',
       authorRole: 'Business Owner',
       location: 'Sec - 21, Gurugram'
     },
@@ -56,11 +52,13 @@ export default function UserReviews() {
       author: 'Namita Jain',
       date: 'Sec - 67, Gurugram',
       images: [
-        '/images/r-image-2.png',
-        '/images/r-image-3.png',
-        '/images/r-image-4.png',
+        '/images/r21.svg',
+        '/images/r22.svg',
+        '/images/r23.svg',
+        '/images/r24.svg',
+        '/images/r25.svg',
       ],
-      authorImage: '/images/r-image-2.png',
+      authorImage: '/images/r21.svg',
       authorRole: 'Business Owner',
       location: 'Sec - 67, Gurugram'
     },
@@ -72,11 +70,12 @@ export default function UserReviews() {
       author: 'Hemika Raghav',
       date: 'Sec - 50, Gurgaon',
       images: [
-        '/images/review-hm-5.png',
-        '/images/review-hm-4.png',
-        '/images/review-hm-3.png',
+        '/images/r31.png',
+        '/images/r32.svg',
+        '/images/r33.svg',
+        '/images/r34.svg',
       ],
-      authorImage: '/images/review-hm-5.png',
+      authorImage: '/images/r31.png',
       authorRole: 'Housewife',
       location: 'Sec - 50, Gurgaon'
     },
@@ -88,11 +87,11 @@ export default function UserReviews() {
       author: 'Avinash',
       date: 'Sec - 49, Gurgaon',
       images: [
-        '/images/r-image-6.png',
-        '/images/r-image-7.png',
-        '/images/r-image-8.png',
+        '/images/r41.svg',
+        '/images/r42.png',
+        '/images/r43.svg',
       ],
-      authorImage: '/images/r-image-6.png',
+      authorImage: '/images/r41.svg',
       authorRole: 'IT Professional',
       location: 'Sec - 49, Gurgaon'
     },
@@ -106,15 +105,8 @@ export default function UserReviews() {
       const cardElement = container.querySelector('.review-card');
       if (cardElement) {
         const cardWidth = cardElement.offsetWidth;
-        const gap = 32; // lg:gap-8 is 32px
-        const singleWidth = container.scrollWidth / 3;
-        if (container.scrollLeft <= 10) {
-          container.scrollLeft = singleWidth;
-        }
-        container.scrollBy({
-          left: -(cardWidth + gap),
-          behavior: 'smooth'
-        });
+        const gap = 32;
+        container.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
       }
     }
   };
@@ -125,20 +117,11 @@ export default function UserReviews() {
       const cardElement = container.querySelector('.review-card');
       if (cardElement) {
         const cardWidth = cardElement.offsetWidth;
-        const gap = 32; // lg:gap-8 is 32px
-        const singleWidth = container.scrollWidth / 3;
-        if (container.scrollLeft >= singleWidth * 2 - 10) {
-          container.scrollLeft = container.scrollLeft - singleWidth;
-        }
-        container.scrollBy({
-          left: cardWidth + gap,
-          behavior: 'smooth'
-        });
+        const gap = 32;
+        container.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
       }
     }
   };
-
-  const duplicatedBlogs = [...blogs, ...blogs, ...blogs];
 
   const renderStars = (rating) => {
     return (
@@ -182,40 +165,28 @@ export default function UserReviews() {
       {/* Download Growniq App Bar */}
       <div className=" bg-[#FFFAF3] py-3 md:py-4">
         <div className="container  mx-auto px-4 sm:px-6 max-w-[1200px]">
-          <div className="hidden lg:flex flex-col items-center justify-center gap-3 sm:gap-6">
-            <span className="text-[#164925] text-sm md:text-base font-medium font-poppins whitespace-nowrap">
-              Download Growniq App
-            </span>
-            <div className="flex items-center gap-3">
-              {/* Apple Store Button */}
+          <div className="hidden lg:block   text-center mt-10 md:mt-14">
+            <p className="text-xs md:text-sm text-[#164925] mb-4 font-medium font-nunito">Download Growniq App</p>
+            <div className=" flex flex-row items-center justify-center gap-5 px-4">
               <a
                 href="#"
                 onClick={(e) => {
                   e.preventDefault();
                   setIsDownloadOpen(true);
                 }}
-                className="flex-shrink-0"
+                className="hover:opacity-90 transition-opacity"
               >
-                <img
-                  src="/images/608.svg"
-                  alt="Download on the App Store"
-                  className="h-9 md:h-12 w-auto object-contain"
-                />
+                <Image src="/images/608.svg" alt="Download on the Apple Store" width={140} height={50} className="object-contain h-[38px] md:h-[50px] w-auto" />
               </a>
-              {/* Google Play Button */}
               <a
                 href="#"
                 onClick={(e) => {
                   e.preventDefault();
                   setIsDownloadOpen(true);
                 }}
-                className="flex-shrink-0"
+                className="hover:opacity-90 transition-opacity"
               >
-                <img
-                  src="/images/609.svg"
-                  alt="Get it on Google Play"
-                  className="h-9 md:h-12 w-auto object-contain"
-                />
+                <Image src="/images/609.svg" alt="Get it on Google Play" width={140} height={50} className="object-contain h-[38px] md:h-[50px] w-auto" />
               </a>
             </div>
           </div>
@@ -228,7 +199,7 @@ export default function UserReviews() {
         <div className="container mx-auto px-4 sm:px-6 max-w-[1200px]">
           {/* Header */}
           <div className="text-center mb-12 md:mb-16 flex flex-col items-center">
-            <img src="/images/subtract2.svg" alt="" className="w-[21px] h-[26px] mb-6 object-contain" />
+            <img src="/images/icons2.svg" alt="" className="w-[21px] h-[26px] mb-6 object-contain" />
             <h2 className="text-3xl md:text-5xl font-medium text-[#164925] mb-4 font-poppins">
               Why our customers keep coming back
             </h2>
@@ -239,16 +210,16 @@ export default function UserReviews() {
         </div>
 
         {/* Carousel Container - Starts at left container boundary,  */}
-        <div
-          className="overflow-hidden mb-4"
-          style={carouselStyle}
-        >
+        <div className="overflow-hidden mb-4 w-full">
           <div
             ref={scrollContainerRef}
-            className="bg-[#FFFAF3] overflow-x-auto overflow-y-hidden scrollbar-hide"
+            className="bg-[#FFFAF3] overflow-x-auto overflow-y-hidden scrollbar-hide w-full"
           >
-            <div className="flex gap-6 lg:gap-8 pb-4">
-              {duplicatedBlogs.map((blog, index) => (
+            <div
+              className="flex gap-6 lg:gap-8 pb-4"
+              style={{ paddingLeft: `${leftOffset}px`, paddingRight: `${leftOffset}px` }}
+            >
+              {blogs.map((blog, index) => (
                 <div
                   key={`${blog.id}-${index}`}
                   className="review-card flex-shrink-0 w-[288px] sm:w-[340px] overflow-hidden"
@@ -264,7 +235,7 @@ export default function UserReviews() {
                       </div>
 
                       {/* Title */}
-                      <h4 className="text-[18px] font-semibold text-[#164925] font-poppins leading-snug">
+                      <h4 className="text-[18px] font-regular text-[#164925] font-poppins leading-snug">
                         {blog.title}
                       </h4>
 
@@ -293,7 +264,7 @@ export default function UserReviews() {
                               <img
                                 src={image}
                                 alt={`Garden ${idx + 1}`}
-                                className="w-20 h-20 object-cover hover:scale-110 transition-transform duration-300 rounded-lg"
+                                className="w-16 h-16 object-cover hover:scale-110 transition-transform duration-300 rounded-lg"
                               />
                               {isLast && (
                                 <div className="absolute inset-0 bg-black/55 flex items-center justify-center rounded-lg">
@@ -337,14 +308,14 @@ export default function UserReviews() {
           <div className="flex items-center justify-center gap-4 mt-6">
             <button
               onClick={handlePrev}
-              className="w-[42px] h-[42px] rounded-full border border-[rgba(22,73,37,0.3)] bg-transparent flex items-center justify-center text-[#164925] hover:bg-[#164925] hover:border-[#164925] hover:text-white active:bg-[#164925] active:border-[#164925] active:text-white transition-all cursor-pointer group"
+              className="w-[42px] h-[42px] rounded-full border border-[#164925] bg-transparent flex items-center justify-center text-[#164925] hover:bg-[#164925] hover:border-[#164925] hover:text-white active:bg-[#164925] active:border-[#164925] active:text-white transition-all cursor-pointer group"
               aria-label="Previous blog"
             >
               <LeftArrow className="w-[6px] h-[11px] stroke-current transition-colors" />
             </button>
             <button
               onClick={handleNext}
-              className="w-[42px] h-[42px] rounded-full border border-[rgba(22,73,37,0.3)] bg-transparent flex items-center justify-center text-[#164925] hover:bg-[#164925] hover:border-[#164925] hover:text-white active:bg-[#164925] active:border-[#164925] active:text-white transition-all cursor-pointer group"
+              className="w-[42px] h-[42px] rounded-full border border-[#164925] bg-transparent flex items-center justify-center text-[#164925] hover:bg-[#164925] hover:border-[#164925] hover:text-white active:bg-[#164925] active:border-[#164925] active:text-white transition-all cursor-pointer group"
               aria-label="Next blog"
             >
               <RightArrow className="w-[6px] h-[11px] stroke-current transition-colors" />

@@ -30,7 +30,7 @@ export default function Hero() {
     '/images/AI-Plant-atf-2.png',
     '/images/Growniq-Online-atf-4.png',
     '/images/Indoor-Plant-atf-5.png',
-    '/images/Top-Image.png',
+    // '/images/Top-Image.png',
   ];
   const [current, setCurrent] = useState(0);
   const [touchStartX, setTouchStartX] = useState(null);
@@ -84,11 +84,17 @@ export default function Hero() {
 
           {/* Left Content */}
           <div className="topBanner-bg px-4 lg:px-0 space-y-5 lg:space-y-6 relative">
-            {/* Mobile handle indicator with side lines */}
-            <div className="lg:hidden flex items-center justify-between w-full pt-4">
-              <div className="h-[3px] flex-1 bg-[#E8D4B8]"></div>
-              <div className="w-[56px] h-[3px] bg-[#164925] rounded-full  shrink-0"></div>
-              <div className="h-[3px] flex-1 bg-[#E8D4B8]"></div>
+            {/* Mobile handle indicator with dynamic sliding green segment */}
+            <div className="lg:hidden w-full pt-4 px-2">
+              <div className="relative h-[3px] w-full bg-[#E8D4B8] rounded-full overflow-hidden">
+                <div
+                  className="absolute top-0 bottom-0 bg-[#164925] rounded-full transition-all duration-500 ease-in-out"
+                  style={{
+                    width: `${100 / slides.length}%`,
+                    transform: `translateX(${current * 100}%)`,
+                  }}
+                />
+              </div>
             </div>
 
             {/* Heading */}
@@ -200,7 +206,7 @@ export default function Hero() {
                 <div className="space-y-4">
                   {/* Select Service - Horizontal layout */}
                   <div className="flex items-center gap-4">
-                    <label className="text-[14px] font-semibold text-[#164925] whitespace-nowrap min-w-[120px]">
+                    <label className="text-[14px] font-regular text-[#164925] whitespace-nowrap min-w-[120px]">
                       Select Service
                     </label>
                     <div className="relative flex-1" ref={serviceDropdownRef}>
@@ -254,7 +260,7 @@ export default function Hero() {
 
                   {/* Enter Pincode - Horizontal layout */}
                   <div className="flex items-center gap-4">
-                    <label className="text-[14px] font-semibold text-[#164925] whitespace-nowrap min-w-[120px]">
+                    <label className="text-[14px] font-regular text-[#164925] whitespace-nowrap min-w-[120px]">
                       Enter Pincode
                     </label>
                     <input

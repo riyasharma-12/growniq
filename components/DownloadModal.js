@@ -47,7 +47,8 @@ export default function DownloadModal({ open, onClose }) {
                             <img
                                 src="/images/comingsoon.png"
                                 alt="Coming Soon Badge"
-                                className="w-full h-full object-contain"
+                                // className="w-full h-full object-contain"
+                                className="w-full h-full object-cover object-center"
                             />
                         </div>
                     </div>
@@ -57,12 +58,14 @@ export default function DownloadModal({ open, onClose }) {
                 <div className="flex-1 flex flex-col md:justify-between p-6 md:p-9 text-left z-10">
                     {/* Desktop Green Logo */}
                     <div className="hidden md:block">
-                        <Image src="/images/growniq-green-logo.svg" alt="Logo" width={100} height={30} />
+                        <Image src="/images/growniq-green-logo.svg" alt="Logo" width={100} height={30}
+
+                        />
                     </div>
 
                     {/* Text Title & Form */}
-                    <div className="mt-4 md:mt-2">
-                        <h3 className="text-[19px] md:text-[22px] font-medium text-[#164925] font-poppins leading-tight tracking-tight">
+                    <div className="mt-4 md:mt-2 px-6">
+                        <h3 className=" text-[19px] md:text-[22px] font-medium text-[#164925] font-poppins leading-tight tracking-tight">
                             You are in the right place,
                             <br className="hidden md:block" /> Growniq app is sprouting soon
                         </h3>
@@ -87,7 +90,7 @@ export default function DownloadModal({ open, onClose }) {
                     </div>
 
                     {/* Dotted Divider & Contact Info */}
-                    <div className="mt-1">
+                    <div className="mt-1 mb-10">
                         {/* <div className="border-t border-dotted border-[rgba(22,73,37,0.45)] my-4"></div>
                          */}
                         <div className="w-full border-t border-dashed border-[#164925] my-4"></div>

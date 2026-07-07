@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import AnimatedBorderBadge from "./AnimatedBorderBadge";
+import Image from 'next/image';
 
 export default function AiWidget() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,7 +62,7 @@ export default function AiWidget() {
 
     <section
       id="ai-care"
-      className="relative overflow-hidden -mt-[1px] bg-cover bg-center bg-no-repeat"
+      className="relative overflow-hidden -mt-[1px] bg-cover bg-center bg-no-repeat border border-[#164925]/30"
       style={{
         backgroundImage: "url('/images/bg1.png')",
       }}
@@ -77,25 +79,12 @@ export default function AiWidget() {
 
             {/* Custom Premium Coming Soon Badge with Glow (Figma design) */}
             {/* <div className="mb-6 inline-flex animate-pulse"> */}
-            <div className="mb-6 inline-flex ">
-              {/* <div 
-                className="p-[1.5px] rounded-full"
-                style={{
-                  background: 'linear-gradient(90deg, #FFEF5C 0%, #3BF683 25%, #2FD5F6 50%, #703BF6 75%, #F62F8A 100%)',
-                  boxShadow: '0 0 20px rgba(255, 239, 92, 0.45), 0 0 20px rgba(112, 59, 246, 0.45)',
-                }}
-              > */}
+            {/* <div className="mb-6 inline-flex ">
+              
 
               <div
                 className="p-[1.5px] rounded-full"
-              //             style={{
-              //               background:
-              //                 'linear-gradient(90deg, #FFEF5C 0%, #3BF683 25%, #2FD5F6 50%, #703BF6 75%, #F62F8A 100%)',
-              //               boxShadow: `
-              //   0 0 40px 8px rgba(255, 239, 92, 0.7),
-              //   0 0 40px 8px rgba(112, 59, 246, 0.7)
-              // `,
-              //             }}
+              
               >
                 <div className="bg-white rounded-full px-3 py-1 flex items-center gap-1.5">
 
@@ -107,7 +96,22 @@ export default function AiWidget() {
                   </span>
                 </div>
               </div>
+            </div> */}
+
+            <div className=" rainbow inline-flex p-[2px] rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 mb-6">
+              <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5">
+                <Image src="/images/icons3.svg" alt="star" width={20} height={20} />
+                <span className="text-orange-600 font-bold text-sm tracking-wide whitespace-nowrap">
+                  COMING SOON
+                </span>
+              </div>
             </div>
+
+            {/* <div className="mb-6 inline-flex">
+              <AnimatedBorderBadge speed={3} textClassName="text-[#ff5a36]">
+                Coming Soon
+              </AnimatedBorderBadge>
+            </div> */}
 
             {/* Titles */}
             <div className="mb-8">
@@ -196,37 +200,26 @@ export default function AiWidget() {
       <div className="block md:hidden">
         <div className="block md:hidden">
           <div
-            className="relative overflow-hidden rounded-2xl"
+            className="relative overflow-hidden rounded-2xl border border-white/20"
             style={{ minHeight: '540px' }}
           >
             {/* Top-left: badge + headings */}
             <div className="relative z-10  pl-6 pt-5" style={{ maxWidth: '85%' }}>
 
               {/* Premium Coming Soon CSS Badge for Mobile */}
-              <div className="mb-3 inline-flex ">
-                <div
-                  className="p-[1px] rounded-full"
-                // style={{
-                //   background: 'linear-gradient(90deg, #FFEF5C 0%, #3BF683 25%, #2FD5F6 50%, #703BF6 75%, #F62F8A 100%)',
-                //   boxShadow: '0 0 15px rgba(255, 239, 92, 0.4), 0 0 15px rgba(112, 59, 246, 0.4)',
-                // }}
-                >
-                  <div className="bg-white rounded-full px-2.5 py-0.5 flex items-center gap-1.2">
-                    <svg width="10" height="10" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M8 0L9.8 6.2L16 8L9.8 9.8L8 16L6.2 9.8L0 8L6.2 6.2L8 0Z" fill="#ff5a36" />
-                    </svg>
-                    <span className="text-[9px] font-extrabold text-[#ff5a36] font-poppins uppercase tracking-wider whitespace-nowrap">
-                      Coming Soon
-                    </span>
-                  </div>
+              <div className=" rainbow inline-flex p-[2px] rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 mb-6">
+                <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5">
+                  <Image src="/images/icons3.svg" alt="star" width={20} height={20} />
+                  <span className="text-orange-600 font-bold text-sm tracking-wide whitespace-nowrap">
+                    COMING SOON
+                  </span>
                 </div>
               </div>
-
               <p className="text-white text-[24px] font-medium font-poppins mb-1 leading-tight">
                 AI Plant care
               </p>
               <h2
-                className="font-semibold text-white font-poppins leading-snug"
+                className="font-semibold text-white font-poppins leading-snug mb-20"
                 style={{ fontSize: '24px', lineHeight: '32px' }}
               >
                 Expert Care for Any Plant
@@ -278,16 +271,16 @@ export default function AiWidget() {
                 <button
                   onClick={handleArrowClick}
                   aria-label="Previous"
-                  className="w-[34px] h-[34px] rounded-full border border-white/50 bg-white/10 flex items-center justify-center cursor-pointer"
+                  className="w-[34px] h-[34px] rounded-full border border-[#164925] bg-white/10 flex items-center justify-center cursor-pointer"
                 >
                   <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17 7H1M1 7L7 1M1 7L7 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M17 7H1M1 7L7 1M1 7L7 13" stroke="green" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
                 <button
                   onClick={handleArrowClick}
                   aria-label="Next"
-                  className="w-[34px] h-[34px] rounded-full bg-[#164925] flex items-center justify-center cursor-pointer"
+                  className="w-[34px] h-[34px] rounded-full border-[#164925] bg-[#164925] flex items-center justify-center cursor-pointer"
                 >
                   <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -320,7 +313,8 @@ export default function AiWidget() {
                     <img
                       src="/images/comingsoon.png"
                       alt="Coming Soon Badge"
-                      className="w-full h-full object-contain"
+                      // className="w-full h-full object-contain"
+                      className="w-full h-full object-cover object-center"
                     />
                   </div>
                 </div>

@@ -140,13 +140,13 @@ export default function MobileHeader() {
               >
                 Services
               </a>
-              <a
+              {/* <a
                 href="#digi-nursery"
                 className="block text-[#164925] font-semibold font-poppins py-3.5 transition-colors text-[17px] active:opacity-70"
                 onClick={(e) => handleNavClick(e, 'digi-nursery')}
               >
                 Shop Plants
-              </a>
+              </a> */}
               {/* <a
                 href="#ai-care"
                 className="block text-[#164925] font-semibold font-poppins py-3.5 transition-colors text-[17px] active:opacity-70"
@@ -166,7 +166,7 @@ export default function MobileHeader() {
             {/* Dotted Line Separator */}
             {/* <div className="border-t border-dotted border-[rgba(22,73,37,0.45)] my-5"></div> */}
 
-            <div className="w-full border-t border-dashed border-[#164925]"></div>
+            {/* <div className="w-full border-t border-dashed border-[#164925]"></div> */}
 
             {/* Secondary Menu Items */}
             <nav className="flex flex-col">
@@ -182,7 +182,7 @@ export default function MobileHeader() {
               <a
                 href="/terms-of-service"
                 className="block text-[#164925] font-semibold font-poppins py-3.5 transition-colors text-[17px] active:opacity-70"
-                onClick={(e) => handleNavClick(e, 'how-it-works')}
+                onClick={(e) => handleNavClick(e, null, '/terms-of-service')}
               >
                 Terms of Service
               </a>
@@ -190,7 +190,7 @@ export default function MobileHeader() {
               <a
                 href="/privacy-policy"
                 className="block text-[#164925] font-semibold font-poppins py-3.5 transition-colors text-[17px] active:opacity-70"
-                onClick={(e) => handleNavClick(e, 'how-it-works')}
+                onClick={(e) => handleNavClick(e, null, '/privacy-policy')}
               >
                 Privacy Policy
               </a>
@@ -227,7 +227,7 @@ export default function MobileHeader() {
                 }}
                 className="hover:opacity-90 transition-opacity"
               >
-                <Image src="/images/608.svg" alt="Download on the Apple Store" width={160} height={60} className="object-contain h-[38px] md:h-[50px] w-auto" />
+                <Image src="/images/608.svg" alt="Download on the Apple Store" width={170} height={60} className="object-contain h-[55px] md:h-[50px] w-auto" />
               </a>
               <a
                 href="#"
@@ -237,7 +237,7 @@ export default function MobileHeader() {
                 }}
                 className="hover:opacity-90 transition-opacity"
               >
-                <Image src="/images/609.svg" alt="Get it on Google Play" width={160} height={60} className="object-contain h-[38px] md:h-[50px] w-auto" />
+                <Image src="/images/609.svg" alt="Get it on Google Play" width={170} height={50} className="object-contain h-[55px] md:h-[50px] w-auto" />
               </a>
 
             </div>

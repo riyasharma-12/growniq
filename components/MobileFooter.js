@@ -313,19 +313,19 @@ export default function MobileFooter() {
       links: [
         { name: 'Terms of Service', href: '/terms-of-service' },
         { name: 'Privacy Policy', href: '/privacy-policy' },
-        { name: 'Refund Policy', href: '#' }
+        // { name: 'Refund Policy', href: '#' }
       ]
     },
-    {
-      id: 'company',
-      title: 'Company Info',
-      links: [
-        { name: 'About Growniq', href: '/about-us' },
+    // {
+    //   id: 'company',
+    //   title: 'Company Info',
+    //   links: [
+    //     { name: 'About Growniq', href: '/about-us' },
 
-        { name: 'Careers', href: '#' },
-        { name: 'Partners', href: '#' }
-      ]
-    }
+    //     { name: 'Careers', href: '#' },
+    //     { name: 'Partners', href: '#' }
+    //   ]
+    // }
   ];
 
   return (
@@ -420,10 +420,10 @@ export default function MobileFooter() {
         </div>
 
         {/* Download App Section */}
-        <div className="mt-12 text-center">
+        {/* <div className="mt-12 text-center">
           <h4 className="text-[16px] font-nunito font-poppins mb-5 text-white">Download The Growniq App</h4>
           <div className="flex justify-center items-center gap-3">
-            {/* Google Play Button */}
+
             <a
               href="#"
               onClick={(e) => {
@@ -444,7 +444,7 @@ export default function MobileFooter() {
               </div>
             </a>
 
-            {/* Apple Store Button */}
+
             <a
               href="#"
               onClick={(e) => {
@@ -460,7 +460,7 @@ export default function MobileFooter() {
               </div>
             </a>
           </div>
-        </div>
+        </div> */}
 
         {/* Social Media Section */}
         <div className="mt-12 text-left">
@@ -508,7 +508,7 @@ export default function MobileFooter() {
               }}
               className="hover:opacity-90 transition-opacity"
             >
-              <Image src="/images/608.svg" alt="Download on the Apple Store" width={140} height={50} className="object-contain h-[38px] md:h-[50px] w-auto" />
+              <Image src="/images/608.svg" alt="Download on the Apple Store" width={180} height={50} className="object-contain h-[50px] md:h-[50px] w-auto" />
             </a>
             <a
               href="#"
@@ -518,7 +518,7 @@ export default function MobileFooter() {
               }}
               className="hover:opacity-90 transition-opacity"
             >
-              <Image src="/images/609.svg" alt="Get it on Google Play" width={140} height={50} className="object-contain h-[38px] md:h-[50px] w-auto" />
+              <Image src="/images/609.svg" alt="Get it on Google Play" width={180} height={50} className="object-contain h-[50px] md:h-[50px] w-auto" />
             </a>
           </div>
         </div>

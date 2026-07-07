@@ -312,8 +312,16 @@ export default function DigiNursery() {
             <Image src="/images/growniq-green-logo.svg" alt="logo" width={131} height={39} />
           </div>
 
-          <h2 className="text-[40px] lg:text-[40px] font-semibold leading-tight font-poppins">
-            Growniq <span className="block">Digi-nursery</span>
+          <h2 className="text-[40px] lg:text-[40px] font-medium leading-tight font-poppins">
+            Growniq{' '}
+            <span className="block relative w-fit">
+              Digi-nursery
+              <img
+                src="/images/line.svg"
+                alt=""
+                className="absolute left-[14%] bottom-[-6px] w-[80%] h-auto pointer-events-none"
+              />
+            </span>
           </h2>
 
           <p className="mt-4 text-[16px] leading-relaxed font-nunito text-[#164925] px-2">
@@ -330,10 +338,7 @@ export default function DigiNursery() {
               <img src="/images/pots.svg" alt="pots" className="w-[16px] h-[16px]" />
               <span>Pots</span>
             </li>
-            <li className="bg-white flex items-center gap-2 py-2 px-4 rounded-full hover:shadow-md transition-shadow cursor-pointer">
-              <img src="/images/diy-kits.svg" alt="diy kits" className="w-[16px] h-[16px]" />
-              <span>DIY kits</span>
-            </li>
+
             <li className="bg-white flex items-center gap-2 py-2 px-4 rounded-full hover:shadow-md transition-shadow cursor-pointer">
               <img src="/images/seeds.svg" alt="seeds" className="w-[16px] h-[16px]" />
               <span>Seeds</span>
@@ -345,6 +350,11 @@ export default function DigiNursery() {
             </li>
 
             <li className="bg-white flex items-center gap-2 py-2 px-4 rounded-full hover:shadow-md transition-shadow cursor-pointer">
+              <img src="/images/diy-kits.svg" alt="diy kits" className="w-[16px] h-[16px]" />
+              <span>DIY kits</span>
+            </li>
+
+            <li className="bg-white flex items-center gap-2 py-2 px-4 rounded-full hover:shadow-md transition-shadow cursor-pointer">
               <img src="/images/Fertilizer.svg" alt="fertilizer" className="w-[16px] h-[16px]" />
               <span>Fertilizer</span>
             </li>
@@ -352,8 +362,8 @@ export default function DigiNursery() {
 
           {/* Download App Buttons - Matching Figma Layout */}
           <div className="hidden lg:block mt-8 lg:mt-12 text-left">
-            <p className="text-xs text-[#164925] mb-3.5 font-medium font-nunito">Download Growniq App</p>
-            <div className="flex flex-row items-center gap-3">
+            <p className="text-xs text-[#164925] mb-2.5 font-medium font-nunito">Download Growniq App</p>
+            <div className="flex flex-row items-center gap-5">
               <a
                 href="#"
                 onClick={(e) => {

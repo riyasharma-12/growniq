@@ -10,7 +10,7 @@ export default function WhyChoose() {
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-16">
           {/* Centered Flower Icon (visible on both desktop and mobile) */}
-          <div className="flex items-center justify-center mb-4">
+          <div className="flex items-center justify-center mb-10">
             <Image
               src="/images/flower-icon.svg"
               alt="flower-icon"
@@ -22,7 +22,7 @@ export default function WhyChoose() {
           <h2 className="text-3xl md:text-[36px] font-medium text-[#164925] mb-4 font-poppins leading-tight">
             Why Choose Growniq
           </h2>
-          <p className="text-[16px] px-4 md:text-lg text-[#164925] opacity-90 max-w-2xl mx-auto font-nunito">
+          <p className="text-[15px] px-4 md:text-lg text-[#164925] opacity-90 max-w-2xl mx-auto font-nunito ">
             We're committed to providing the best gardening and landscaping experience
           </p>
         </div>
@@ -32,9 +32,9 @@ export default function WhyChoose() {
             Matches the Figma Mobile design precisely.
             ======================================================== */}
         <div className="block lg:hidden">
-          <div className="bg-[#FFE9CA] rounded-[32px] p-6 relative overflow-hidden shadow-sm">
+          <div className="bg-[#FFE9CA] rounded-[32px] p-6 relative overflow-hidden shadow-sm mt-10">
             {/* Decorative leaf background */}
-            <div className="absolute right-0 top-0 opacity-100 pointer-events-none">
+            <div className="absolute right-0 top-0 opacity-100 pointer-events-none px-6">
               <Image src="/images/leaf-bg.svg" alt="leaf" width={110} height={110} />
             </div>
 
@@ -130,13 +130,13 @@ export default function WhyChoose() {
             DESKTOP LAYOUT (hidden lg:grid)
             Matches the Figma Desktop design precisely.
             ======================================================== */}
-        <div className="hidden lg:grid lg:grid-cols-[57%_43%] gap-10 xl:gap-16 items-stretch">
+        <div className="hidden lg:grid lg:grid-cols-[57%_43%] gap-10 xl:gap-16 items-stretch ">
 
           {/* Left Column - Satisfaction Card */}
           <div className="bg-[#FFE9CA] rounded-[32px] p-8 xl:p-10 flex flex-col justify-between relative overflow-hidden shadow-sm">
             {/* Decorative leaf background */}
-            <div className="absolute right-0 top-0 opacity-100 pointer-events-none">
-              <Image src="/images/leaf-bg.svg" alt="leaf" width={160} height={160} />
+            <div className="absolute right-0 top-0 opacity-100 pointer-events-none px-6">
+              <Image src="/images/leaf-bg.svg" alt="leaf" width={130} height={130} />
             </div>
 
             <div className="space-y-6 relative z-10">
