@@ -108,9 +108,9 @@ export default function SubscriptionWidget() {
 
       <div className="text-center text-[#164925] text-[13px] font-semibold flex items-center gap-1 justify-center absolute bottom-4 left-1/2 transform -translate-x-1/2 w-full">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M4 9.36621C4 10.2198 4.16813 11.065 4.49478 11.8537C4.82144 12.6423 5.30022 13.3588 5.90381 13.9624C6.50739 14.566 7.22394 15.0448 8.01256 15.3714C8.80117 15.6981 9.64641 15.8662 10.5 15.8662C11.3536 15.8662 12.1988 15.6981 12.9874 15.3714C13.7761 15.0448 14.4926 14.566 15.0962 13.9624C15.6998 13.3588 16.1786 12.6423 16.5052 11.8537C16.8319 11.065 17 10.2198 17 9.36621C17 7.6423 16.3152 5.989 15.0962 4.77002C13.8772 3.55103 12.2239 2.86621 10.5 2.86621C8.77609 2.86621 7.12279 3.55103 5.90381 4.77002C4.68482 5.989 4 7.6423 4 9.36621Z" stroke="#164925" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M10 6.5H10.0083" stroke="#164925" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M9.16663 9H9.99996V12.3333H10.8333" stroke="#164925" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M4 9.36621C4 10.2198 4.16813 11.065 4.49478 11.8537C4.82144 12.6423 5.30022 13.3588 5.90381 13.9624C6.50739 14.566 7.22394 15.0448 8.01256 15.3714C8.80117 15.6981 9.64641 15.8662 10.5 15.8662C11.3536 15.8662 12.1988 15.6981 12.9874 15.3714C13.7761 15.0448 14.4926 14.566 15.0962 13.9624C15.6998 13.3588 16.1786 12.6423 16.5052 11.8537C16.8319 11.065 17 10.2198 17 9.36621C17 7.6423 16.3152 5.989 15.0962 4.77002C13.8772 3.55103 12.2239 2.86621 10.5 2.86621C8.77609 2.86621 7.12279 3.55103 5.90381 4.77002C4.68482 5.989 4 7.6423 4 9.36621Z" stroke="#164925" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M10 6.5H10.0083" stroke="#164925" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M9.16663 9H9.99996V12.3333H10.8333" stroke="#164925" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
         <span className="text-[13px] md:text-base font-medium">These plans are for up to 15 plants</span>
       </div>

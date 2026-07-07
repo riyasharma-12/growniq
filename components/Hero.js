@@ -157,13 +157,13 @@ export default function Hero() {
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
                   <div className="w-7 h-7 rounded-full bg-gray-300  relative overflow-hidden">
-                    <Image src="/images/m1.png" alt="User" fill className="object-cover" />
+                    <Image src="/images/m1.png" alt="User" fill sizes="32px" className="object-cover" />
                   </div>
                   <div className="w-7 h-7 rounded-full bg-gray-400  relative overflow-hidden">
-                    <Image src="/images/m2.png" alt="User" fill className="object-cover" />
+                    <Image src="/images/m2.png" alt="User" fill sizes="32px" className="object-cover" />
                   </div>
                   <div className="w-7 h-7 rounded-full bg-gray-500  relative overflow-hidden">
-                    <Image src="/images/m3.png" alt="User" fill className="object-cover" />
+                    <Image src="/images/m3.png" alt="User" fill sizes="32px" className="object-cover" />
                   </div>
                 </div>
                 <div className="text-[11px]">
@@ -288,13 +288,13 @@ export default function Hero() {
                 <div className="flex items-center gap-2">
                   <div className="flex -space-x-2">
                     <div className="w-8 h-8 rounded-full  relative overflow-hidden">
-                      <Image src="/images/m1.png" alt="Professional gardener at work" fill className="object-cover" />
+                      <Image src="/images/m1.png" alt="Professional gardener at work" fill sizes="32px" className="object-cover" />
                     </div>
                     <div className="w-8 h-8 rounded-full  relative overflow-hidden">
-                      <Image src="/images/m2.png" alt="Professional gardener at work" fill className="object-cover" />
+                      <Image src="/images/m2.png" alt="Professional gardener at work" fill sizes="32px" className="object-cover" />
                     </div>
                     <div className="w-8 h-8 rounded-full   relative overflow-hidden">
-                      <Image src="/images/m3.png" alt="Professional gardener at work" fill className="object-cover" />
+                      <Image src="/images/m3.png" alt="Professional gardener at work" fill sizes="32px" className="object-cover" />
                     </div>
                   </div>
                   <div className="text-xs sm:text-sm">

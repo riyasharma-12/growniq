@@ -98,13 +98,13 @@ export default function WhyChoose() {
                   <div className="flex items-center gap-3">
                     <div className="flex -space-x-3">
                       <div className="relative w-8 h-8 rounded-full  overflow-hidden bg-gray-200">
-                        <Image src="/images/m1.png" alt="User Avatar 1" fill className="object-cover" />
+                        <Image src="/images/m1.png" alt="User Avatar 1" fill sizes="32px" className="object-cover" />
                       </div>
                       <div className="relative w-8 h-8 rounded-full  overflow-hidden bg-gray-300">
-                        <Image src="/images/m2.png" alt="User Avatar 2" fill className="object-cover" />
+                        <Image src="/images/m2.png" alt="User Avatar 2" fill sizes="32px" className="object-cover" />
                       </div>
                       <div className="relative w-8 h-8 rounded-full  overflow-hidden bg-gray-400">
-                        <Image src="/images/m3.png" alt="User Avatar 3" fill className="object-cover" />
+                        <Image src="/images/m3.png" alt="User Avatar 3" fill sizes="32px" className="object-cover" />
                       </div>
                     </div>
                     <div className="text-xs font-nunito leading-tight text-left">
@@ -174,13 +174,13 @@ export default function WhyChoose() {
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-3">
                     <div className="relative w-9 h-9 rounded-full overflow-hidden bg-gray-200">
-                      <Image src="/images/m1.png" alt="User Avatar 1" fill className="object-cover" />
+                      <Image src="/images/m1.png" alt="User Avatar 1" fill sizes="32px" className="object-cover" />
                     </div>
                     <div className="relative w-9 h-9 rounded-full overflow-hidden bg-gray-300">
-                      <Image src="/images/m2.png" alt="User Avatar 2" fill className="object-cover" />
+                      <Image src="/images/m2.png" alt="User Avatar 2" fill sizes="32px" className="object-cover" />
                     </div>
                     <div className="relative w-9 h-9 rounded-full overflow-hidden bg-gray-400">
-                      <Image src="/images/m3.png" alt="User Avatar 3" fill className="object-cover" />
+                      <Image src="/images/m3.png" alt="User Avatar 3" fill sizes="32px" className="object-cover" />
                     </div>
                   </div>
                   <div className="text-xs xl:text-sm font-nunito leading-tight text-left">

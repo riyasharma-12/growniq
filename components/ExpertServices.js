@@ -143,7 +143,7 @@ export default function ExpertServices() {
 
       {/* Desktop View: Carousel Slider - Starts at left container boundary, extends to right edge */}
       <div
-        className="hidden lg:block overflow-hidden mb-6"
+        className="hidden lg:block overflow-hidden mb-6 "
         style={carouselStyle}
       >
         <div
