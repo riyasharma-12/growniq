@@ -240,7 +240,7 @@ export default function UserReviews() {
 
         {/* Carousel Container - Starts at left container boundary,  */}
         <div
-          className="overflow-hidden mb-8"
+          className="overflow-hidden mb-4"
           style={carouselStyle}
         >
           <div
@@ -324,6 +324,12 @@ export default function UserReviews() {
             </div>
           </div>
         </div>
+
+        <div className="block lg:hidden  container  mt-2 mx-auto px-4 sm:px-6 max-w-[1200px]">
+          <img src="/images/v1.svg" alt="" className="w-full h-full object-contain" />
+        </div>
+
+
 
         {/* Centered Controls Area */}
         <div className="hidden lg:block  container mx-auto px-4 sm:px-6 max-w-[1200px]">
