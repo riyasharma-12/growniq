@@ -15,6 +15,7 @@ export default function AiWidget() {
     setIsModalOpen(true);
   };
 
+
   const closeModal = () => {
     setIsModalOpen(false);
     // Reset states after closing so reopening shows the form again
