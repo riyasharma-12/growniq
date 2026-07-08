@@ -7,7 +7,7 @@ export default function WhyChoose() {
     <section className="bg-[#FFFAF3] py-12 md:py-20 -mt-[1px]">
       <div className="container mx-auto px-4 sm:px-6 max-w-[1200px]">
 
-        {/* Section Header */}
+    
         <div className="text-center mb-10 md:mb-16">
           {/* Centered Flower Icon (visible on both desktop and mobile) */}
           <div className="flex items-center justify-center mb-10">
