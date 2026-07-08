@@ -112,21 +112,21 @@ export default function Hero() {
               </h1>
 
               {/* Desktop subtitle - inline with dots */}
-              <p className="hidden lg:block mt-3 text-[14px] text-[#164925] font-nunito">
+              <p className="hidden lg:block mt-3 text-[16px] text-[#164925] font-nunito">
                 Verified professionals &nbsp;•&nbsp; Transparent pricing &nbsp;•&nbsp; Eco-friendly care
               </p>
 
               {/* Mobile bullet points */}
               <ul className="lg:hidden mt-6 mb-6 space-y-1.5">
-                <li className="flex items-center gap-2 text-[18px] text-[#164925] font-nunito">
+                <li className="flex items-center gap-2 text-[16px] text-[#164925] font-nunito">
                   <span className="w-[5px] h-[5px] bg-[#164925] rounded-full flex-shrink-0"></span>
                   Verified professionals
                 </li>
-                <li className="flex items-center gap-2 text-[18px] text-[#164925] font-nunito">
+                <li className="flex items-center gap-2 text-[16px] text-[#164925] font-nunito">
                   <span className="w-[5px] h-[5px] bg-[#164925] rounded-full flex-shrink-0"></span>
                   Transparent pricing
                 </li>
-                <li className="flex items-center gap-2 text-[18px] text-[#164925] font-nunito">
+                <li className="flex items-center gap-2 text-[16px] text-[#164925] font-nunito">
                   <span className="w-[5px] h-[5px] bg-[#164925] rounded-full flex-shrink-0"></span>
                   Eco-friendly care
                 </li>
@@ -303,19 +303,20 @@ export default function Hero() {
                       <Image src="/images/m3.png" alt="Professional gardener at work" fill sizes="32px" className="object-cover" />
                     </div>
                   </div>
-                  <div className="text-xs sm:text-sm">
+                  <div className="text-[12px] sm:text-[12px] pr-8">
                     <div className="font-semibold text-[#164925]">1000+</div>
                     <div className="text-[#164925] whitespace-nowrap">Users actively booking</div>
                   </div>
                 </div>
 
-                {/* Vertical line separator */}
-                <div className="h-8 w-[1px] bg-[rgba(22,73,37,0.15)]"></div>
 
-                <div className="text-xs sm:text-sm text-left flex-1 flex flex-col items-start pl-16">
+                {/* <div className="h-8 w-[1px] bg-[rgba(22,73,37,0.15)] "></div> */}
+                <div className="h-8 w-[1px] flex-shrink-0 bg-[rgba(22,73,37,0.15)]"></div>
+
+                <div className="text-[12px] sm:text-[12px] text-left flex-1 flex flex-col items-start pl-20">
                   <div className="font-semibold text-[#164925] flex items-center justify-start gap-1">
                     5/5
-                    <div className="flex gap-[2px] text-[#164925]">
+                    <div className="flex gap-[1px] text-[#164925]">
                       {[...Array(5)].map((_, i) => (
                         <svg key={i} className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />

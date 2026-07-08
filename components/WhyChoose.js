@@ -19,7 +19,7 @@ export default function WhyChoose() {
               className="object-contain"
             />
           </div>
-          <h2 className="text-3xl md:text-[36px] font-medium text-[#164925] mb-4 font-poppins leading-tight">
+          <h2 className="text-[22px] md:text-[36px] font-medium text-[#164925] mb-4 font-poppins leading-tight">
             Why Choose Growniq
           </h2>
           <p className="text-[15px] px-4 md:text-lg text-[#164925] opacity-90 max-w-2xl mx-auto font-nunito ">

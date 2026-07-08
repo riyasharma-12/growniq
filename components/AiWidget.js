@@ -62,46 +62,25 @@ export default function AiWidget() {
 
     <section
       id="ai-care"
-      className="relative overflow-hidden -mt-[1px]"
+      className="relative overflow-hidden "
     >
 
-      {/* ═══════════════════════════════════
-          DESKTOP  (md and above)
-      ═══════════════════════════════════ */}
       <div
         className="hidden md:block relative bg-cover bg-center bg-no-repeat border border-[#164925]/30"
         style={{
           minHeight: '500px',
-          backgroundImage: "url('/images/bg1.png')",
         }}
       >
         {/* Container that mirrors page max-width */}
-        <div className="mx-auto px-10 lg:px-20 xl:px-28" style={{ maxWidth: '1200px' }}>
+        <div
+          className="relative z-10 mx-auto px-10 lg:px-20 xl:px-28"
+          style={{ maxWidth: '1200px' }}
+        >
           {/* Left text block — sits in normal flow */}
           <div className="flex flex-col justify-center py-12" style={{ maxWidth: '50%' }}>
 
-            {/* Custom Premium Coming Soon Badge with Glow (Figma design) */}
-            {/* <div className="mb-6 inline-flex animate-pulse"> */}
-            {/* <div className="mb-6 inline-flex ">
-              
-
-              <div
-                className="p-[1.5px] rounded-full"
-              
-              >
-                <div className="bg-white rounded-full px-3 py-1 flex items-center gap-1.5">
-
-                  <svg width="30" height="30" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 0L9.8 6.2L16 8L9.8 9.8L8 16L6.2 9.8L0 8L6.2 6.2L8 0Z" fill="#ff5a36" />
-                  </svg>
-                  <span className="text-[10px] md:text-[15px] font-extrabold text-[#ff5a36] font-poppins uppercase tracking-wider whitespace-nowrap">
-                    Coming Soon
-                  </span>
-                </div>
-              </div>
-            </div> */}
-
-            <div className=" rainbow inline-flex p-[2px] rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 mb-6">
+            {/* Coming Soon Badge */}
+            <div className="rainbow inline-flex p-[2px] rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 mb-6">
               <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5">
                 <Image src="/images/icons3.svg" alt="star" width={20} height={20} />
                 <span className="text-orange-600 font-bold text-sm tracking-wide whitespace-nowrap">
@@ -110,90 +89,61 @@ export default function AiWidget() {
               </div>
             </div>
 
-            {/* <div className="mb-6 inline-flex">
-              <AnimatedBorderBadge speed={3} textClassName="text-[#ff5a36]">
-                Coming Soon
-              </AnimatedBorderBadge>
-            </div> */}
-
             {/* Titles */}
             <div className="mb-8">
-              <p className="text-white text-[35px] font-medium font-poppins mb-2">
+              <p className="text-white text-[35px] font-regular font-poppins mb-2">
                 AI Plant care
               </p>
               <h2 className="font-semibold text-white font-poppins leading-tight" style={{ fontSize: '35px' }}>
                 Expert Care for Any Plant
               </h2>
             </div>
-
-            {/* Description */}
-            <div
-              className="absolute z-20 bottom-12"
-              style={{ maxWidth: '48%' }}
-            >
-              <p className="text-[#164925] text-[20px] font-medium font-poppins mb-[20px] leading-snug">
-                Scan plant and get Instant diagnosis.
-              </p>
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={handleArrowClick}
-                  aria-label="Previous"
-                  className="w-[34px] h-[34px] rounded-full border border-[#164925] bg-white/10 flex items-center justify-center cursor-pointer"
-                >
-                  <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17 7H1M1 7L7 1M1 7L7 13" stroke="green" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-                <button
-                  onClick={handleArrowClick}
-                  aria-label="Next"
-                  className="w-[34px] h-[34px] rounded-full bg-[#164925] flex items-center justify-center cursor-pointer"
-                >
-                  <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-              </div>
-            </div>
           </div>
         </div>
 
-        {/* Clean plant image & scan frame box (no pre-drawn items) */}
+        {/* Description — now pinned to the bottom of the FULL hero section, */}
+        {/* not just the badge/title block. Positioned against the outer relative div. */}
         <div
-          className="absolute bottom-0 right-0 flex items-end justify-end"
-          style={{ width: '40%', height: '95%', pointerEvents: 'none' }}
+          className="absolute z-20 bottom-12 left-10 lg:left-20 xl:left-28 px-8"
+          style={{ maxWidth: '48%' }}
         >
-          {/* Scan overlay - styled exactly like Figma */}
-          <div
-            className="absolute z-20 pointer-events-none"
-            style={{ right: '45%', top: '10%', width: '42%', aspectRatio: '1.1' }}
-          >
-            {/* Corner Brackets */}
-            <div className="absolute -top-[2.5px] -left-[2.5px] w-6 h-6 border-t-[3.5px] border-l-[3.5px] border-white rounded-tl-[3px] z-10" />
-            <div className="absolute -top-[2.5px] -right-[2.5px] w-6 h-6 border-t-[3.5px] border-r-[3.5px] border-white rounded-tr-[3px] z-10" />
-            <div className="absolute -bottom-[2.5px] -left-[2.5px] w-6 h-6 border-b-[3.5px] border-l-[3.5px] border-white rounded-bl-[3px] z-10" />
-            <div className="absolute -bottom-[2.5px] -right-[2.5px] w-6 h-6 border-b-[3.5px] border-r-[3.5px] border-white rounded-br-[3px] z-10" />
-
-            {/* Dashed Border */}
-            <div className="absolute inset-0 border border-dashed border-white/20 rounded-[2px] z-10" />
-
-            {/* Scan Image from assets */}
-            <img
-              src="/images/scan2.svg"
-              alt="Scan Overlay"
-              className="absolute inset-0 w-full h-full object-cover rounded-[2px] opacity-95"
-            />
-
-            {/* Animating Scanning Line */}
-            <div className="absolute left-0 w-full h-[2.5px] bg-[#00FF73] shadow-[0_0_12px_#00FF73] animate-scan z-20" />
+          <p className="text-[#164925] text-[20px] font-medium font-poppins mb-[20px] leading-snug">
+            Scan plant and get Instant diagnosis.
+          </p>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={handleArrowClick}
+              aria-label="Previous"
+              className="w-[34px] h-[34px] rounded-full border border-[#164925] bg-white/10 flex items-center justify-center cursor-pointer"
+            >
+              <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 7H1M1 7L7 1M1 7L7 13" stroke="green" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <button
+              onClick={handleArrowClick}
+              aria-label="Next"
+              className="w-[34px] h-[34px] rounded-full bg-[#164925] flex items-center justify-center cursor-pointer"
+            >
+              <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
           </div>
+        </div>
 
-          <img
-            src="/images/plantImage.png"
-            alt="AI Plant Care Scan"
+        {/* Video */}
+        <div className="absolute z-0 bottom-0 right-0 flex items-end justify-end">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
             className="w-full h-full object-contain object-bottom"
-            style={{ pointerEvents: 'auto' }}
-          />
+          >
+            <source src="/images/video-full.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
 
@@ -202,10 +152,10 @@ export default function AiWidget() {
       ═══════════════════════════════════ */}
       <div className="block md:hidden py-6 bg-[#FFFAF3]">
         <div
-          className="relative overflow-hidden rounded-[24px] border border-white/20 bg-cover bg-center bg-no-repeat shadow-sm"
+          className="relative overflow-hidden rounded-[24px] border  bg-cover bg-center bg-no-repeat shadow-sm pt-7 bg-[#164925]"
           style={{
             minHeight: '700px',
-            backgroundImage: "url('/images/bg1.png')",
+            // backgroundImage: "url('/images/bg1.png')",
           }}
         >
           {/* Top-left: badge + headings */}
@@ -234,17 +184,28 @@ export default function AiWidget() {
           {/* Plant image - clean, no brain badge */}
           <div
             className="absolute z-0 "
-            style={{ right: -80, bottom: 0, width: '50%, top: 18%', height: '75%' }}
+            style={{ right: -80, bottom: 0, width: '50%, top: 7%', height: '75%' }}
           >
-            <img
+            {/* <img
               src="/images/plantImage.png"
               alt="AI Plant Care Scan"
               className="w-full h-full object-contain object-bottom"
-            />
+            /> */}
+
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-contain object-bottom"
+            >
+              <source src="/images/vidw.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
 
           {/* Scan overlay - sits ON TOP of the leaf */}
-          <div
+          {/* <div
             className="absolute z-10 pointer-events-none"
             style={{ left: '10%', top: '30%', width: '60%', aspectRatio: '0.98' }}
           >
@@ -254,7 +215,7 @@ export default function AiWidget() {
             <div className="absolute -bottom-[2px] -right-[2px] w-5 h-5 border-b-[3px] border-r-[3px] border-white rounded-br-[3px] z-10" />
             <div className="absolute inset-0 border border-dashed border-white/20 rounded-[2px] z-10" />
 
-            {/* Scan Image */}
+           
             <img
               src="/images/scan2.svg"
               alt="Scan Overlay"
@@ -262,7 +223,7 @@ export default function AiWidget() {
             />
 
             <div className="absolute left-0 w-full h-[2.5px] bg-[#00FF73] shadow-[0_0_10px_#00FF73] animate-scan z-20" />
-          </div>
+          </div> */}
 
           {/* Bottom-left: description + buttons */}
           <div
