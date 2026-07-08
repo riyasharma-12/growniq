@@ -237,7 +237,7 @@ export default function DigiNursery() {
 
           {/* Desktop Mockup Overlay Container */}
           <div className="hidden lg:block relative w-full h-full">
-            <img src="/images/video.svg" alt="DigiNursery" className="w-full h-full object-cover" />
+            <img src="/images/video2.svg" alt="DigiNursery" className="w-full h-full object-cover" />
 
             {/* Screen content overlay (fits inside the iPhone mockup screen) */}
             {/* <div
@@ -272,7 +272,7 @@ export default function DigiNursery() {
 
           {/* Mobile Mockup Overlay Container */}
           <div className="lg:hidden relative w-full aspect-[656/564]">
-            <img src="/images/basket.svg" alt="DigiNursery" className="w-full h-full object-cover" />
+            <img src="/images/video2.svg" alt="DigiNursery" className="w-full h-full object-cover" />
 
             {/* Mobile screen content overlay */}
             {/* <div

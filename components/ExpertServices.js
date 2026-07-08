@@ -77,6 +77,17 @@ export default function ExpertServices() {
 
   const mobileScrollContainerRef = useRef(null);
 
+  const mobileServices = services.length >= 8 ? [
+    services[0], // id 1: Book A Gardner
+    services[4], // id 5: New Home Plant Setup
+    services[1], // id 2: Monthly Plant Care
+    services[5], // id 6: Garden Heavy Work
+    services[2], // id 3: Terrace Garden Maintenance
+    services[6], // id 7: Workspace Plant Care
+    services[3], // id 4: Lawn Maintenance
+    services[7]  // id 8: Plant Repotting
+  ] : services;
+
   const handlePrev = () => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
@@ -156,6 +167,37 @@ export default function ExpertServices() {
         </div>
       </div>
 
+      {/* Mobile & Tablet View: 2-Line Horizontal Scroll - Full-width layout */}
+      <div
+        ref={mobileScrollContainerRef}
+        className="lg:hidden overflow-x-auto scrollbar-hide pb-4 w-full"
+      >
+        <div className="grid grid-rows-2 grid-flow-col gap-2 w-max px-4 sm:px-6">
+          {mobileServices.map((service, index) => (
+            <div
+              key={`${service.id}-${index}-mob`}
+              className="w-[200px] flex flex-col rounded-2xl overflow-hidden cursor-pointer"
+            >
+              {/* Service Image */}
+              <div className="relative h-[130px] w-[200px] overflow-hidden rounded-t-2xl">
+                <img
+                  src={service.image}
+                  alt={service.alt}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Service Content - Cream background box rounded at bottom */}
+              <div className="bg-[#FFE9CA] py-2 px-2 text-center flex items-center justify-center min-h-[60px] rounded-b-2xl">
+                <h3 className="text-[12px] font-semibold text-[#164925] leading-tight font-poppins">
+                  {service.title}
+                </h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Navigation & Controls Area */}
       <div className="container mx-auto px-4 sm:px-6 max-w-[1200px]">
         {/* Navigation Arrows */}
@@ -174,37 +216,6 @@ export default function ExpertServices() {
           >
             <RightArrow className="w-[6px] h-[11px] stroke-current transition-colors" />
           </button>
-        </div>
-
-        {/* Mobile & Tablet View: 2-Line Horizontal Scroll */}
-        <div
-          ref={mobileScrollContainerRef}
-          className="lg:hidden overflow-x-auto scrollbar-hide pb-4"
-        >
-          <div className="grid grid-rows-2 grid-flow-col gap-2 w-max">
-            {services.map((service, index) => (
-              <div
-                key={`${service.id}-${index}-mob`}
-                className="w-[200px] flex flex-col rounded-2xl overflow-hidden cursor-pointer"
-              >
-                {/* Service Image */}
-                <div className="relative h-[130px] w-[200px] overflow-hidden rounded-t-2xl">
-                  <img
-                    src={service.image}
-                    alt={service.alt}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Service Content - Cream background box rounded at bottom */}
-                <div className="bg-[#FFE9CA] py-2 px-2 text-center flex items-center justify-center min-h-[60px] rounded-b-2xl">
-                  <h3 className="text-[12px] font-semibold text-[#164925] leading-tight font-poppins">
-                    {service.title}
-                  </h3>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Download Growniq App Buttons */}

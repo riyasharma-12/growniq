@@ -62,16 +62,19 @@ export default function AiWidget() {
 
     <section
       id="ai-care"
-      className="relative overflow-hidden -mt-[1px] bg-cover bg-center bg-no-repeat border border-[#164925]/30"
-      style={{
-        backgroundImage: "url('/images/bg1.png')",
-      }}
+      className="relative overflow-hidden -mt-[1px]"
     >
 
       {/* ═══════════════════════════════════
           DESKTOP  (md and above)
       ═══════════════════════════════════ */}
-      <div className="hidden md:block relative" style={{ minHeight: '500px' }}>
+      <div
+        className="hidden md:block relative bg-cover bg-center bg-no-repeat border border-[#164925]/30"
+        style={{
+          minHeight: '500px',
+          backgroundImage: "url('/images/bg1.png')",
+        }}
+      >
         {/* Container that mirrors page max-width */}
         <div className="mx-auto px-10 lg:px-20 xl:px-28" style={{ maxWidth: '1200px' }}>
           {/* Left text block — sits in normal flow */}
@@ -175,11 +178,11 @@ export default function AiWidget() {
             <div className="absolute inset-0 border border-dashed border-white/20 rounded-[2px] z-10" />
 
             {/* Scan Image from assets */}
-            {/* <img
-              src="/images/scan.png"
+            <img
+              src="/images/scan2.svg"
               alt="Scan Overlay"
               className="absolute inset-0 w-full h-full object-cover rounded-[2px] opacity-95"
-            /> */}
+            />
 
             {/* Animating Scanning Line */}
             <div className="absolute left-0 w-full h-[2.5px] bg-[#00FF73] shadow-[0_0_12px_#00FF73] animate-scan z-20" />
@@ -197,96 +200,97 @@ export default function AiWidget() {
       {/* ═══════════════════════════════════
           MOBILE  (below md)
       ═══════════════════════════════════ */}
-      <div className="block md:hidden">
-        <div className="block md:hidden">
+      <div className="block md:hidden py-6 bg-[#FFFAF3]">
+        <div
+          className="relative overflow-hidden rounded-[24px] border border-white/20 bg-cover bg-center bg-no-repeat shadow-sm"
+          style={{
+            minHeight: '700px',
+            backgroundImage: "url('/images/bg1.png')",
+          }}
+        >
+          {/* Top-left: badge + headings */}
+          <div className="relative z-10  pl-6 pt-5" style={{ maxWidth: '85%' }}>
+
+            {/* Premium Coming Soon CSS Badge for Mobile */}
+            <div className=" rainbow inline-flex p-[2px] rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 mb-6">
+              <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5">
+                <Image src="/images/icons3.svg" alt="star" width={16} height={16} />
+                <span className="text-orange-600 font-bold text-sm tracking-wide whitespace-nowrap">
+                  COMING SOON
+                </span>
+              </div>
+            </div>
+            <p className="text-white text-[24px] font-regular font-poppins  leading-tight opacity-90">
+              AI Plant care
+            </p>
+            <h2
+              className="font-semibold text-white font-poppins leading-snug  "
+              style={{ fontSize: '24px', lineHeight: '36px' }}
+            >
+              Expert Care for Any Plant
+            </h2>
+          </div>
+
+          {/* Plant image - clean, no brain badge */}
           <div
-            className="relative overflow-hidden rounded-2xl border border-white/20"
-            style={{ minHeight: '540px' }}
+            className="absolute z-0 "
+            style={{ right: -80, bottom: 0, width: '50%, top: 18%', height: '75%' }}
           >
-            {/* Top-left: badge + headings */}
-            <div className="relative z-10  pl-6 pt-5" style={{ maxWidth: '85%' }}>
+            <img
+              src="/images/plantImage.png"
+              alt="AI Plant Care Scan"
+              className="w-full h-full object-contain object-bottom"
+            />
+          </div>
 
-              {/* Premium Coming Soon CSS Badge for Mobile */}
-              <div className=" rainbow inline-flex p-[2px] rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 mb-6">
-                <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5">
-                  <Image src="/images/icons3.svg" alt="star" width={20} height={20} />
-                  <span className="text-orange-600 font-bold text-sm tracking-wide whitespace-nowrap">
-                    COMING SOON
-                  </span>
-                </div>
-              </div>
-              <p className="text-white text-[24px] font-medium font-poppins mb-1 leading-tight">
-                AI Plant care
-              </p>
-              <h2
-                className="font-semibold text-white font-poppins leading-snug mb-20"
-                style={{ fontSize: '24px', lineHeight: '32px' }}
+          {/* Scan overlay - sits ON TOP of the leaf */}
+          <div
+            className="absolute z-10 pointer-events-none"
+            style={{ left: '10%', top: '30%', width: '60%', aspectRatio: '0.98' }}
+          >
+            <div className="absolute -top-[2px] -left-[2px] w-5 h-5 border-t-[3px] border-l-[3px] border-white rounded-tl-[3px] z-10" />
+            <div className="absolute -top-[2px] -right-[2px] w-5 h-5 border-t-[3px] border-r-[3px] border-white rounded-tr-[3px] z-10" />
+            <div className="absolute -bottom-[2px] -left-[2px] w-5 h-5 border-b-[3px] border-l-[3px] border-white rounded-bl-[3px] z-10" />
+            <div className="absolute -bottom-[2px] -right-[2px] w-5 h-5 border-b-[3px] border-r-[3px] border-white rounded-br-[3px] z-10" />
+            <div className="absolute inset-0 border border-dashed border-white/20 rounded-[2px] z-10" />
+
+            {/* Scan Image */}
+            <img
+              src="/images/scan2.svg"
+              alt="Scan Overlay"
+              className="absolute inset-0 w-full h-full object-cover rounded-[2px] opacity-65"
+            />
+
+            <div className="absolute left-0 w-full h-[2.5px] bg-[#00FF73] shadow-[0_0_10px_#00FF73] animate-scan z-20" />
+          </div>
+
+          {/* Bottom-left: description + buttons */}
+          <div
+            className="absolute z-20 left-4 bottom-6"
+            style={{ maxWidth: '48%' }}
+          >
+            <p className="text-[#164925] text-[12px] font-medium font-poppins mb-[20px] leading-snug">
+              Scan plant and get Instant diagnosis.
+            </p>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={handleArrowClick}
+                aria-label="Previous"
+                className="w-[34px] h-[34px] rounded-full border border-[#164925] bg-white/10 flex items-center justify-center cursor-pointer"
               >
-                Expert Care for Any Plant
-              </h2>
-            </div>
-
-            {/* Plant image - clean, no brain badge */}
-            <div
-              className="absolute z-0"
-              style={{ right: -30, bottom: 0, width: '90%', height: '95%' }}
-            >
-              <img
-                src="/images/plantImage.png"
-                alt="AI Plant Care Scan"
-                className="w-full h-full object-contain object-bottom"
-              />
-            </div>
-
-            {/* Scan overlay - sits ON TOP of the leaf */}
-            <div
-              className="absolute z-10 pointer-events-none"
-              style={{ left: '20%', top: '30%', width: '49%', aspectRatio: '0.98' }}
-            >
-              <div className="absolute -top-[2px] -left-[2px] w-5 h-5 border-t-[3px] border-l-[3px] border-white rounded-tl-[3px] z-10" />
-              <div className="absolute -top-[2px] -right-[2px] w-5 h-5 border-t-[3px] border-r-[3px] border-white rounded-tr-[3px] z-10" />
-              <div className="absolute -bottom-[2px] -left-[2px] w-5 h-5 border-b-[3px] border-l-[3px] border-white rounded-bl-[3px] z-10" />
-              <div className="absolute -bottom-[2px] -right-[2px] w-5 h-5 border-b-[3px] border-r-[3px] border-white rounded-br-[3px] z-10" />
-              <div className="absolute inset-0 border border-dashed border-white/20 rounded-[2px] z-10" />
-
-              {/* Scan Image */}
-              {/* <img
-                src="/images/scan.png"
-                alt="Scan Overlay"
-                className="absolute inset-0 w-full h-full object-cover rounded-[2px] opacity-65"
-              /> */}
-
-              <div className="absolute left-0 w-full h-[2.5px] bg-[#00FF73] shadow-[0_0_10px_#00FF73] animate-scan z-20" />
-            </div>
-
-            {/* Bottom-left: description + buttons */}
-            <div
-              className="absolute z-20 left-4 bottom-6"
-              style={{ maxWidth: '48%' }}
-            >
-              <p className="text-[#164925] text-[12px] font-medium font-poppins mb-[20px] leading-snug">
-                Scan plant and get Instant diagnosis.
-              </p>
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={handleArrowClick}
-                  aria-label="Previous"
-                  className="w-[34px] h-[34px] rounded-full border border-[#164925] bg-white/10 flex items-center justify-center cursor-pointer"
-                >
-                  <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17 7H1M1 7L7 1M1 7L7 13" stroke="green" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-                <button
-                  onClick={handleArrowClick}
-                  aria-label="Next"
-                  className="w-[34px] h-[34px] rounded-full border-[#164925] bg-[#164925] flex items-center justify-center cursor-pointer"
-                >
-                  <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-              </div>
+                <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17 7H1M1 7L7 1M1 7L7 13" stroke="green" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              <button
+                onClick={handleArrowClick}
+                aria-label="Next"
+                className="w-[34px] h-[34px] rounded-full border-[#164925] bg-[#164925] flex items-center justify-center cursor-pointer"
+              >
+                <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -301,11 +305,11 @@ export default function AiWidget() {
           {!isSubmitted ? (
             /* ═══ FORM STATE ═══ */
             <div
-              className="relative w-full max-w-[340px] md:max-w-[660px] rounded-3xl bg-[#FFFAF3] shadow-2xl overflow-hidden font-poppins flex flex-col md:flex-row md:h-[400px] border border-white/20"
+              className="relative w-full max-w-[340px] md:max-w-[660px] rounded-3xl bg-[#FFFAF3] md:bg-[url('/images/download-popup-desk.png')] md:bg-cover md:bg-no-repeat md:bg-left shadow-2xl overflow-hidden font-poppins flex flex-col md:flex-row md:h-[400px] border border-white/20"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Desktop Left Side / Mobile Top: Image */}
-              <div className="relative w-full h-[230px] md:h-full md:w-[44%] flex-shrink-0 overflow-hidden bg-[url('/images/plant3.png')] md:bg-[url('/images/download-popup-desk.png')] bg-cover bg-center md:bg-left bg-no-repeat">
+              <div className="relative w-full h-[230px] md:h-full md:w-[44%] flex-shrink-0 bg-[url('/images/plant3.png')] md:bg-none bg-cover bg-center bg-no-repeat">
 
                 {/* Circular Coming Soon Badge — now animated */}
                 <div className="absolute z-10 pointer-events-none left-1/2 -translate-x-1/2 top-[25px] w-[140px] h-[140px] md:left-[95px] md:translate-x-0 md:top-[90px] md:w-[170px] md:h-[170px]">

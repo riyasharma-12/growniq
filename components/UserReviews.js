@@ -164,7 +164,7 @@ export default function UserReviews() {
     <>
       {/* Download Growniq App Bar */}
       <div className=" bg-[#FFFAF3] py-3 md:py-4">
-        <div className="container  mx-auto px-4 sm:px-6 max-w-[1200px]">
+        <div className="container  mx-auto px-4 sm:px-2 max-w-[1200px]">
           <div className="hidden lg:block   text-center mt-10 md:mt-14">
             <p className="text-xs md:text-sm text-[#164925] mb-4 font-medium font-nunito">Download Growniq App</p>
             <div className=" flex flex-row items-center justify-center gap-5 px-4">
@@ -196,7 +196,7 @@ export default function UserReviews() {
 
       <section id="user-reviews" className="scroll-mt-24 md:scroll-mt-32 bg-[#FFFAF3] py-12 md:py-20 -mt-[1px] overflow-hidden">
         {/* Centered Header Container */}
-        <div className="container mx-auto px-4 sm:px-6 max-w-[1200px]">
+        <div className="container mx-auto px-4 sm:px-2 max-w-[1200px]">
           {/* Header */}
           <div className="text-center mb-12 md:mb-16 flex flex-col items-center">
             <img src="/images/icons2.svg" alt="" className="w-[21px] h-[26px] mb-6 object-contain" />
@@ -339,9 +339,9 @@ export default function UserReviews() {
               type="button"
               aria-label="Close"
               onClick={() => setActiveReviewId(null)}
-              className="absolute top-4 right-4 z-50 w-10 h-10 bg-white/90 hover:bg-white text-[#164925] shadow rounded-full flex items-center justify-center transition-colors"
+              className="absolute top-4 right-4 z-50 w-6 h-6 bg-white/90 hover:bg-white text-[#164925] shadow rounded-full flex items-center justify-center transition-colors"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
                 <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 11-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clipRule="evenodd" />
               </svg>
             </button>
@@ -351,10 +351,10 @@ export default function UserReviews() {
               <button
                 type="button"
                 onClick={handlePrevImage}
-                className="absolute left-6 z-50 w-12 h-12 bg-white/85 hover:bg-white text-[#164925] shadow rounded-full flex items-center justify-center transition-colors"
+                className="absolute left-6 z-50 w-8 h-8 bg-white/85 hover:bg-white text-[#164925] shadow rounded-full flex items-center justify-center transition-colors"
                 aria-label="Previous image"
               >
-                <LeftArrow className="w-6 h-6" />
+                <LeftArrow className="w-2 h-2" />
               </button>
             )}
 
@@ -376,10 +376,10 @@ export default function UserReviews() {
               <button
                 type="button"
                 onClick={handleNextImage}
-                className="absolute right-6 z-50 w-12 h-12 bg-white/85 hover:bg-white text-[#164925] shadow rounded-full flex items-center justify-center transition-colors"
+                className="absolute right-6 z-50 w-8 h-8 bg-white/85 hover:bg-white text-[#164925] shadow rounded-full flex items-center justify-center transition-colors"
                 aria-label="Next image"
               >
-                <RightArrow className="w-6 h-6" />
+                <RightArrow className="w-2 h-2" />
               </button>
             )}
           </div>

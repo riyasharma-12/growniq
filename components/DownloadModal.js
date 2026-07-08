@@ -20,7 +20,7 @@ export default function DownloadModal({ open, onClose }) {
             <div className="absolute inset-0 bg-black/60 transition-opacity" onClick={onClose} />
 
             {/* Modal Card */}
-            <div className="relative w-full max-w-[705px] md:h-[469px] h-[530px] rounded-[24px] bg-[#FFFAF3] overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.15)] flex flex-col md:flex-row transform transition-all duration-300">
+            <div className="relative w-full max-w-[705px] md:h-[450px] h-[550px] rounded-[24px] bg-[#FFFAF3] md:bg-[url('/images/download-popup-desk.png')] md:bg-cover md:bg-no-repeat md:bg-left overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.15)] flex flex-col md:flex-row transform transition-all duration-300">
 
                 {/* Close Button - Responsive layout (circular white on mobile, simple borderless on desktop) */}
                 <button
@@ -35,7 +35,7 @@ export default function DownloadModal({ open, onClose }) {
                 </button>
 
                 {/* Left Column (Plant Sprout Area with Rotating Coming Soon Badge) */}
-                <div className="w-full h-[230px] md:h-full md:w-[260px] flex-shrink-0 relative bg-[url('/images/plant3.png')] md:bg-[url('/images/download-popup-desk.png')] bg-cover bg-center md:bg-left bg-no-repeat">
+                <div className="w-full h-[230px] md:h-full md:w-[260px] flex-shrink-0 relative bg-[url('/images/plant3.png')] md:bg-none bg-cover bg-center bg-no-repeat">
                     {/* Mobile White Logo Overlay */}
                     <div className="absolute top-5 left-5 z-20 md:hidden">
                         <Image src="/images/mobi-logo.svg" alt="Logo" width={110} height={25} />
@@ -90,7 +90,7 @@ export default function DownloadModal({ open, onClose }) {
                     </div>
 
                     {/* Dotted Divider & Contact Info */}
-                    <div className="mt-1 mb-10">
+                    <div className="mt-1 mb-10 md:mb-[22px] md:px-6 ">
                         {/* <div className="border-t border-dotted border-[rgba(22,73,37,0.45)] my-4"></div>
                          */}
                         <div className="w-full border-t border-dashed border-[#164925] my-4"></div>

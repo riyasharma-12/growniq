@@ -21,7 +21,7 @@ export default function DownloadWidget() {
             <DownloadModal open={isModalOpen} onClose={handleCloseModal} />
 
             <section className="bg-[#FFFAF3] pb-16 md:pb-20 -mt-[1px]">
-                <div className="container mx-auto px-4 sm:px-6 max-w-[1200px]">
+                <div className="container mx-auto px-4 sm:px-1 max-w-[1200px]">
                     {/* Desktop View (md and above) */}
                     <div className="hidden md:block relative w-full aspect-[1208/484] max-w-[1208px] mx-auto overflow-hidden">
                         <img
@@ -46,7 +46,7 @@ export default function DownloadWidget() {
                     </div>
 
                     {/* Mobile View (below md) */}
-                    <div className="block md:hidden relative w-full aspect-[328/626] max-w-[328px] mx-auto overflow-hidden">
+                    <div className="block md:hidden relative w-full aspect-[328/626] max-w-[400px] mx-auto overflow-hidden">
                         <img
                             src="/images/reviews2.svg"
                             alt="Download Growniq App"

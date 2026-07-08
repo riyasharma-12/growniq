@@ -312,8 +312,8 @@ export default function Hero() {
                 {/* Vertical line separator */}
                 <div className="h-8 w-[1px] bg-[rgba(22,73,37,0.15)]"></div>
 
-                <div className="text-xs sm:text-sm text-right flex-1 flex flex-col items-end">
-                  <div className="font-semibold text-[#164925] flex items-center justify-end gap-1">
+                <div className="text-xs sm:text-sm text-left flex-1 flex flex-col items-start pl-16">
+                  <div className="font-semibold text-[#164925] flex items-center justify-start gap-1">
                     5/5
                     <div className="flex gap-[2px] text-[#164925]">
                       {[...Array(5)].map((_, i) => (

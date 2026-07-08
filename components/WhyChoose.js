@@ -32,7 +32,7 @@ export default function WhyChoose() {
             Matches the Figma Mobile design precisely.
             ======================================================== */}
         <div className="block lg:hidden">
-          <div className="bg-[#FFE9CA] rounded-[32px] p-6 relative overflow-hidden shadow-sm mt-10">
+          <div className="bg-[#FFE9CA] rounded-[32px] p-6 relative overflow-hidden shadow-sm  pt-7">
             {/* Decorative leaf background */}
             <div className="absolute right-0 top-0 opacity-100 pointer-events-none px-6">
               <Image src="/images/leaf-bg.svg" alt="leaf" width={110} height={110} />
