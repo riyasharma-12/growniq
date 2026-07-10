@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Get Video Color</title>
+</head>
+<body>
+  <video id="vid" src="/images/vidw.mp4" autoplay muted loop style="width: 200px;"></video>
+  <canvas id="canvas" style="display:none;"></canvas>
+  <div id="output" style="font-size: 24px; font-family: monospace; padding: 20px;">Loading...</div>
+
+  <script>
+    const video = document.getElementById('vid');
+    const canvas = document.getElementById('canvas');
+    const output = document.getElementById('output');
+
+    video.addEventListener('playing', () => {
+      setTimeout(() => {
+        const ctx = canvas.getContext('2d');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        
+        // Get color of top-left corner pixel (x=5, y=5)
+        const imgData = ctx.getImageData(5, 5, 1, 1);
+        const r = imgData.data[0];
+        const g = imgData.data[1];
+        const b = imgData.data[2];
+        const hex = "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+        
+        output.innerText = `Pixel Color (RGB): ${r}, ${g}, ${b} | HEX: ${hex}`;
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
