@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function WhyChoose() {
   return (
-    <section className="bg-[#FFFAF3] pt-12 md:pt-20 md:pb-0 -mt-[1px] md:overflow-hidden">
+    <section className="bg-[#FFFAF3] pt-12 md:py-20 -mt-[1px]">
       <div className="container mx-auto px-4 sm:px-6 max-w-[1200px]">
 
     
