@@ -62,7 +62,7 @@ export default function AiWidget() {
       style={{ background: heroGradient, backgroundColor: '#164925' }}
     >
       <div
-        className="hidden md:block relative overflow-hidden border border-[#164925]/30 md:border-t-0"
+        className="hidden md:block relative overflow-hidden md:border-t-0"
         style={{
           minHeight: '592px',
           background: heroGradient,
@@ -70,7 +70,7 @@ export default function AiWidget() {
       >
         {/* Container that mirrors page max-width */}
         <div
-          className="relative z-10 mx-auto px-10 lg:px-20 xl:px-28 min-h-[592px] flex flex-col justify-between"
+          className="relative z-10 mx-auto px-10 min-h-[592px] flex flex-col justify-between"
           style={{ maxWidth: '1200px' }}
         >
           {/* Left text block — top */}
@@ -126,8 +126,8 @@ export default function AiWidget() {
         </div>
 
         {/* Video — native 1440×592 */}
-        <div className="absolute z-0 bottom-0 right-0 pointer-events-none">
-          <video
+        {/* <div className="absolute z-0 bottom-0 right-0 pointer-events-none"> */}
+          {/* <video
             autoPlay
             muted
             loop
@@ -138,9 +138,38 @@ export default function AiWidget() {
           >
             <source src="/images/video-full.mp4" type="video/mp4" />
             Your browser does not support the video tag.
-          </video>
+          </video> */}
+
+          {/* Video — scales full width of section, so it never gaps on larger desktop screens */}
+{/* <div className="absolute z-0 inset-0 pointer-events-none">
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="block w-full h-full object-cover object-bottom"
+  >
+    <source src="/images/video-full.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div> */}
+
+
+{/* Video — always fills full width of section, crops from left first so plant stays visible */}
+<div className="absolute z-0 inset-0 pointer-events-none">
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="block w-full h-full object-cover object-right-bottom"
+  >
+    <source src="/images/video-full.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
         </div>
-      </div>
+      {/* </div> */}
 
       {/* ═══════════════════════════════════
           MOBILE  (below md)
