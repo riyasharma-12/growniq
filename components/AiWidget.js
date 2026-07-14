@@ -583,15 +583,54 @@ export default function AiWidget() {
                 </div>
               </div>
             </div> */}
+            
 
-            <div className=" rainbow inline-flex p-[2px] rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 mb-6">
+            {/* <div className=" rainbow inline-flex p-[2px] rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 mb-6">
               <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5">
                 <Image src="/images/icons3.svg" alt="star" width={20} height={20} />
                 <span className="text-orange-600 font-bold text-sm tracking-wide whitespace-nowrap">
                   COMING SOON
                 </span>
               </div>
-            </div>
+            </div> */}
+
+            
+
+{/* Coming Soon Badge with visible background blur glow + shadow */}
+{/* <div className="relative inline-flex mb-6">
+  
+  <div className="box absolute inline-flex -top-3 -bottom-3 -left-3 -right-3 rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 blur-2xl opacity-90" />
+  
+  <div className="absolute inline-flex -top-1 -bottom-1 -left-1 right-1 rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 blur-md opacity-80" />
+
+  <div className="relative rainbow inline-flex p-[2px] rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 shadow-[0_4px_20px_rgba(0,0,0,0.25)]">
+    <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5">
+      <Image src="/images/icons3.svg" alt="star" width={20} height={20} />
+      <span className="text-orange-600 font-bold text-sm tracking-wide whitespace-nowrap">
+        COMING SOON
+      </span>
+    </div>
+  </div>
+</div> */}
+
+{/* Coming Soon Badge with visible background blur glow + shadow */}
+<div className="relative inline-flex self-start mb-6">
+
+  <div className="absolute inline-flex -inset-3 rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 blur-2xl opacity-90" />
+
+  <div className="absolute inline-flex -inset-1 rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 blur-md opacity-80" />
+
+  <div className="relative rainbow inline-flex p-[2px] rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 shadow-[0_4px_20px_rgba(0,0,0,0.25)]">
+    <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5">
+      <Image src="/images/icons3.svg" alt="star" width={20} height={20} />
+      <span className="text-orange-600 font-bold text-sm tracking-wide whitespace-nowrap">
+        COMING SOON
+      </span>
+    </div>
+  </div>
+</div>
+
+{/* Coming Soon Badge with visible background blur glow + shadow */}
 
             {/* <div className="mb-6 inline-flex">
               <AnimatedBorderBadge speed={3} textClassName="text-[#ff5a36]">
@@ -706,14 +745,30 @@ export default function AiWidget() {
           <div className="relative z-10  pl-6 pt-5" style={{ maxWidth: '85%' }}>
 
             {/* Premium Coming Soon CSS Badge for Mobile */}
-            <div className=" rainbow inline-flex p-[2px] rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 mb-6">
+            {/* <div className=" rainbow inline-flex p-[2px] rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 mb-6">
               <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5">
                 <Image src="/images/icons3.svg" alt="star" width={16} height={16} />
                 <span className="text-orange-600 font-bold text-sm tracking-wide whitespace-nowrap">
                   COMING SOON
                 </span>
               </div>
-            </div>
+            </div> */}
+
+            <div className="relative inline-flex self-start mb-6">
+
+  <div className="absolute inline-flex -inset-3 rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 blur-2xl opacity-90" />
+
+  <div className="absolute inline-flex -inset-1 rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 blur-md opacity-80" />
+
+  <div className="relative rainbow inline-flex p-[2px] rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 shadow-[0_4px_20px_rgba(0,0,0,0.25)]">
+    <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5">
+      <Image src="/images/icons3.svg" alt="star" width={20} height={20} />
+      <span className="text-orange-600 font-bold text-sm tracking-wide whitespace-nowrap">
+        COMING SOON
+      </span>
+    </div>
+  </div>
+</div>
             <p className="text-white text-[24px] font-regular font-poppins  leading-tight opacity-90">
               AI Plant care
             </p>
