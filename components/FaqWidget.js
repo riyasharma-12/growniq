@@ -148,7 +148,7 @@ export default function FaqWidget({
   ];
 
   return (
-    <section className="bg-[#D7EBE7] py-10 md:py-16">
+    <section id="faq" className="bg-[#D7EBE7] py-10 md:py-16">
       <div className="container mx-auto px-4 sm:px-6 max-w-[1200px]">
 
         {/* Title */}

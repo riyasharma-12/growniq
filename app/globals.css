@@ -296,7 +296,7 @@ html {
       linear-gradient(#d53e33, #d53e33),
       linear-gradient(#377af5, #377af5);
     animation: rotate 4s linear infinite;
-    filter: blur(8px);
+    filter: blur(16px);
   }
 
   &::after {

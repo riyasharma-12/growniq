@@ -109,10 +109,10 @@ export default function AboutUs() {
               alt="Leaf separator"
             />
             <div className="space-y-2">
-              <h3 className="text-2xl md:text-3xl font-semibold text-[#164925] font-poppins">
+              <h3 className="text-center text-2xl md:text-3xl font-semibold text-[#164925] font-poppins">
                 Growniq
               </h3>
-              <p className="text-sm md:text-base text-[#164925] font-medium font-nunito">
+              <p className="text-center text-sm md:text-base text-[#164925] font-medium font-nunito">
                 One Platform for Every Green Need.
               </p>
             </div>

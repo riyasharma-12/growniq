@@ -113,7 +113,7 @@ export default function ExpertServices() {
   };
 
   return (
-    <section className="py-10 md:py-16 -mt-[1px] overflow-hidden bg-white">
+    <section  id="expert-services" className="py-10 md:py-16 -mt-[1px] overflow-hidden bg-white">
       {/* Centered Header Container */}
       <div className="container mx-auto px-4 sm:px-3 max-w-[1200px]">
         {/* Header */}

@@ -143,9 +143,7 @@ export default function Hero() {
                 Get Instant Quote
               </button>
               <a
-                href="https://wa.me/919717104342"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="tel:+919717104342"
                 className="w-[48px] h-[48px] bg-[#164925] rounded-full flex items-center justify-center flex-shrink-0 hover:bg-[#1a5c3a] transition"
                 aria-label="Chat on WhatsApp"
               >
@@ -349,7 +347,7 @@ export default function Hero() {
                     /* ═══ FORM STATE ═══ */
                     <div className="mx-auto w-full max-w-md lg:max-w-sm bg-[#FFFAF3] rounded-t-2xl lg:rounded-2xl shadow-xl overflow-hidden transform transition-transform duration-300 ease-out translate-y-0 lg:translate-y-0">
 
-                      <div className="p-6">
+                      <div className="py-6 px-3">
                         <div className="flex items-start justify-between mb-2">
                           <h3 className="text-[20px] font-bold text-[#164925] font-poppins">Get in touch!</h3>
                           <button

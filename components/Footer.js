@@ -60,7 +60,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#faq-widget" className="hover:text-[#FFE9CA] transition-colors">
+                <Link href="/#faq" className="hover:text-[#FFE9CA] transition-colors">
                   FAQ
                 </Link>
               </li>
