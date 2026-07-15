@@ -48,7 +48,7 @@ export default function DownloadWidget() {
                     {/* Mobile View (below md) */}
                     <div className="block md:hidden relative w-full aspect-[328/626] max-w-[400px] mx-auto overflow-hidden">
                         <img
-                            src="/images/reviews2.svg"
+                            src="/images/reviews3.svg"
                             alt="Download Growniq App"
                             className="w-full h-full object-contain"
                         />

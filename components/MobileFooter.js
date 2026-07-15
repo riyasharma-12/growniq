@@ -261,6 +261,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { BrandLogoIcon, InstagramIcon, LinkedInIcon, YouTubeIcon, FacebookIcon, TwitterIcon, AppleIcon } from './icons';
 import Link from 'next/link';
 import DownloadModal from './DownloadModal';
@@ -270,18 +271,28 @@ export default function MobileFooter() {
   const [openSection, setOpenSection] = useState('support');
   const [isDownloadOpen, setIsDownloadOpen] = useState(false);
   const [showStickyBar, setShowStickyBar] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
 
   const toggleSection = (section) => {
     setOpenSection(openSection === section ? null : section);
   };
 
-  // Only reveal the sticky download bar once the Hero section has
-  // fully scrolled up out of view (its bottom edge is above the viewport top).
+  // Homepage: show sticky bar only after the Hero section scrolls out of view.
+  // All other pages: always show the sticky bar immediately.
   useEffect(() => {
+    if (!isHomePage) {
+      // On non-home pages — always show the sticky bar
+      setShowStickyBar(true);
+      return;
+    }
+
+    // On the homepage — start hidden and watch the hero section
+    setShowStickyBar(false);
+
     const heroEl = document.getElementById('hero-section');
     if (!heroEl) {
-      // Fallback: if Hero isn't found for some reason, just show the bar.
-      setShowStickyBar(true);
+      // Hero element not found on homepage — keep bar hidden
       return;
     }
 
@@ -294,7 +305,7 @@ export default function MobileFooter() {
 
     observer.observe(heroEl);
     return () => observer.disconnect();
-  }, []);
+  }, [isHomePage]);
 
   const footerSections = [
     {

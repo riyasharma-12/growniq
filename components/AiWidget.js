@@ -257,7 +257,7 @@
 //             <div className="absolute -bottom-[2px] -right-[2px] w-5 h-5 border-b-[3px] border-r-[3px] border-white rounded-br-[3px] z-10" />
 //             <div className="absolute inset-0 border border-dashed border-white/20 rounded-[2px] z-10" />
 
-           
+
 //             <img
 //               src="/images/scan2.svg"
 //               alt="Scan Overlay"
@@ -492,6 +492,24 @@ export default function AiWidget() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const messages = [
+    "Know your plant in seconds.",
+    "Get instant health diagnosis.",
+    "Identify problems before they spread.",
+  ];
+
+  const [step, setStep] = useState(0); // 0, 1, 2
+
+  const isFirst = step === 0;
+  const isLast = step === messages.length - 1;
+
+  const handleRight = () => {
+    if (!isLast) setStep((prev) => prev + 1);
+  };
+
+  const handleLeft = () => {
+    if (!isFirst) setStep((prev) => prev - 1);
+  };
 
   const handleArrowClick = () => {
     setIsModalOpen(true);
@@ -551,13 +569,13 @@ export default function AiWidget() {
       {/* ═══════════════════════════════════
           DESKTOP  (md and above)
       ═══════════════════════════════════ */}
-       <div
+      <div
         className="hidden md:block relative bg-cover bg-center bg-no-repeat border border-[#164925]/30  bg-[#FFFAF3]"
         style={{
           minHeight: '500px',
           backgroundImage: "url('/images/bg1.png')",
         }}
-       > 
+      >
         {/* Container that mirrors page max-width */}
         <div className="mx-auto px-10 lg:px-10 xl:px-10" style={{ maxWidth: '1200px' }}>
           {/* Left text block — sits in normal flow */}
@@ -583,60 +601,30 @@ export default function AiWidget() {
                 </div>
               </div>
             </div> */}
-            
 
-            {/* <div className=" rainbow inline-flex p-[2px] rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 mb-6">
-              <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5">
-                <Image src="/images/icons3.svg" alt="star" width={20} height={20} />
-                <span className="text-orange-600 font-bold text-sm tracking-wide whitespace-nowrap">
-                  COMING SOON
-                </span>
+
+
+
+
+
+
+
+
+            <div className="relative inline-flex self-start mb-6">
+
+              <div className="rainbow-glow absolute -inset-1 blur-xl opacity-90" />
+
+              <div className="rainbow-glow absolute -inset-px blur-md opacity-80" />
+
+              <div className="relative rainbow inline-flex p-[2px] rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.25)]">
+                <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5">
+                  <Image src="/images/icons3.svg" alt="star" width={20} height={20} />
+                  <span className="text-orange-600 font-bold text-sm tracking-wide whitespace-nowrap">
+                    COMING SOON
+                  </span>
+                </div>
               </div>
-            </div> */}
-
-            
-
-{/* Coming Soon Badge with visible background blur glow + shadow */}
-{/* <div className="relative inline-flex mb-6">
-  
-  <div className="box absolute inline-flex -top-3 -bottom-3 -left-3 -right-3 rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 blur-2xl opacity-90" />
-  
-  <div className="absolute inline-flex -top-1 -bottom-1 -left-1 right-1 rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 blur-md opacity-80" />
-
-  <div className="relative rainbow inline-flex p-[2px] rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 shadow-[0_4px_20px_rgba(0,0,0,0.25)]">
-    <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5">
-      <Image src="/images/icons3.svg" alt="star" width={20} height={20} />
-      <span className="text-orange-600 font-bold text-sm tracking-wide whitespace-nowrap">
-        COMING SOON
-      </span>
-    </div>
-  </div>
-</div> */}
-
-{/* Coming Soon Badge with visible background blur glow + shadow */}
-<div className="relative inline-flex self-start mb-6">
-
-  <div className="absolute inline-flex -inset-3 rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 blur-2xl opacity-90" />
-
-  <div className="absolute inline-flex -inset-1 rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 blur-md opacity-80" />
-
-  <div className="relative rainbow inline-flex p-[2px] rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 shadow-[0_4px_20px_rgba(0,0,0,0.25)]">
-    <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5">
-      <Image src="/images/icons3.svg" alt="star" width={20} height={20} />
-      <span className="text-orange-600 font-bold text-sm tracking-wide whitespace-nowrap">
-        COMING SOON
-      </span>
-    </div>
-  </div>
-</div>
-
-{/* Coming Soon Badge with visible background blur glow + shadow */}
-
-            {/* <div className="mb-6 inline-flex">
-              <AnimatedBorderBadge speed={3} textClassName="text-[#ff5a36]">
-                Coming Soon
-              </AnimatedBorderBadge>
-            </div> */}
+            </div>
 
             {/* Titles */}
             <div className=" mb-8">
@@ -654,25 +642,27 @@ export default function AiWidget() {
               style={{ maxWidth: '48%' }}
             >
               <p className="text-[#164925] text-[20px] font-medium font-poppins mb-[20px] leading-snug">
-                Scan plant and get Instant diagnosis.
+                {messages[step]}
               </p>
               <div className="flex items-center gap-3">
                 <button
-                  onClick={handleArrowClick}
+                  onClick={handleLeft}
+                  disabled={isFirst}
                   aria-label="Previous"
-                  className="w-[34px] h-[34px] rounded-full border border-[#164925] bg-white/10 flex items-center justify-center cursor-pointer"
+                  className="w-[34px] h-[34px] rounded-full border border-[#164925] bg-transparent flex items-center justify-center text-[#164925] hover:bg-[#164925] hover:border-[#164925] hover:text-white active:bg-[#164925] active:border-[#164925] active:text-white transition-all cursor-pointer"
                 >
                   <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17 7H1M1 7L7 1M1 7L7 13" stroke="green" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M17 7H1M1 7L7 1M1 7L7 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
                 <button
-                  onClick={handleArrowClick}
+                  onClick={handleRight}
+                  disabled={isLast}
                   aria-label="Next"
-                  className="w-[34px] h-[34px] rounded-full bg-[#164925] flex items-center justify-center cursor-pointer"
+                  className="w-[34px] h-[34px] rounded-full border border-[#164925] bg-transparent flex items-center justify-center text-[#164925] hover:bg-[#164925] hover:border-[#164925] hover:text-white active:bg-[#164925] active:border-[#164925] active:text-white transition-all cursor-pointer"
                 >
                   <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
               </div>
@@ -682,51 +672,29 @@ export default function AiWidget() {
 
         {/* Clean plant image & scan frame box (no pre-drawn items) */}
         <div
-          className="absolute bottom-0 right-0 flex items-end justify-end"
-        style={{ width: '40%', height: '95%', pointerEvents: 'none' }}
+          className="absolute bottom-0 right-0"
+          style={{ width: '40%', height: '95%', pointerEvents: 'none' }}
         >
-          {/* Scan overlay - styled exactly like Figma */}
+          {/* Scan overlay — now spans full width side-to-side */}
           <div
-            className="absolute z-20 pointer-events-none"
-            style={{ right: '45%', top: '10%', width: '45%', aspectRatio: '1.1' }}
+            className="absolute z-20 inset-x-0 pointer-events-none"
+            style={{ top: '10%', left: '10%', }}
           >
-           
-            {/* <div className="absolute -top-[2.5px] -left-[2.5px] w-6 h-6 border-t-[3.5px] border-l-[3.5px] border-white rounded-tl-[3px] z-10" />
-            <div className="absolute -top-[2.5px] -right-[2.5px] w-6 h-6 border-t-[3.5px] border-r-[3.5px] border-white rounded-tr-[3px] z-10" />
-            <div className="absolute -bottom-[2.5px] -left-[2.5px] w-6 h-6 border-b-[3.5px] border-l-[3.5px] border-white rounded-bl-[3px] z-10" />
-            <div className="absolute -bottom-[2.5px] -right-[2.5px] w-6 h-6 border-b-[3.5px] border-r-[3.5px] border-white rounded-br-[3px] z-10" />
-
-           
-            <div className="absolute inset-0 border border-dashed border-white/20 rounded-[2px] z-10" /> */}
-
-            
             <img
-              src="/images/scanner.svg"
+              src="/images/scanner4.svg"
               alt="Scan Overlay"
-              className="absolute inset-0 w-full h-full object-cover rounded-[2px] opacity-95"
-            />
+              className="w-full h-full object-contain rounded-[2px] opacity-95"
+              style={{ left: '20%', top: '30%', width: '50%', aspectRatio: '0.98' }}
 
-           
-            {/* <div className="absolute left-0 w-full h-[2.5px] bg-[#00FF73] shadow-[0_0_12px_#00FF73] animate-scan z-20" /> */}
+            />
           </div>
 
           <img
             src="/images/plantImage.png"
             alt="AI Plant Care Scan"
-            className="w-full h-full object-contain object-bottom"
+            className="absolute inset-0 w-full h-full object-contain object-bottom"
             style={{ pointerEvents: 'auto' }}
           />
-
-          {/* <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-contain object-bottom"
-          >
-            <source src="/images/video-full.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video> */}
         </div>
       </div>
 
@@ -756,19 +724,20 @@ export default function AiWidget() {
 
             <div className="relative inline-flex self-start mb-6">
 
-  <div className="absolute inline-flex -inset-3 rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 blur-2xl opacity-90" />
+              <div className="rainbow-glow absolute -inset-1 blur-xl opacity-90" />
 
-  <div className="absolute inline-flex -inset-1 rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 blur-md opacity-80" />
+              <div className="rainbow-glow absolute -inset-px blur-md opacity-80" />
 
-  <div className="relative rainbow inline-flex p-[2px] rounded-full bg-gradient-to-r from-lime-400 via-red-500 via-blue-500 to-purple-600 shadow-[0_4px_20px_rgba(0,0,0,0.25)]">
-    <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5">
-      <Image src="/images/icons3.svg" alt="star" width={20} height={20} />
-      <span className="text-orange-600 font-bold text-sm tracking-wide whitespace-nowrap">
-        COMING SOON
-      </span>
-    </div>
-  </div>
-</div>
+              <div className="relative rainbow inline-flex p-[2px] rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.25)]">
+                <div className="flex items-center gap-2 bg-white rounded-full px-5 py-2.5">
+                  <Image src="/images/icons3.svg" alt="star" width={20} height={20} />
+                  <span className="text-orange-600 font-bold text-sm tracking-wide whitespace-nowrap">
+                    COMING SOON
+                  </span>
+                </div>
+              </div>
+            </div>
+
             <p className="text-white text-[24px] font-regular font-poppins  leading-tight opacity-90">
               AI Plant care
             </p>
@@ -821,9 +790,9 @@ export default function AiWidget() {
             <div className="absolute -bottom-[2px] -right-[2px] w-5 h-5 border-b-[3px] border-r-[3px] border-white rounded-br-[3px] z-10" />
             <div className="absolute inset-0 border border-dashed border-white/20 rounded-[2px] z-10" /> */}
 
-           
+
             <img
-              src="/images/scanner.svg"
+              src="/images/scanner4.svg"
               alt="Scan Overlay"
               className="absolute inset-0 w-full h-full object-cover rounded-[2px] opacity-65"
             />
@@ -837,25 +806,27 @@ export default function AiWidget() {
             style={{ maxWidth: '48%' }}
           >
             <p className="text-[#164925] text-[12px] font-medium font-poppins mb-[20px] leading-snug">
-              Scan plant and get Instant diagnosis.
+              {messages[step]}
             </p>
             <div className="flex items-center gap-3">
               <button
-                onClick={handleArrowClick}
+                onClick={handleLeft}
+                disabled={isFirst}
                 aria-label="Previous"
-                className="w-[34px] h-[34px] rounded-full border border-[#164925] bg-white/10 flex items-center justify-center cursor-pointer"
+                className="w-[34px] h-[34px] rounded-full border border-[#164925] bg-transparent flex items-center justify-center text-[#164925] hover:bg-[#164925] hover:border-[#164925] hover:text-white active:bg-[#164925] active:border-[#164925] active:text-white transition-all cursor-pointer"
               >
                 <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17 7H1M1 7L7 1M1 7L7 13" stroke="green" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M17 7H1M1 7L7 1M1 7L7 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
               <button
-                onClick={handleArrowClick}
+                onClick={handleRight}
+                disabled={isLast}
                 aria-label="Next"
-                className="w-[34px] h-[34px] rounded-full border-[#164925] bg-[#164925] flex items-center justify-center cursor-pointer"
+                className="w-[34px] h-[34px] rounded-full border border-[#164925] bg-transparent flex items-center justify-center text-[#164925] hover:bg-[#164925] hover:border-[#164925] hover:text-white active:bg-[#164925] active:border-[#164925] active:text-white transition-all cursor-pointer"
               >
                 <svg width="14" height="10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
             </div>
